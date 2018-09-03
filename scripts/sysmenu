@@ -1,6 +1,7 @@
 #!/bin/sh
-MENU="$(printf "  Shutdown\n  Reboot\n" | dmenu -i)"
+MENU="$(printf "  Shutdown\n  Reboot\n  Hibernate\n" | dmenu -i)"
 case "$MENU" in
   *Shutdown) doas poweroff ;;
   *Reboot) doas reboot ;;
+  *Hibernate) loginctl hibernate ;;
 esac

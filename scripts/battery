@@ -1,7 +1,7 @@
 #!/bin/sh
 
-BAT=$(acpi | awk -F ', ' '{ gsub("%","",$2); print $2 }')
-DIS=$(acpi | awk '{ print $3 }')
+BAT=$(acpi | grep 'remaining\|until charged' | awk -F ', ' '{ gsub("%","",$2); print $2 }')
+DIS=$(acpi | grep 'remaining\|until charged' | awk '{ print $3 }')
 
 if [ "$DIS" = "Discharging," ] 
 then
