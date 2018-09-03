@@ -113,6 +113,10 @@ alias esync="doas emerge --sync --quiet"
 # Word count
 alias pagecount="wc -m | tr -d '\n' | awk '{print \$1\"/2400\"}' | bc -l"
 
+calc() {
+  echo "x = $1\nprint(x)" | python
+}
+
 ##########################
 ### ARCHIVE EXTRACTION ###
 ##########################

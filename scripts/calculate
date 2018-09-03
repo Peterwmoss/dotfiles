@@ -1,0 +1,26 @@
+#!/bin/sh
+
+HISTFILE="$HOME/.cache/calchist"
+
+case $1 in
+  *--clearhist* | *-c*) 
+    echo "" > $HISTFILE
+    exit
+    ;;
+esac
+
+if [ -f $HISTFILE && ! -z "$1" ]; then
+  exit
+fi
+
+if [ -f $HISTFILE ]; then
+  EQUATION=$(dmenu -p "Equation >" < $HISTFILE)
+else
+  EQUATION=$(echo "" | dmenu -p "Equation >")
+fi
+
+if [ ! -z "$EQUATION" ]; then
+  echo $EQUATION >> $HISTFILE
+  echo "x = $EQUATION
+print(x)" | python | dmenu -p "Result:" >& /dev/null
+fi
