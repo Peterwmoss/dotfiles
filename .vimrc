@@ -7,6 +7,7 @@ set softtabstop=4
 set noexpandtab
 set smartindent
 set shiftwidth=4
+set list lcs=tab:\|\
 
 " Search
 set ignorecase
@@ -37,7 +38,7 @@ Plugin 'frazrepo/vim-rainbow'
 Plugin 'junegunn/fzf.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'terryma/vim-multiple-cursors'
-Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'yggdroot/indentline'
 Plugin 'arcticicestudio/nord-vim'
 Plugin 'jaxbot/semantic-highlight.vim'
 
@@ -57,10 +58,10 @@ let g:airline_powerline_fonts = 1
 let g:airline_theme='papercolor'
 
 " Indent guides
-let g:indent_guides_auto_colors = 0
-let g:indent_guides_enable_on_vim_startup = 1
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#111111   ctermbg=3
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#222222 ctermbg=4
+"let g:indent_guides_auto_colors = 0
+"let g:indent_guides_enable_on_vim_startup = 1
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#111111   ctermbg=3
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#222222 ctermbg=4
 
 " Ensure ycm on java
 let g:syntastic_java_checkers = []

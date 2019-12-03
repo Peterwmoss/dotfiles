@@ -1,5 +1,6 @@
 export ZSH="/home/peter/.oh-my-zsh"
-ZSH_THEME="miloshadzic"
+#ZSH_THEME="miloshadzic"
+ZSH_THEME="spaceship"
 
 plugins=(
 	docker
@@ -10,6 +11,7 @@ plugins=(
 	wd
 	archlinux
 	extract
+	zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -22,6 +24,8 @@ path+=('/usr/lib/jvm/jdk-11/bin/')
 
 export ANDROID_SDK_PATH=$HOME/Android/Sdk
 export ANDROID_NDK_PATH=$HOME/Android/Sdk/ndk-bundle
+export EDITOR=/usr/bin/vim
+export VISUAL=/usr/bin/vim
 
 export PATH
 
@@ -29,7 +33,3 @@ eval $(keychain --eval --quiet id_rsa)
 eval $(keychain --eval --quiet itu_rsa)
 
 stty -ixon
-
-if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
-    tmux attach -t default || tmux new -s default
-fi
