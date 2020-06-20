@@ -1,0 +1,12 @@
+[submodule "alacritty"]
+	path = alacritty
+	url = git@github.com:Peterkmoss/alacritty.git
+[submodule "nvim"]
+	path = nvim
+	url = git@github.com:Peterkmoss/nvim.git
+[submodule "dwm"]
+	path = dwm
+	url = git@github.com:Peterkmoss/dwm.git
+[submodule "zsh"]
+	path = zsh
+	url = git@github.com:Peterkmoss/zsh.git
