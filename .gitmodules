@@ -13,3 +13,6 @@
 [submodule "picom"]
 	path = picom
 	url = https://github.com/sdhand/picom.git
+[submodule "st"]
+	path = st
+	url = git@github.com:Peterkmoss/st.git
