@@ -1,0 +1,2 @@
+#!/bin/sh
+rofi -show drun -lines 5 -width 25

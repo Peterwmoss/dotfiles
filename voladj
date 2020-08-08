@@ -1,1 +1,16 @@
-/home/peter/.scripts/voladj
+#!/bin/sh
+if [ $1 = 'i' ]
+then
+    CMD="set-sink-volume"
+    ADJ="+5%"
+elif [ $1 = 'd' ]
+then
+    CMD="set-sink-volume"
+    ADJ="-5%"
+elif [ $1 = 'm' ]
+then
+    CMD="set-sink-mute"
+    ADJ="toggle"
+fi
+
+pactl $CMD @DEFAULT_SINK@ $ADJ
