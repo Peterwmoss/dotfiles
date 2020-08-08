@@ -10,3 +10,6 @@
 [submodule "zsh"]
 	path = zsh
 	url = git@github.com:Peterkmoss/zsh.git
+[submodule "picom"]
+	path = picom
+	url = https://github.com/sdhand/picom.git
