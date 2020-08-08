@@ -1,5 +1,5 @@
 #!/bin/sh
-MENU="$(echo "  Lock|  Reboot|  Shutdown" | rofi -sep '|' -dmenu -i -p 'System')"
+MENU="$(echo "  Lock|  Reboot|  Shutdown" | rofi -width 10 -lines 3 -sep '|' -dmenu -i -p 'System')"
 case "$MENU" in
   *Lock) i3lock-fancy ;;
   *Reboot) systemctl reboot ;;
