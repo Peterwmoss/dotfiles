@@ -4,7 +4,7 @@ xset r rate 400 75
 setxkbmap dk
 setxkbmap -option caps:escape
 picom -b --experimental-backends &
-$HOME/.scripts/dwm-bar/dwm_bar.sh &
+dwmblocks &
 
 while true; do
     dwm >/dev/null 2>&1
