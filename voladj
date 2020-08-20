@@ -13,4 +13,4 @@ then
     ADJ="toggle"
 fi
 
-pactl $CMD @DEFAULT_SINK@ $ADJ
+pactl $CMD @DEFAULT_SINK@ $ADJ && pkill -RTMIN+10 dwmblocks
