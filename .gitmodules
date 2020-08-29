@@ -16,3 +16,9 @@
 [submodule "st"]
 	path = st
 	url = git@github.com:Peterkmoss/st.git
+[submodule "surf"]
+	path = surf
+	url = git://git.suckless.org/surf
+[submodule "dmenu"]
+	path = dmenu
+	url = git://git.suckless.org/dmenu
