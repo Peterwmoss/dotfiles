@@ -14,6 +14,7 @@ setxkbmap -option caps:escape
 xrdb -merge $HOME/.config/X11/xresources
 nvidia-settings --config="$XDG_CONFIG_HOME"/nvidia/settings -l
 wal -R > /dev/null
+spotifyd
 
 dwmblocks &
 exec dwm
