@@ -1,5 +1,5 @@
 export ZSH="$HOME/.config/oh-my-zsh"
-
+export HISTFILE=$HOME/.local/share/zsh/history
 
 #ZSH_THEME="robbyrussell"
 ZSH_THEME="spaceship"
