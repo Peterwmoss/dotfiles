@@ -2,26 +2,26 @@
 let mapleader = " "
 
 " Plugins
-source /home/peter/.config/nvim/vim-plug/plugins.vim
+source $HOME/.config/nvim/vim-plug/plugins.vim
 
 " General
-source /home/peter/.config/nvim/general/general.vim
-source /home/peter/.config/nvim/general/commands.vim
-source /home/peter/.config/nvim/general/keybindings.vim
-source /home/peter/.config/nvim/general/snippets.vim
-source /home/peter/.config/nvim/general/BufOnly.vim
+source $HOME/.config/nvim/general/general.vim
+source $HOME/.config/nvim/general/commands.vim
+source $HOME/.config/nvim/general/keybindings.vim
+source $HOME/.config/nvim/general/snippets.vim
+source $HOME/.config/nvim/general/BufOnly.vim
 
 " Plugin configs
-source /home/peter/.config/nvim/plugin-config/airline.vim
-source /home/peter/.config/nvim/plugin-config/latex.vim
-source /home/peter/.config/nvim/plugin-config/coc.vim
-source /home/peter/.config/nvim/plugin-config/fzf.vim
-source /home/peter/.config/nvim/plugin-config/git.vim
-source /home/peter/.config/nvim/plugin-config/markdown.vim
-source /home/peter/.config/nvim/plugin-config/vim-which-key.vim
-source /home/peter/.config/nvim/plugin-config/goyo.vim
-source /home/peter/.config/nvim/plugin-config/my-plugin.vim
+source $HOME/.config/nvim/plugin-config/airline.vim
+source $HOME/.config/nvim/plugin-config/latex.vim
+source $HOME/.config/nvim/plugin-config/coc.vim
+source $HOME/.config/nvim/plugin-config/fzf.vim
+source $HOME/.config/nvim/plugin-config/git.vim
+source $HOME/.config/nvim/plugin-config/markdown.vim
+source $HOME/.config/nvim/plugin-config/vim-which-key.vim
+source $HOME/.config/nvim/plugin-config/goyo.vim
+source $HOME/.config/nvim/plugin-config/my-plugin.vim
 
 " Others
-source /home/peter/.config/nvim/themes/colors.vim
-source /home/peter/.config/nvim/general/windows.vim
+source $HOME/.config/nvim/themes/colors.vim
+source $HOME/.config/nvim/general/windows.vim

@@ -1,5 +1,5 @@
 export ZSH="$HOME/.config/oh-my-zsh"
-
+export HISTFILE=$HOME/.local/share/zsh/history
 
 #ZSH_THEME="robbyrussell"
 ZSH_THEME="spaceship"
@@ -39,8 +39,7 @@ export LESSHISTFILE=-
 alias vimc="nvim ~/.config/nvim/init.vim"
 alias zshc="vim $HOME/.config/zsh/.zshrc"
 alias csgoc="vim /home/peter/.local/share/Steam/steamapps/common/Counter-Strike\ Global\ Offensive/csgo/cfg/autoexec.cfg"
-alias dwmc="cd ~/git/dotfiles/dwm/ && vim config.h"
-alias stc="cd ~/git/dotfiles/st/ && vim config.h"
+alias dwmc="cd ~/git/dwm/ && vim config.h"
 
 # Safety for deleting and overwriting
 alias mv="mv -i"
