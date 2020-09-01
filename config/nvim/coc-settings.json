@@ -1,0 +1,8 @@
+{
+    "eslint.autoFixOnSave": false,
+    "explorer.width": 30,
+    "explorer.icon.enableNerdfont": true,
+    "coc.preferences.formatOnSaveFiletypes": ["css", "c", "cpp", "js", "ts", "html"],
+    "prettier.tabWidth": 4,
+    "snippets.userSnippetsDirectory": "$HOME/git/dotfiles/nvim/snippets"
+}

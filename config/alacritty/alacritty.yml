@@ -1,0 +1,68 @@
+env:
+  TERM: xterm-256color
+
+window:
+  padding:
+    x: 2
+    y: 2
+
+scrolling:
+  history: 10000
+
+font:
+  normal:
+    family: Hack Nerd Font
+    style: Regular
+  bold:
+    family: Hack Nerd Font
+    style: Bold
+  italic:
+    family: Hack Nerd Font
+    style: Italic
+  size: 6.0
+  offset:
+    x: 0
+
+background_opacity: 0.7
+
+cursor:
+  style: Block
+  unfocused_hollow: true
+
+live_config_reload: true
+
+mouse:
+  hide_when_typing: true
+
+key_bindings:
+  - { key: K, mods: Alt, action: ScrollLineUp }
+  - { key: J, mods: Alt, action: ScrollLineDown }
+
+# BEGIN ACE
+colors:
+  primary:
+    background: '0x211d1b'
+    foreground: '0xddf0f6'
+  cursor:
+    text:       '0x211d1b'
+    cursor:     '0xddf0f6'
+  normal:
+    black:      '0x211d1b'
+    red:        '0xCB916A'
+    green:      '0x69778D'
+    yellow:     '0x877C84'
+    blue:       '0x748DA6'
+    magenta:    '0x9695A2'
+    cyan:       '0xB2C4D1'
+    white:      '0xddf0f6'
+  bright:
+    black:      '0x9aa8ac'
+    red:        '0xCB916A'
+    green:      '0x69778D'
+    yellow:     '0x877C84'
+    blue:       '0x748DA6'
+    magenta:    '0x9695A2'
+    cyan:       '0xB2C4D1'
+    white:      '0xddf0f6'
+
+# END ACE
