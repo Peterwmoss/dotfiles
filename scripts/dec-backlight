@@ -1,2 +1,0 @@
-#!/bin/sh
-xbacklight -dec 5 && pkill -RTMIN+11 dwmblocks
