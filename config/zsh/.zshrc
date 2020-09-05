@@ -1,7 +1,6 @@
 export ZSH="$HOME/.config/oh-my-zsh"
 export HISTFILE=$HOME/.local/share/zsh/history
 
-#ZSH_THEME="robbyrussell"
 ZSH_THEME="spaceship"
 
 plugins=(
@@ -39,7 +38,7 @@ export LESSHISTFILE=-
 alias vimc="nvim ~/.config/nvim/init.vim"
 alias zshc="vim $HOME/.config/zsh/.zshrc"
 alias csgoc="vim /home/peter/.local/share/Steam/steamapps/common/Counter-Strike\ Global\ Offensive/csgo/cfg/autoexec.cfg"
-alias dwmc="cd ~/git/dwm/ && vim config.h"
+alias dwmc="cd ~/git/suckless-builds/dwm/ && vim config.h"
 
 # Safety for deleting and overwriting
 alias mv="mv -i"
@@ -80,6 +79,7 @@ source ~/.config/zsh/ssdir
 
 # Git
 alias addall="git add -A"
+alias add="git add"
 alias fetch="git fetch"
 alias pull="git pull"
 alias push="git push"

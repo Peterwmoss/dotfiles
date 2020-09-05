@@ -7,7 +7,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'vim-syntastic/syntastic'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
-"Plug 'yggdroot/indentline'
 Plug 'ayu-theme/ayu-vim'
 Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -28,6 +27,8 @@ Plug 'ThePrimeagen/vim-be-good', {'do': './install.sh'}
 Plug 'alvan/vim-closetag'
 Plug 'morhetz/gruvbox'
 Plug 'sheerun/vim-polyglot'
+Plug 'mellowcandle/vim-bitwise'
+Plug 'tpope/vim-commentary'
 
 call plug#end()
 
