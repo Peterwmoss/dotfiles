@@ -23,11 +23,9 @@ Plug 'wellle/targets.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'ThePrimeagen/vim-be-good', {'do': './install.sh'}
 Plug 'alvan/vim-closetag'
 Plug 'morhetz/gruvbox'
 Plug 'sheerun/vim-polyglot'
-Plug 'mellowcandle/vim-bitwise'
 Plug 'tpope/vim-commentary'
 
 call plug#end()
