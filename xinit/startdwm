@@ -1,0 +1,21 @@
+#!/bin/sh
+# relaunch DWM if the binary changes, otherwise bail
+csum=$(sha1sum $(which dwm))
+new_csum=""
+block_csum=$(sha1sum $(which dwmblocks))
+block_new_csum=""
+while true
+do
+    if [ "$csum" != "$new_csum" ] || [ "$block_csum" != "$block_new_csum" ];
+    then
+        csum=$new_csum
+        block_csum=$block_new_csum
+        dwmblocks & 
+        dwm
+    else
+        exit 0
+    fi
+    new_csum=$(sha1sum $(which dwm))
+    block_new_csum=$(sha1sum $(which dwmblocks))
+    sleep 0.5
+done

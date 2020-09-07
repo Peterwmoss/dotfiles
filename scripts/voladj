@@ -1,16 +1,11 @@
 #!/bin/sh
-if [ $1 = 'i' ]
-then
-    CMD="set-sink-volume"
-    ADJ="+5%"
-elif [ $1 = 'd' ]
-then
-    CMD="set-sink-volume"
-    ADJ="-5%"
-elif [ $1 = 'm' ]
-then
-    CMD="set-sink-mute"
-    ADJ="toggle"
-fi
 
-pactl $CMD @DEFAULT_SINK@ $ADJ && pkill -RTMIN+10 dwmblocks
+NUM="${2:-5}"
+
+case "$1" in
+    up) pulsemixer --change-volume +"$NUM" ;;
+    down) pulsemixer --change-volume -"$NUM" ;;
+    mute) pulsemixer --mute ;;
+    toggle) pulsemixer --toggle-mute ;;
+esac
+pkill -RTMIN+10 dwmblocks

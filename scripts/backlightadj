@@ -1,0 +1,9 @@
+#!/bin/sh
+
+NUM="{$2:-5}"
+
+case "$1" in
+    up) xbacklight -inc "$NUM" ;;
+    down) xbacklight -dec "$NUM" ;;
+esac
+pkill -RTMIN+11 dwmblocks

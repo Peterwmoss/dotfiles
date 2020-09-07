@@ -5,8 +5,8 @@ set history=500
 set autoread
 au FocusGained,BufEnter * checktime
 
-" 10 lines after cursor still shown
-set so=10
+" 15 lines after cursor still shown
+set so=15
 
 " Turn on wild menu
 set wildmenu
@@ -32,14 +32,15 @@ au FileType cpp,c setlocal shiftwidth=2 softtabstop=2 expandtab
 set ignorecase
 set nohlsearch
 
-" Find files everywhere
-"autocmd VimEnter * setlocal path+=**
-autocmd VimEnter *.js,*.ts,*.tsx,*.jsx setlocal path+=src/**
-autocmd VimEnter *.fs,*.fsx setlocal filetype=fsharp
+" Include src in path for js projects
+au VimEnter *.js,*.ts,*.tsx,*.jsx setlocal path+=src/**
+
+" Filetypes
+au VimEnter *.fs,*.fsx,*.fsl setlocal filetype=fsharp
+au BufRead,BufNewFile *.tex set filetype=tex
 
 " General
 set encoding=utf-8
-"set mouse=
 set nocompatible
 set relativenumber
 set number relativenumber
@@ -48,9 +49,6 @@ set cursorline
 
 " Clipboard
 set clipboard=unnamedplus
-
-" Autocompletion
-"set wildmode=longest,list,full
 
 " Fix splitting
 set splitbelow splitright
