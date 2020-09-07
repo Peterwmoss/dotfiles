@@ -73,10 +73,10 @@ nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " GoTo code navigation.
-nmap <silent> <leader>pd <Plug>(coc-definition)
-nmap <silent> <leader>pt <Plug>(coc-type-definition)
-nmap <silent> <leader>pi <Plug>(coc-implementation)
-nmap <silent> <leader>pu <Plug>(coc-references)
+nmap <silent> <leader>ld <Plug>(coc-definition)
+nmap <silent> <leader>lt <Plug>(coc-type-definition)
+nmap <silent> <leader>li <Plug>(coc-implementation)
+nmap <silent> <leader>lu <Plug>(coc-references)
 nmap <leader>ppr :CocSearch <C-R>=expand("word")<CR><CR>
 
 " Use K to show documentation in preview window.
@@ -94,11 +94,11 @@ endfunction
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Symbol renaming.
-nmap <leader>pr <Plug>(coc-rename)
+nmap <leader>lr <Plug>(coc-rename)
 
 " Formatting selected code.
-vmap <leader>pf  <Plug>(coc-format-selected)
-nmap <leader>pf  <Plug>(coc-format-selected)
+vmap <leader>lfo <Plug>(coc-format-selected)
+nmap <leader>lfo <Plug>(coc-format-selected)
 
 augroup mygroup
   autocmd!
@@ -110,13 +110,13 @@ augroup end
 
 " Applying codeAction to the selected region.
 " Example: `<leader>aap` for current paragraph
-xmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>a  <Plug>(coc-codeaction-selected)
+"xmap <leader>a  <Plug>(coc-codeaction-selected)
+"nmap <leader>a  <Plug>(coc-codeaction-selected)
 
 " Remap keys for applying codeAction to the current line.
-nmap <leader>pa  <Plug>(coc-codeaction)
+nmap <leader>la  <Plug>(coc-codeaction)
 " Apply AutoFix to problem on the current line.
-nmap <leader>pf  <Plug>(coc-fix-current)
+nmap <leader>lfi  <Plug>(coc-fix-current)
 
 " Map function and class text objects
 " NOTE: Requires 'textDocument.documentSymbol' support from the language server.

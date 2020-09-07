@@ -3,23 +3,15 @@ let mapleader = " "
 
 " Fast saving
 nmap <leader>w :w!<CR>
+nmap <leader>W :wa!<CR>
 
 " Easy quit
-nmap <leader>qa :qa<CR>
-nmap <leader>qw :q<CR>
-
-" fuck escape
-"inoremap jk <esc>
-"inoremap kj <esc>
-"inoremap jj <esc>
-
-" Easy CAPS
-"inoremap <c-u> <esc>viwUi
-"nnoremap <s-u> viwU<esc>
+nmap <leader>q :q<CR>
+nmap <leader>Q :qa<CR>
 
 " Search
 nnoremap <F5> :set nohlsearch!<cr>
-nnoremap S :%s//gI<Left><Left><Left>
+nnoremap <leader>S :%s//gI<Left><Left><Left>
 
 " Next find
 nnoremap , ;
@@ -29,8 +21,9 @@ map æ *
 map ø £
 map å ^
 
-" Toggle spell check
-nmap <leader>st :set spell!<cr>
+" Toggles 
+nmap <leader>ts :set spell!<cr>
+nnoremap <leader>th :set nohlsearch!<cr>
 
 " Map ½ to something useful
 map ½ $
@@ -38,16 +31,10 @@ cmap ½ $
 imap ½ $
 
 " Shell commands
-map <leader>ct :!touch<space>
-map <leader>cm :!mv<space>
-map <leader>cc :!cp<space>
-map <leader>cr :!rm<space>
-map <leader>cd :!mkdir -p<space>
-map <leader>cl :!pdflatex main.tex *.tex<cr>
+map <silent><leader>,l :!pdflatex main.tex *.tex<cr>
+map <leader>,L :!pdflatex main.tex *.tex<cr>
 
 " Indenting
-vmap > >gv
-vmap < <gv
 vmap <tab> >gv
 vmap <S-tab> <gv
 
@@ -57,18 +44,30 @@ nnoremap <up> :m .-2<CR>==
 vnoremap <down> :m '>+1<CR>gv=gv
 vnoremap <up> :m '<-2<CR>gv=gv
 
-" Zeal docs
-:nnoremap <leader>cz :!zeal "<cword>"&<CR><CR>
+" Buffers
+nmap <tab> :bnext<cr>
+nmap <S-tab> :bprevious<cr>
+map <leader>bo :Bonly<cr>
+map <leader>bd :bd<cr>
+map <C-q> :bd<cr>
 
-" Markdown
-noremap <silent> <leader>m :call OpenMarkdownPreview()<cr>
+" Window switching
+nmap <C-h> <C-w>h
+nmap <C-l> <C-w>l
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
 
-function! OpenMarkdownPreview() abort
-  if exists('s:markdown_job_id') && s:markdown_job_id > 0
-    call jobstop(s:markdown_job_id)
-    unlet s:markdown_job_id
-  endif
-  let s:markdown_job_id = jobstart('python -m grip ' . shellescape(expand('%:p')))
-  if s:markdown_job_id <= 0 | return | endif
-  call system('open http://localhost:6419')
-endfunction
+" Handy resizing
+nnoremap <silent> <leader>rh+ :res +5<CR>
+nnoremap <silent> <leader>rh- :res -5<CR>
+
+nnoremap <silent> <leader>rv+ :vertical resize +10<CR>
+nnoremap <silent> <leader>rv- :vertical resize -10<CR>
+
+" Splitting
+nnoremap <silent> <leader>h :split<CR>
+nnoremap <silent> <leader>v :vsplit<CR>
+
+" Background
+nmap <leader>x :set background=light<cr>
+nmap <leader>X :set background=dark<cr>
