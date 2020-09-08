@@ -31,7 +31,7 @@ cmap ½ $
 imap ½ $
 
 " Shell commands
-map <silent><leader>,l :!pdflatex main.tex *.tex<cr>
+map <leader>,l :silent !pdflatex main.tex *.tex<cr>
 map <leader>,L :!pdflatex main.tex *.tex<cr>
 
 " Indenting
