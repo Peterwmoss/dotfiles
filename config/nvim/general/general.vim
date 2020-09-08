@@ -42,6 +42,7 @@ au BufRead,BufNewFile *.tex set filetype=tex
 
 " General
 set encoding=utf-8
+set mouse=a
 set nocompatible
 set relativenumber
 set number relativenumber
