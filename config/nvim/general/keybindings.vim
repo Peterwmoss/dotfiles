@@ -71,3 +71,28 @@ nnoremap <silent> <leader>v :vsplit<CR>
 " Background
 nmap <leader>x :set background=light<cr>
 nmap <leader>X :set background=dark<cr>
+
+" Terminal
+function! ToggleTerminal()
+    let buffer = bufexists('Terminal')
+    if !buffer
+        execute 'sp'
+        execute 'res 15'
+        execute 'term'
+        file Terminal
+    else
+        let buffernum = bufnr('Terminal')
+        let windownum = bufwinnr(buffernum)
+        if windownum == -1
+            execute 'sb '.buffernum
+            execute 'res 15'
+        else
+            execute windownum.'wincmd w'
+            hide
+        endif
+    endif
+endfunction
+command! ToggleTerminal :call ToggleTerminal()
+nmap <leader>tt :ToggleTerminal<cr>
+
+tnoremap <Esc> <C-\><C-n>
