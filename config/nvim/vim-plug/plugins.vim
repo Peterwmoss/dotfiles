@@ -16,7 +16,7 @@ Plug 'ianks/vim-tsx'
 Plug 'godlygeek/tabular'
 Plug 'ChristianChiarulli/codi.vim'
 Plug 'ap/vim-css-color'
-Plug 'jiangmiao/auto-pairs'
+Plug 'Raimondi/delimitMate'
 Plug 'liuchengxu/vim-which-key'
 Plug 'wellle/targets.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
