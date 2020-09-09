@@ -83,6 +83,7 @@ source ~/.config/zsh/ssdir
 # Git
 alias addall="git add -A"
 alias add="git add"
+alias addp="git add -p"
 alias fetch="git fetch"
 alias pull="git pull"
 alias push="git push"
