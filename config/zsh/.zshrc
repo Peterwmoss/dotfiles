@@ -88,6 +88,7 @@ alias pull="git pull"
 alias push="git push"
 alias commit="git commit -m"
 alias commitall="git commit -am"
+alias gitlog="git log --all --graph --decorate --oneline"
 
 ##########################
 ### ARCHIVE EXTRACTION ###
