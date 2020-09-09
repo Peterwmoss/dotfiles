@@ -1,6 +1,6 @@
 #!/bin/sh
 
-NUM="{$2:-5}"
+NUM="${2:-5}"
 
 case "$1" in
     up) xbacklight -inc "$NUM" ;;

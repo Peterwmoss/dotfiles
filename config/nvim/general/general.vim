@@ -37,7 +37,7 @@ au VimEnter *.js,*.ts,*.tsx,*.jsx setlocal path+=src/**
 
 " Filetypes
 command! CompileLatex :silent !pdflatex main.tex *.tex
-au VimEnter *.fs,*.fsx,*.fsl setlocal filetype=fsharp
+au VimEnter *.fs,*.fsx,*.fsl,*.fsy setlocal filetype=fsharp
 au BufRead,BufNewFile *.tex set filetype=tex
 
 " General
