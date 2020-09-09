@@ -2,6 +2,7 @@ export ZSH="$HOME/.config/oh-my-zsh"
 export HISTFILE=$HOME/.local/share/zsh/history
 
 ZSH_THEME="spaceship"
+#ZSH_THEME="lambda-mod"
 
 plugins=(
 	git
@@ -84,6 +85,9 @@ source ~/.config/zsh/ssdir
 alias addall="git add -A"
 alias add="git add"
 alias addp="git add -p"
+alias stash="git stash"
+alias pop="git stash pop"
+alias status="git status"
 alias fetch="git fetch"
 alias pull="git pull"
 alias push="git push"
