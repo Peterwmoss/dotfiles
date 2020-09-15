@@ -1,3 +1,5 @@
-nmap f <Plug>(easymotion-prefix)f
-nmap F <Plug>(easymotion-prefix)F
+nmap f <Plug>(easymotion-fl)
+nmap F <Plug>(easymotion-Fl)
+nmap t <Plug>(easymotion-tl)
+nmap T <Plug>(easymotion-Tl)
 nmap <leader><leader> <Plug>(easymotion-prefix)
