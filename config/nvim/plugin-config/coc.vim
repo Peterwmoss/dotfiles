@@ -73,14 +73,14 @@ nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " GoTo code navigation.
-nmap <silent> <leader>ld <Plug>(coc-definition)
-nmap <silent> <leader>lt <Plug>(coc-type-definition)
-nmap <silent> <leader>li <Plug>(coc-implementation)
-nmap <silent> <leader>lu <Plug>(coc-references)
-nmap <leader>ppr :CocSearch <C-R>=expand("word")<CR><CR>
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gt <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+"nmap <leader>? :CocSearch <C-R>=expand("word")<CR><CR>
 
 " Use K to show documentation in preview window.
-nnoremap <silent> K :call <SID>show_documentation()<CR>
+nnoremap <silent> <leader>ad :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
@@ -94,11 +94,12 @@ endfunction
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Symbol renaming.
-nmap <leader>lr <Plug>(coc-rename)
+nmap <leader>ar <Plug>(coc-rename)
+nmap <leader>aR <Plug>(coc-refactor)
 
 " Formatting selected code.
-vmap <leader>lfo <Plug>(coc-format-selected)
-nmap <leader>lfo <Plug>(coc-format-selected)
+"vmap <leader>lfo <Plug>(coc-format-selected)
+"nmap <leader>lfo <Plug>(coc-format-selected)
 
 augroup mygroup
   autocmd!
@@ -114,9 +115,10 @@ augroup end
 "nmap <leader>a  <Plug>(coc-codeaction-selected)
 
 " Remap keys for applying codeAction to the current line.
-nmap <leader>la  <Plug>(coc-codeaction)
+nmap <leader>aa <Plug>(coc-codeaction)
+vmap <leader>aa <Plug>(coc-codeaction-selected)
 " Apply AutoFix to problem on the current line.
-nmap <leader>lfi  <Plug>(coc-fix-current)
+nmap <leader>af  <Plug>(coc-fix-current)
 
 " Map function and class text objects
 " NOTE: Requires 'textDocument.documentSymbol' support from the language server.
@@ -157,11 +159,8 @@ imap <C-l> <Plug>(coc-snippets-expand)
 " Use <C-j> for select text for visual placeholder of snippet.
 vmap <C-j> <Plug>(coc-snippets-select)
 
-" Use <C-j> for jump to next placeholder, it's default of coc.nvim
-let g:coc_snippet_next = '<c-j>'
-
-" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
-let g:coc_snippet_prev = '<c-k>'
-
 " Use <C-j> for both expand and jump (make expand higher priority.)
 imap <C-j> <Plug>(coc-snippets-expand-jump)
+
+let g:coc_snippet_next = '<tab>'
+let g:coc_snippet_prev = '<s-tab>'

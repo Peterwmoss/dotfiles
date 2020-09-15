@@ -26,6 +26,7 @@ Plug 'morhetz/gruvbox'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
 Plug 'easymotion/vim-easymotion'
+Plug 'voldikss/vim-floaterm'
 
 call plug#end()
 

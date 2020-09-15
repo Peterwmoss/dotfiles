@@ -2,6 +2,7 @@ export ZSH="$HOME/.config/oh-my-zsh"
 export HISTFILE=$HOME/.local/share/zsh/history
 
 ZSH_THEME="spaceship"
+#ZSH_THEME="lambda-mod"
 
 plugins=(
 	git
@@ -83,11 +84,16 @@ source ~/.config/zsh/ssdir
 # Git
 alias addall="git add -A"
 alias add="git add"
+alias addp="git add -p"
+alias stash="git stash"
+alias pop="git stash pop"
+alias status="git status"
 alias fetch="git fetch"
 alias pull="git pull"
 alias push="git push"
 alias commit="git commit -m"
 alias commitall="git commit -am"
+alias gitlog="git log --all --graph --decorate --oneline"
 
 ##########################
 ### ARCHIVE EXTRACTION ###
@@ -125,4 +131,12 @@ codi() {
 
 fortune | cowsay | lolcat
 
-
+if [[ $DISPLAY ]]; then
+    # If not running interactively, do not do anything
+    [[ $- != *i* ]] && return
+	# TMUX
+	if which tmux >/dev/null 2>&1; then
+		#if not inside a tmux session, and if no session is started, start a new session
+		test -z "$TMUX" && (tmux attach || tmux new-session)
+	fi
+fi
