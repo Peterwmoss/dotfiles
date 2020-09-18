@@ -36,7 +36,7 @@ set nohlsearch
 au VimEnter *.js,*.ts,*.tsx,*.jsx setlocal path+=src/**
 
 " Filetypes
-command! CompileLatex :silent !pdflatex main.tex *.tex
+command! CompileLatex :!pdflatex main.tex *.tex && latexmk -c main.tex
 au VimEnter *.fs,*.fsx,*.fsl,*.fsy setlocal filetype=fsharp
 au BufRead,BufNewFile *.tex set filetype=tex
 
