@@ -95,6 +95,11 @@ alias commit="git commit -m"
 alias commitall="git commit -am"
 alias gitlog="git log --all --graph --decorate --oneline"
 
+# Tmux
+alias tn="tmux -u new"
+alias ta="tmux -u attach"
+alias tc="nvim ~/git/dotfiles/config/tmux/tmux.conf"
+
 ##########################
 ### ARCHIVE EXTRACTION ###
 ##########################
@@ -130,13 +135,3 @@ codi() {
 }
 
 fortune | cowsay | lolcat
-
-if [[ $DISPLAY ]]; then
-    # If not running interactively, do not do anything
-    [[ $- != *i* ]] && return
-	# TMUX
-	if which tmux >/dev/null 2>&1; then
-		#if not inside a tmux session, and if no session is started, start a new session
-		test -z "$TMUX" && (tmux attach || tmux new-session)
-	fi
-fi

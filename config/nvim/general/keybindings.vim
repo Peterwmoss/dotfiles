@@ -16,6 +16,8 @@ nnoremap <leader>S :%s//gI<Left><Left><Left>
 " Next find
 nnoremap , ;
 nnoremap ; ,
+vnoremap , ;
+vnoremap ; ,
 
 map æ *
 map ø £
