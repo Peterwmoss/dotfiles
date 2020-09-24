@@ -27,6 +27,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
 Plug 'easymotion/vim-easymotion'
 Plug 'voldikss/vim-floaterm'
+Plug 'flazz/vim-colorschemes'
 
 call plug#end()
 
