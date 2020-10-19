@@ -77,7 +77,7 @@ alias cdosc="cd $HOME/School/5/osc"
 alias cdpsd="cd $HOME/School/5/psd"
 alias cdfop="cd $HOME/School/5/fop"
 
-alias mntfallon="sshfs group87@fallon.itu.dk:/home/group87 ~/fallon"
+alias mntfallon="sshfs group87@fallon.itu.dk:/home/group87 ./fallon"
 
 source ~/.config/zsh/ssdir
 

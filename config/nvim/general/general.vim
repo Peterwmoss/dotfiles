@@ -3,7 +3,7 @@ set history=500
 
 " Set auto read when a file is changed from the outside
 set autoread
-au FocusGained,BufEnter * checktime
+au FocusGained,BufEnter,FocusLost * checktime
 
 " 15 lines after cursor still shown
 set so=15
