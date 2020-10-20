@@ -28,6 +28,7 @@ Plug 'tpope/vim-commentary'
 Plug 'easymotion/vim-easymotion'
 Plug 'voldikss/vim-floaterm'
 Plug 'flazz/vim-colorschemes'
+Plug 'junegunn/goyo.vim'
 
 call plug#end()
 
