@@ -98,6 +98,9 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 nmap <leader>ar <Plug>(coc-rename)
 nmap <leader>aR <Plug>(coc-refactor)
 
+" Go to header
+nmap gh :CocCommand clangd.switchSourceHeader<cr>
+
 " Formatting selected code.
 "vmap <leader>lfo <Plug>(coc-format-selected)
 "nmap <leader>lfo <Plug>(coc-format-selected)
