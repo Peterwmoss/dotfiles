@@ -10,7 +10,6 @@ let g:coc_global_extensions = [
   \ 'coc-vimlsp',
   \ 'coc-markdownlint',
   \ 'coc-sql',
-  \ 'coc-clangd',
   \ 'coc-prettier',
   \ 'coc-omnisharp',
   \ 'coc-snippets',
