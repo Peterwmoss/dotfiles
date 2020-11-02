@@ -4,31 +4,54 @@ filetype indent on
 
 call plug#begin('~/.vim/plugged')
 
+" More syntax highlighting
 Plug 'vim-syntastic/syntastic'
+Plug 'sheerun/vim-polyglot'
+
+" Surround stuff
 Plug 'tpope/vim-surround'
+
+" Git
 Plug 'tpope/vim-fugitive'
-Plug 'ayu-theme/ayu-vim'
+
+" Latex live preview
 Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
+
+" Autocomplete engine
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" Airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'ianks/vim-tsx'
+
+" Tabularize (align stuff)
 Plug 'godlygeek/tabular'
+
+" Quick maths
 Plug 'ChristianChiarulli/codi.vim'
+
+" Provides colors for hex codes
 Plug 'ap/vim-css-color'
+
+" Auto closing parentheses
 Plug 'Raimondi/delimitMate'
-Plug 'liuchengxu/vim-which-key'
-Plug 'wellle/targets.vim'
+
+" Easy comments
+Plug 'tpope/vim-commentary'
+
+" Enables di( out of parentheses
+Plug 'wellle/targets.vim' 
+
+" Fuzzy finder
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+
+" Provides closing tags for html
 Plug 'alvan/vim-closetag'
+
+" Color schemes
 Plug 'morhetz/gruvbox'
-Plug 'sheerun/vim-polyglot'
-Plug 'tpope/vim-commentary'
-Plug 'easymotion/vim-easymotion'
-Plug 'voldikss/vim-floaterm'
-Plug 'flazz/vim-colorschemes'
-Plug 'junegunn/goyo.vim'
+Plug 'ayu-theme/ayu-vim'
 
 call plug#end()
 
