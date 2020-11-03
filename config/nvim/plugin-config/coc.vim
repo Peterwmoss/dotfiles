@@ -10,7 +10,6 @@ let g:coc_global_extensions = [
   \ 'coc-vimlsp',
   \ 'coc-markdownlint',
   \ 'coc-sql',
-  \ 'coc-clangd',
   \ 'coc-prettier',
   \ 'coc-omnisharp',
   \ 'coc-snippets',
@@ -97,6 +96,9 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 " Symbol renaming.
 nmap <leader>ar <Plug>(coc-rename)
 nmap <leader>aR <Plug>(coc-refactor)
+
+" Go to header
+nmap gh :CocCommand clangd.switchSourceHeader<cr>
 
 " Formatting selected code.
 "vmap <leader>lfo <Plug>(coc-format-selected)

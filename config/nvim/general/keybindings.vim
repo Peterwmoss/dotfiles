@@ -2,8 +2,8 @@
 let mapleader = " "
 
 " Fast saving
-nmap <leader>w :w!<CR>
-nmap <leader>W :wa!<CR>
+nmap <leader>w :w<CR>
+nmap <leader>W :wa<CR>
 
 " Easy quit
 nmap <leader>q :q<CR>
@@ -25,8 +25,6 @@ map å ^
 
 " Toggle spelling
 nmap <leader>s :set spell!<cr>
-
-"nnoremap <leader>th :set nohlsearch!<cr>
 
 " Map ½ to something useful
 map ½ $
@@ -68,42 +66,16 @@ nnoremap <silent> <leader>rv+ :vertical resize +10<CR>
 nnoremap <silent> <leader>rv- :vertical resize -10<CR>
 
 " Comments
-nmap <leader>/ <Plug>Commentary
+nmap <leader>/ :Commentary
 
 " Splitting
 nnoremap <silent> <leader>h :split<CR>
 nnoremap <silent> <leader>v :vsplit<CR>
 
-" Background
-nmap <leader>x :set background=light<cr>
-nmap <leader>X :set background=dark<cr>
-
-" Terminal
-" function! ToggleTerminal()
-"     let buffer = bufexists('Terminal')
-"     if !buffer
-"         execute 'sp'
-"         execute 'res 15'
-"         execute 'term'
-"         file Terminal
-"     else
-"         let buffernum = bufnr('Terminal')
-"         let windownum = bufwinnr(buffernum)
-"         if windownum == -1
-"             execute 'sb '.buffernum
-"             execute 'res 15'
-"         else
-"             execute windownum.'wincmd w'
-"             hide
-"         endif
-"     endif
-" endfunction
-" command! ToggleTerminal :call ToggleTerminal()
-"nmap <leader>tt :ToggleTerminal<cr>
-
+" Terminal escape to get to normal mode
 tnoremap <Esc> <C-\><C-n>
 
-nmap <leader>tt :FloatermToggle<cr>
-nmap <leader>tn :FloatermNew<cr>
-nmap <leader>tr :FloatermNew ranger<cr>
-nmap <leader>th :FloatermNew htop<cr>
+nmap <leader>cf 0f{zf%
+
+" Toggles
+nnoremap <leader>th :set nohlsearch!<cr>
