@@ -58,3 +58,6 @@ set splitbelow splitright
 set timeoutlen=500
 
 set conceallevel=0
+
+au BufWinLeave *.* mkview
+au BufEnter *.* loadview
