@@ -59,5 +59,5 @@ set timeoutlen=500
 
 set conceallevel=0
 
-au BufWinLeave *.* mkview
-au BufEnter *.* loadview
+au BufWinLeave *.* mkview!
+au BufEnter *.* silent! loadview
