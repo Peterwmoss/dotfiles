@@ -100,6 +100,9 @@ alias tn="tmux -u new"
 alias ta="tmux -u attach"
 alias tc="nvim ~/git/dotfiles/config/tmux/tmux.conf"
 
+# PKGBUILDS
+alias updpkg="makepkg - g >> PKGBUILD && rm -rf src *.tar.gz && makepkg --printsrcinfo > .SRCINFO && git add PKGBUILD .SRCINFO && git commit -m"
+
 ##########################
 ### ARCHIVE EXTRACTION ###
 ##########################

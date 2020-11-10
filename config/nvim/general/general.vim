@@ -59,8 +59,5 @@ set timeoutlen=500
 
 set conceallevel=0
 
-augroup remember_folds
-  autocmd!
-  autocmd BufWinLeave * mkview
-  autocmd BufWinEnter * silent! loadview
-augroup END
+au BufWinLeave *.* mkview
+au BufEnter *.* loadview

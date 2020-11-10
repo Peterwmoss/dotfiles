@@ -93,8 +93,8 @@ endfunction
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Symbol renaming.
-nmap <leader>ar <Plug>(coc-rename)
-nmap <leader>aR <Plug>(coc-refactor)
+nmap <leader>lr <Plug>(coc-rename)
+nmap <leader>lR <Plug>(coc-refactor)
 
 " Go to header
 nmap gh :CocCommand clangd.switchSourceHeader<cr>
@@ -117,10 +117,10 @@ augroup end
 "nmap <leader>a  <Plug>(coc-codeaction-selected)
 
 " Remap keys for applying codeAction to the current line.
-nmap <leader>aa <Plug>(coc-codeaction)
-vmap <leader>aa <Plug>(coc-codeaction-selected)
+nmap <leader>la <Plug>(coc-codeaction)
+vmap <leader>la <Plug>(coc-codeaction-selected)
 " Apply AutoFix to problem on the current line.
-nmap <leader>af  <Plug>(coc-fix-current)
+nmap <leader>lf  <Plug>(coc-fix-current)
 
 " Map function and class text objects
 " NOTE: Requires 'textDocument.documentSymbol' support from the language server.
