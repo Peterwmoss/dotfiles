@@ -66,7 +66,7 @@ nnoremap <silent> <leader>rv+ :vertical resize +10<CR>
 nnoremap <silent> <leader>rv- :vertical resize -10<CR>
 
 " Comments
-nmap <leader>/ :Commentary
+nmap <leader>/ :Commentary<CR>
 
 " Splitting
 nnoremap <silent> <leader>h :split<CR>
