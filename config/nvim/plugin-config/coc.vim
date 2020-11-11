@@ -8,7 +8,6 @@ let g:coc_global_extensions = [
   \ 'coc-java',
   \ 'coc-texlab',
   \ 'coc-vimlsp',
-  \ 'coc-sql',
   \ 'coc-prettier',
   \ 'coc-omnisharp',
   \ 'coc-snippets',
