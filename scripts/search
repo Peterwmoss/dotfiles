@@ -1,0 +1,6 @@
+#!/bin/sh
+URL='https://google.com/search?q='
+QUERY=$(echo "" | dmenu -p "Google search:")
+if [ -n "$QUERY" ]; then
+  xdg-open "${URL}${QUERY}" 2> /dev/null
+fi

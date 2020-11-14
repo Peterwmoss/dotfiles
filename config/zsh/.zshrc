@@ -22,6 +22,7 @@ path+=("$HOME/.local/share/cargo/bin")
 path+=("$HOME/.local/bin")
 path+=("$HOME/.scripts/")
 path+=("$HOME/.scripts/pfetch")
+path+=("$HOME/.ghcup/bin/")
 export PATH
 
 export EDITOR='nvim'
