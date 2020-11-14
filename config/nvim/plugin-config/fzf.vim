@@ -1,5 +1,6 @@
-map <leader>gf :GFiles<cr>
-map <leader>f :Files<cr>
+map <leader>fg :GFiles<cr>
+map <leader>ff :Files<cr>
+map <leader>fc :Colors<cr>
 
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',

@@ -79,3 +79,6 @@ nmap <leader>cf 0f{zf%
 
 " Toggles
 nnoremap <leader>th :set nohlsearch!<cr>
+
+" Open new file
+nmap <leader>e :e 

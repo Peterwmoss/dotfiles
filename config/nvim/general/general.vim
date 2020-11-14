@@ -27,13 +27,11 @@ set si
 set ai
 set wrap
 au FileType cpp,c setlocal shiftwidth=2 softtabstop=2 expandtab
+au FileType Makefile setlocal noexpandtab
 
 " Search
 set ignorecase
 set nohlsearch
-
-" Include src in path for js projects
-au VimEnter *.js,*.ts,*.tsx,*.jsx setlocal path+=src/**
 
 " Filetypes
 command! CompileLatex :!pdflatex main.tex *.tex && latexmk -c main.tex
@@ -60,4 +58,4 @@ set timeoutlen=500
 set conceallevel=0
 
 au BufWinLeave *.* mkview!
-au BufEnter *.* silent! loadview
+au BufWinEnter *.* silent! loadview
