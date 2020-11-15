@@ -114,6 +114,7 @@ vmap <leader>la <Plug>(coc-codeaction-selected)
 nmap <leader>lf  <Plug>(coc-format-selected)
 vmap <leader>lf  <Plug>(coc-format-selected)
 vmap <leader>lfa  <Plug>(coc-format)
+nmap <leader>lfa  <Plug>(coc-format)
 
 " Use CTRL-S for selections ranges.
 " Requires 'textDocument/selectionRange' support of LS, ex: coc-tsserver
