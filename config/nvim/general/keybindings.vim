@@ -73,7 +73,7 @@ nnoremap <silent> <leader>h :split<CR>
 nnoremap <silent> <leader>v :vsplit<CR>
 
 " Terminal escape to get to normal mode
-tnoremap <Esc> <C-\><C-n>
+tnoremap <Esc> <C-\><C-n>:q<CR>
 
 nmap <leader>cf 0f{zf%
 
