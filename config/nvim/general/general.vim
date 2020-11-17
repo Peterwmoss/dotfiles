@@ -8,6 +8,9 @@ au FocusGained,BufEnter,FocusLost * checktime
 " 15 lines after cursor still shown
 set so=15
 
+" Buffers
+set hid
+
 " Turn on wild menu
 set wildmenu
 
