@@ -1,8 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =6
-let g:netrw_dirhist_6='/home/peter/git/avrae/gamedata'
-let g:netrw_dirhist_5='/home/peter/git/markdowneditor'
-let g:netrw_dirhist_4='/home/peter/git/markdown-qt'
-let g:netrw_dirhist_3='/home/peter/.screenlayout'
-let g:netrw_dirhist_2='/home/peter/mount/20-Lab1-datalab'
-let g:netrw_dirhist_1='/home/peter/.config/picom/picom'
