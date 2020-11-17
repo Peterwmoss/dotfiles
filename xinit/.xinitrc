@@ -12,9 +12,7 @@ if [ -f $HOME/.config/X11/xresources ] ; then
     xrdb -merge $HOME/.config/X11/xresources
 fi
 wal -R > /dev/null
-if [ -f $HOME/pictures/WP/watch.jpg ] ; then
-    feh --bg-scale $HOME/pictures/WP/watch.jpg
-fi
+nitrogen --restore
 setxkbmap dk
 setxkbmap -option caps:escape
 xset r rate 400 75
