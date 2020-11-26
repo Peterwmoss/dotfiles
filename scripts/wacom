@@ -1,0 +1,8 @@
+#!/bin/sh
+STYLUS=$(xsetwacom --list devices | grep stylus | awk '{ print $8 }')
+PAD=$(xsetwacom --list devices | grep PAD | awk '{ print $8 }')
+xsetwacom set $STYLUS rotate half
+xsetwacom -s set $PAD Button 1 "key +shift button +2"
+xsetwacom -s set $PAD Button 2 "2"
+xsetwacom -s set $PAD Button 10 "key +ctrl z -ctrl"
+xsetwacom -s set $PAD Button 11 "key +ctrl +shift z -shift -ctrl"
