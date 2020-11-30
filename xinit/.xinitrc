@@ -11,6 +11,8 @@ fi
 if [ -f $HOME/.config/X11/xresources ] ; then
     xrdb -merge $HOME/.config/X11/xresources
 fi
+
+export _JAVA_AWT_WM_NONREPARENTING=1
 wal -R > /dev/null
 nitrogen --restore
 setxkbmap dk

@@ -37,7 +37,7 @@ set ignorecase
 set nohlsearch
 
 " Filetypes
-command! CompileLatex :!pdflatex main.tex *.tex && latexmk -c main.tex
+command! CompileLatex :!pdflatex main.tex && pdflatex *.tex && biber main && latexmk -c main.tex
 au VimEnter *.fs,*.fsx,*.fsl,*.fsy setlocal filetype=fsharp
 au BufRead,BufNewFile *.tex set filetype=tex
 

@@ -53,6 +53,9 @@ Plug 'alvan/vim-closetag'
 Plug 'morhetz/gruvbox'
 Plug 'ayu-theme/ayu-vim'
 
+"Async shit
+Plug 'tpope/vim-dispatch'
+
 call plug#end()
 
 " Automatically install missing plugins on startup
