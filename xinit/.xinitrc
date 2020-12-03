@@ -17,7 +17,6 @@ wal -R > /dev/null
 nitrogen --restore
 setxkbmap dk
 setxkbmap -option caps:escape
-picom -b --experimental-backends
 xset r rate 400 75
 spotifyd
 if [ command -v nvidia-settings ] ; then
