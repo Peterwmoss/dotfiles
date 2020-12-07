@@ -43,7 +43,7 @@ super + {t,shift + t,s,f}
 #
 
 super + {j,k}
-	bspc window -f {next,prev}
+	bspc node -f {next,prev}.local
 
 # focus the last node/desktop
 super + {Comma,Tab}
