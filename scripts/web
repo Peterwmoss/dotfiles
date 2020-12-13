@@ -1,0 +1,6 @@
+#!/bin/sh
+START='https://'
+WEBSITE=$(echo "" | dmenu -p "Website:")
+if [ -n "$WEBSITE" ]; then
+  xdg-open "${START}${WEBSITE}" 2> /dev/null
+fi
