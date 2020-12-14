@@ -14,7 +14,7 @@ fi
 
 export _JAVA_AWT_WM_NONREPARENTING=1
 wal -R > /dev/null
-nitrogen --restore
+feh --bg-fill $HOME/pictures/blue_snake.jpg
 setxkbmap dk
 setxkbmap -option caps:escape
 xset r rate 400 75

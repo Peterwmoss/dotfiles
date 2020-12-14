@@ -27,9 +27,6 @@ Plug 'vim-airline/vim-airline-themes'
 " Tabularize (align stuff)
 Plug 'godlygeek/tabular'
 
-" Quick maths
-Plug 'ChristianChiarulli/codi.vim'
-
 " Provides colors for hex codes
 Plug 'ap/vim-css-color'
 

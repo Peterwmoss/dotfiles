@@ -136,9 +136,3 @@ ex ()
     echo "'$1' is not a valid file"
   fi
 }
-
-codi() {
-    nvim -c "Codi python"
-}
-
-fortune | cowsay | lolcat
