@@ -35,16 +35,11 @@ then
     elif [ $BAT -ge 10 ]
     then
         ICON=""
-    elif [ $BAT -lt 10 ]
-    then
+    else
         ICON=""
     fi
 else
     ICON=""
 fi
 
-printf "%s %s\n" "$ICON" "$BAT"
-
-#echo | awk -v icon=$ICON -v bat=$BAT '{printf("%s %s\n", icon, bat)}'
-
-# awk -v icon=$ICON '{printf("%s %.0f%%\n", icon, $2)}'
+printf "%s %s%%\n" "$ICON" "$BAT"
