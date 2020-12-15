@@ -1,12 +1,50 @@
 #!/bin/sh
-BAT=$(upower -i `upower -e | grep 'BAT'`)
-DIS=$(upower -i `upower -e | grep 'BAT'` | grep "state" | awk '{print $2}')
 
-if [ $DIS = "discharging" ] 
+BAT=$(acpi | awk -F ', ' '{ gsub("%","",$2); print $2 }')
+DIS=$(acpi | awk '{ print $3 }')
+
+if [ "$DIS" = "Discharging," ] 
 then
-    ICON=""
+    if [ $BAT -eq 100 ]
+    then
+        ICON=""
+    elif [ $BAT -ge 90 ]
+    then
+        ICON=""
+    elif [ $BAT -ge 80 ]
+    then
+        ICON=""
+    elif [ $BAT -ge 70 ]
+    then
+        ICON=""
+    elif [ $BAT -ge 60 ]
+    then
+        ICON=""
+    elif [ $BAT -ge 50 ]
+    then
+        ICON=""
+    elif [ $BAT -ge 40 ]
+    then
+        ICON=""
+    elif [ $BAT -ge 30 ]
+    then
+        ICON=""
+    elif [ $BAT -ge 20 ]
+    then
+        ICON=""
+    elif [ $BAT -ge 10 ]
+    then
+        ICON=""
+    elif [ $BAT -lt 10 ]
+    then
+        ICON=""
+    fi
 else
     ICON=""
 fi
 
-upower -i `upower -e | grep 'BAT'` | grep percentage | awk -v icon=$ICON '{printf("%s %.0f%%\n", icon, $2)}'
+printf "%s %s\n" "$ICON" "$BAT"
+
+#echo | awk -v icon=$ICON -v bat=$BAT '{printf("%s %s\n", icon, bat)}'
+
+# awk -v icon=$ICON '{printf("%s %.0f%%\n", icon, $2)}'

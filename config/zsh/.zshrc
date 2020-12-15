@@ -20,8 +20,7 @@ source $ZSH/oh-my-zsh.sh
 # My own path
 path+=("$HOME/.local/share/cargo/bin")
 path+=("$HOME/.local/bin")
-path+=("$HOME/.scripts/")
-path+=("$HOME/.scripts/pfetch")
+path+=("$HOME/.local/scripts")
 path+=("$HOME/.ghcup/bin/")
 export PATH
 
