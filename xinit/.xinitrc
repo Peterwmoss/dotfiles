@@ -17,6 +17,7 @@ wal -R > /dev/null
 feh --bg-fill $HOME/pictures/blue_snake.jpg
 setxkbmap dk
 setxkbmap -option caps:escape
+xbacklight -set 50
 xset r rate 400 75
 spotifyd
 if [ command -v nvidia-settings ] ; then
