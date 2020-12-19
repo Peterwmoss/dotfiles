@@ -3,12 +3,14 @@ export PATH="$HOME/.local/share/bin/:$HOME/.local/scripts/:$HOME/.local/bin/:$PA
 export EDITOR='nvim'
 export LESSHISTFILE=-
 
+export TERM="screen-256color"
+
 # Configs
-alias vimc="nvim ~/.config/nvim/init.vim"
-alias zshc="vim $HOME/.config/zsh/.zshrc"
-alias bashc="vim $HOME/.config/bash/.bashrc"
-alias csgoc="vim /home/peter/.local/share/Steam/steamapps/common/Counter-Strike\ Global\ Offensive/csgo/cfg/autoexec.cfg"
-alias dwmc="cd ~/git/suckless-builds/dwm/ && vim config.h"
+alias vimc="nvim $HOME/.config/nvim/init.vim"
+alias zshc="nvim $HOME/.config/zsh/.zshrc"
+alias bashc="nvim $HOME/.bashrc"
+alias csgoc="nvim $HOME/.local/share/Steam/steamapps/common/Counter-Strike\ Global\ Offensive/csgo/cfg/autoexec.cfg"
+alias dwmc="cd $HOME/git/suckless-builds/dwm/ && vim config.h"
 
 # Safety for deleting and overwriting
 alias mv="mv -i"
@@ -18,9 +20,6 @@ alias rm="rm -i"
 # Easy vim
 alias vim="nvim"
 alias v="nvim"
-
-# Avoid conflicts in doas
-# alias doas="doas --"
 
 alias mklatex="mkdir -p notes && cp -r ~/git/dotfiles/LaTeX/templates/report/* notes && cd notes && nvim main.tex"
 alias wget="wget --hsts-file="$XDG_CACHE_HOME/wget-hsts""
@@ -45,9 +44,9 @@ alias cdosc="cd $HOME/School/5/osc"
 alias cdpsd="cd $HOME/School/5/psd"
 alias cdfop="cd $HOME/School/5/fop"
 
-alias mntfallon="sshfs group87@fallon.itu.dk:/home/group87 ./fallon"
-
 source ~/.config/zsh/ssdir
+
+force_color_prompt=yes
 
 # Git
 alias addall="git add -A"
@@ -110,8 +109,7 @@ ex ()
 RESET="\033[0;00m"
 
 function git_status() {
-    GIT_DIR=$(git rev-parse --git-dir)
-    if [[ ! -z "$GIT_DIR" ]]
+    if git rev-parse --git-dir > /dev/null 2>&1;
     then
         GIT="\[$(tput setaf 166)\] $(git branch --show-current) "
 
