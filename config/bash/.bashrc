@@ -1,46 +1,16 @@
-export ZSH="$HOME/.config/oh-my-zsh"
-export HISTFILE=$HOME/.local/share/zsh/history
-
-ZSH_THEME="spaceship"
-#ZSH_THEME="lambda-mod"
-
-plugins=(
-	git
-	docker
-	npm
-	wd
-	archlinux
-	extract
-	zsh-syntax-highlighting
-	zsh-autosuggestions
-)
-
-source $ZSH/oh-my-zsh.sh
-
-# My own path
-path+=("$HOME/.local/share/cargo/bin")
-path+=("$HOME/.local/bin")
-path+=("$HOME/.local/scripts")
-path+=("$HOME/.ghcup/bin/")
-export PATH
+export PATH="$HOME/.local/share/bin/:$HOME/.local/scripts/:$HOME/.local/bin/:$PATH"
 
 export EDITOR='nvim'
-export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
-export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
-export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
-export PYLINTHOME="$XDG_CACHE_HOME"/pylint
-export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
 export LESSHISTFILE=-
 
-###############
-### ALIASES ###
-###############
+export TERM="screen-256color"
 
 # Configs
-alias vimc="nvim ~/.config/nvim/init.vim"
-alias zshc="vim $HOME/.config/zsh/.zshrc"
-alias csgoc="vim /home/peter/.local/share/Steam/steamapps/common/Counter-Strike\ Global\ Offensive/csgo/cfg/autoexec.cfg"
-alias dwmc="cd ~/git/suckless-builds/dwm/ && vim config.h"
+alias vimc="nvim $HOME/.config/nvim/init.vim"
+alias zshc="nvim $HOME/.config/zsh/.zshrc"
+alias bashc="nvim $HOME/.bashrc"
+alias csgoc="nvim $HOME/.local/share/Steam/steamapps/common/Counter-Strike\ Global\ Offensive/csgo/cfg/autoexec.cfg"
+alias dwmc="cd $HOME/git/suckless-builds/dwm/ && vim config.h"
 
 # Safety for deleting and overwriting
 alias mv="mv -i"
@@ -50,9 +20,6 @@ alias rm="rm -i"
 # Easy vim
 alias vim="nvim"
 alias v="nvim"
-
-# Avoid conflicts in doas
-# alias doas="doas --"
 
 alias mklatex="mkdir -p notes && cp -r ~/git/dotfiles/LaTeX/templates/report/* notes && cd notes && nvim main.tex"
 alias wget="wget --hsts-file="$XDG_CACHE_HOME/wget-hsts""
@@ -77,9 +44,9 @@ alias cdosc="cd $HOME/School/5/osc"
 alias cdpsd="cd $HOME/School/5/psd"
 alias cdfop="cd $HOME/School/5/fop"
 
-alias mntfallon="sshfs group87@fallon.itu.dk:/home/group87 ./fallon"
-
 source ~/.config/zsh/ssdir
+
+force_color_prompt=yes
 
 # Git
 alias addall="git add -A"
@@ -107,7 +74,7 @@ alias qm="qmarkdown -dark"
 alias updpkg="makepkg - g >> PKGBUILD && rm -rf src *.tar.gz && makepkg --printsrcinfo > .SRCINFO && git add PKGBUILD .SRCINFO && git commit -m"
 
 # Gentoo
-alias world="doas emerge --newuse --update --deep @world"
+alias world="doas emerge --changed-use --update --deep @world"
 
 ##########################
 ### ARCHIVE EXTRACTION ###
@@ -138,3 +105,71 @@ ex ()
     echo "'$1' is not a valid file"
   fi
 }
+
+RESET="\033[0;00m"
+
+function git_status() {
+    if git rev-parse --git-dir > /dev/null 2>&1;
+    then
+        GIT="\[$(tput setaf 166)\] $(git branch --show-current) "
+
+        # Add remote to prompt
+        if [[ ! -z $(git remote) ]]
+        then
+            GIT="$GIT $(git remote) "
+            DIFF=$(git rev-list --left-right $(git branch --show-current)...$(git remote)/$(git branch --show-current) --count)
+            ORIGIN=$(echo $DIFF | awk '{print $2}')
+            LOCAL=$(echo $DIFF | awk '{print $1}')
+
+            # Remote status
+            if [[ ! "$LOCAL" -eq "0" ]]
+            then
+                GIT_STATUS="$GIT_STATUS"
+            fi
+            if [[ ! "$ORIGIN" -eq "0" ]]
+            then
+                GIT_STATUS="$GIT_STATUS"
+            fi
+        fi
+
+        # Add local git status to prompt
+        UNTRACKED=$(git ls-files -o --exclude-standard)
+        DELETED=$(git ls-files -d --exclude-standard)
+        STAGED=$(git diff --name-only --cached)
+        MODIFIED=$(git ls-files -m --exclude-standard)
+
+        if [[ ! -z "$UNTRACKED" ]]
+        then
+            GIT_STATUS="?"
+        fi
+        if [[ ! -z "$DELETED" ]]
+        then
+            GIT_STATUS="$GIT_STATUS"
+        fi
+        if [[ ! -z "$STAGED" ]]
+        then
+            GIT_STATUS="$GIT_STATUS+"
+        fi
+        if [[ ! -z "$MODIFIED" ]]
+        then
+            GIT_STATUS="$GIT_STATUS!"
+        fi
+
+        # Combine
+        if [[ ! -z $GIT_STATUS ]]
+        then
+            GIT="$GIT {$GIT_STATUS}\[$RESET\]"
+        else
+            GIT="$GIT\[$RESET\]"
+        fi
+    else
+        GIT=""
+    fi
+    echo $GIT
+}
+
+function set_bash_promt() {
+    PS1="\[$(tput bold)$(tput setaf 1)\][\[$(tput setaf 6)\]\u\[$(tput setaf 2)\]@\[$(tput setaf 4)\]\H\[$(tput setaf 1)\]] \[$(tput setaf 7)\] \[$(tput setaf 5)\]\w $(git_status)\n\[$(tput setaf 2)$(tput bold)\]\\$\[$RESET\] "
+}
+
+export PROMPT_COMMAND=set_bash_promt
