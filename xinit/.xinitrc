@@ -13,7 +13,7 @@ if [ -f $HOME/.config/X11/xresources ] ; then
 fi
 
 export _JAVA_AWT_WM_NONREPARENTING=1
-/home/peter/.local/bin/wal -R > /dev/null
+$(which wal) -R > /dev/null
 feh --bg-fill $HOME/pictures/fish.jpg
 setxkbmap dk
 setxkbmap -option caps:escape

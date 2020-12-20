@@ -1,5 +1,3 @@
-export PATH="$HOME/.local/share/bin/:$HOME/.local/scripts/:$HOME/.local/bin/:$PATH"
-
 export EDITOR='nvim'
 export LESSHISTFILE=-
 
@@ -74,7 +72,8 @@ alias qm="qmarkdown -dark"
 alias updpkg="makepkg - g >> PKGBUILD && rm -rf src *.tar.gz && makepkg --printsrcinfo > .SRCINFO && git add PKGBUILD .SRCINFO && git commit -m"
 
 # Gentoo
-alias world="doas emerge --changed-use --update --deep @world"
+alias world="emerge --changed-use --update --deep @world"
+alias sync="emerge --sync -q"
 
 ##########################
 ### ARCHIVE EXTRACTION ###
