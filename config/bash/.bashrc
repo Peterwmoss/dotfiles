@@ -73,7 +73,7 @@ alias updpkg="makepkg - g >> PKGBUILD && rm -rf src *.tar.gz && makepkg --prints
 
 # Gentoo
 alias world="emerge --changed-use --update --deep @world"
-alias sync="emerge --sync -q"
+alias esync="emerge --sync"
 
 ##########################
 ### ARCHIVE EXTRACTION ###
