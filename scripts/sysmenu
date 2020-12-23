@@ -1,6 +1,6 @@
 #!/bin/sh
-MENU="$(printf "  Reboot\n  Shutdown\n" | dmenu -i)"
+MENU="$(printf "  Shutdown\n  Reboot\n" | dmenu -i)"
 case "$MENU" in
-  *Reboot) doas reboot ;;
   *Shutdown) doas poweroff ;;
+  *Reboot) doas reboot ;;
 esac
