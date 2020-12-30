@@ -82,3 +82,18 @@ nnoremap <leader>th :set nohlsearch!<cr>
 
 " Open new file
 nmap <leader>e :e 
+
+" Remap " to '
+nnoremap ' "
+vnoremap ' "
+
+" Toggle between vim clipboard and X clipboard
+function! ToggleClipboard()
+    if &clipboard ==# ""
+        set clipboard=unnamedplus
+    else
+        set clipboard=""
+    endif
+endfunction
+
+nmap <leader>tc :call ToggleClipboard()<cr>
