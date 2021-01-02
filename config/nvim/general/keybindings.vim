@@ -11,7 +11,6 @@ nmap <leader>Q :qa<CR>
 
 " Search
 nnoremap <F5> :set nohlsearch!<cr>
-nnoremap <leader>S :%s//gI<Left><Left><Left>
 
 " Next find
 nnoremap , ;
@@ -24,16 +23,12 @@ map ø £
 map å ^
 
 " Toggle spelling
-nmap <leader>s :set spell!<cr>
+nmap <leader>ts :set spell!<cr>
 
 " Map ½ to something useful
 map ½ $
 cmap ½ $
 imap ½ $
-
-" Shell commands
-"map <leader>,l :silent !pdflatex main.tex *.tex<cr>
-"map <leader>,L :!pdflatex main.tex *.tex<cr>
 
 " Indenting
 vmap <tab> >gv
@@ -48,9 +43,21 @@ vnoremap <up> :m '<-2<CR>gv=gv
 " Buffers
 nmap <tab> :bnext<cr>
 nmap <S-tab> :bprevious<cr>
-map <leader>bo :Bonly<cr>
-map <leader>bd :bd<cr>
+map <leader>b :buffers<cr>:buffer<space>
+map <leader>B :buffers<cr>
 map <leader>d :bd<cr>
+
+" Paragraph selection
+vnoremap p }
+vnoremap P {
+nnoremap p }
+nnoremap P {
+
+" Pasting
+vnoremap <C-p> p
+vnoremap <C-P> P
+nnoremap <C-p> p
+nnoremap <C-P> P
 
 " Window switching
 nmap <C-h> <C-w>h
@@ -67,6 +74,7 @@ nnoremap <silent> <leader>rv- :vertical resize -10<CR>
 
 " Comments
 nmap <leader>/ :Commentary<CR>
+vmap / :Commentary<CR>gv
 
 " Splitting
 nnoremap <silent> <leader>h :split<CR>

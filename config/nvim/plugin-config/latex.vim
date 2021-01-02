@@ -1,5 +1,3 @@
-let g:livepreview_previewer = 'zathura'
-
 function! CompileLatex()
     Start! pdflatex -interaction=nonstopmode % ; pdflatex -interaction=nonstopmode *.tex ; [[ -a %:r.bcf ]] && biber %:r ; latexmk -c %
 endfunction
