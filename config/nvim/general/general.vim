@@ -37,7 +37,7 @@ set nohlsearch
 
 " Filetypes
 au VimEnter,BufRead,BufNewFile *.fs,*.fsx,*.fsl,*.fsy setlocal filetype=fsharp
-au BufRead,BufNewFile *.tex set filetype=tex
+au BufRead,BufNewFile *.tex setlocal filetype=tex
 
 " General
 set encoding=utf-8
