@@ -55,9 +55,9 @@ nnoremap P {
 
 " Pasting
 vnoremap <C-p> p
-vnoremap <C-P> P
 nnoremap <C-p> p
-nnoremap <C-P> P
+vnoremap <C-å> P
+nnoremap <C-å> P
 
 " Window switching
 nmap <C-h> <C-w>h
