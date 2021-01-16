@@ -1,0 +1,10 @@
+#!/bin/bash
+sleep 1
+DISPLAY=":0.0"
+HOME=/home/peter/
+XAUTHORITY=$HOME/.Xauthority
+export DISPLAY XAUTHORITY HOME
+
+xset r rate 400 75
+setxkbmap -layout dk
+setxkbmap -option caps:escape

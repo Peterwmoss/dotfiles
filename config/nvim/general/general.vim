@@ -1,18 +1,14 @@
 " Set history to 500
 set history=500
 
-" Set auto read when a file is changed from the outside
-set autoread
-au FocusGained,BufEnter,FocusLost * checktime
-
-" 15 lines after cursor still shown
-set so=20
+" 8 lines after cursor still shown
+set so=8
 
 " Buffers
-set hid
+set hidden
 
 " Turn on wild menu
-set wildmenu
+"set wildmenu
 
 " Don't redraw while executing macros
 set lazyredraw
@@ -28,12 +24,14 @@ set shiftwidth=4
 set smartindent
 set autoindent
 set wrap
-au FileType cpp,c setlocal shiftwidth=2 softtabstop=2 expandtab
 au FileType Makefile setlocal noexpandtab
 
 " Search
 set ignorecase
 set nohlsearch
+
+set completeopt=menuone,noinsert,noselect
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " Filetypes
 au VimEnter,BufRead,BufNewFile *.fs,*.fsx,*.fsl,*.fsy setlocal filetype=fsharp
@@ -42,18 +40,22 @@ au BufRead,BufNewFile *.tex setlocal filetype=tex
 " General
 set encoding=utf-8
 set mouse=
-set nocompatible
 set number relativenumber
-set spelllang=en_us,da
+set spelllang=da,en_us
 set cursorline
+set signcolumn=yes
+set cmdheight=1
+
+set nobackup
+set nowritebackup
+
+set updatetime=50
 
 " Clipboard
 set clipboard=unnamedplus
 
 " Fix splitting
 set splitbelow splitright
-
-set timeoutlen=1000
 
 set conceallevel=0
 

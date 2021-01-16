@@ -15,28 +15,10 @@ let g:coc_global_extensions = [
   \ 'coc-eslint'
   \ ]
 
-" TextEdit might fail if hidden is not set.
-set hidden
-
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
-
-" Some servers have issues with backup files, see #649.
-set nobackup
-set nowritebackup
-
-" Give more space for displaying messages.
-set cmdheight=1
-
-" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
-" delays and poor user experience.
-set updatetime=100
 
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
-
-" Always show the signcolumn, otherwise it would shift the text each time
-" diagnostics appear/become resolved.
-set signcolumn=yes
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
@@ -64,19 +46,13 @@ else
   inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 endif
 
-" Use `[g` and `]g` to navigate diagnostics
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
-
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gt <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-"nmap <leader>? :CocSearch <C-R>=expand("word")<CR><CR>
+nmap <silent> gh :CocCommand clangd.switchSourceHeader<cr>
 
-" Use K to show documentation in preview window.
-nnoremap <silent> <leader>ad :call <SID>show_documentation()<CR>
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
@@ -94,13 +70,6 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 nmap <leader>lr <Plug>(coc-rename)
 nmap <leader>lR <Plug>(coc-refactor)
 
-" Go to header
-nmap gh :CocCommand clangd.switchSourceHeader<cr>
-
-" Formatting selected code.
-"vmap <leader>lfo <Plug>(coc-format-selected)
-"nmap <leader>lfo <Plug>(coc-format-selected)
-
 augroup mygroup
   autocmd!
   " Setup formatexpr specified filetype(s).
@@ -116,19 +85,8 @@ vmap <leader>lf  <Plug>(coc-format-selected)
 vmap <leader>lfa  <Plug>(coc-format)
 nmap <leader>lfa  <Plug>(coc-format)
 
-" Use CTRL-S for selections ranges.
-" Requires 'textDocument/selectionRange' support of LS, ex: coc-tsserver
-nmap <silent> <C-s> <Plug>(coc-range-select)
-xmap <silent> <C-s> <Plug>(coc-range-select)
-
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
-
-" Add `:Fold` command to fold current buffer.
-command! -nargs=? Fold :call     CocAction('fold', <f-args>)
-
-" Add `:OR` command for organize imports of the current buffer.
-command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
 " Use <C-l> for trigger snippet expand.
 imap <C-l> <Plug>(coc-snippets-expand)
@@ -142,4 +100,4 @@ imap <C-j> <Plug>(coc-snippets-expand-jump)
 let g:coc_snippet_next = '<tab>'
 let g:coc_snippet_prev = '<s-tab>'
 
-nmap <leader>ce :CocCommand explorer<CR>
+nmap <leader>le :CocCommand explorer<CR>

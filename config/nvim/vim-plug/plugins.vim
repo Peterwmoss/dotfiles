@@ -45,4 +45,6 @@ Plug 'morhetz/gruvbox'
 "Async shit
 Plug 'tpope/vim-dispatch'
 
+Plug 'mhinz/vim-startify'
+
 call plug#end()
