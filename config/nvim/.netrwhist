@@ -1,4 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =2
+let g:netrw_dirhistcnt =3
+let g:netrw_dirhist_3='/home/peter/git/qMarkdown/qmarkdown'
 let g:netrw_dirhist_2='/home/peter/git/t150_driver_local/hid-t150'
 let g:netrw_dirhist_1='/home/peter/school/Books/4. semester'
