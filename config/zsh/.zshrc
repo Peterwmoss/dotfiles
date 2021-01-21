@@ -107,7 +107,8 @@ alias qm="qmarkdown -dark"
 alias updpkg="makepkg - g >> PKGBUILD && rm -rf src *.tar.gz && makepkg --printsrcinfo > .SRCINFO && git add PKGBUILD .SRCINFO && git commit -m"
 
 # Gentoo
-alias world="doas emerge --newuse --update --deep @world"
+alias eworld="doas emerge --newuse --update --deep @world"
+alias esync="doas emerge --sync --quiet"
 
 ##########################
 ### ARCHIVE EXTRACTION ###
