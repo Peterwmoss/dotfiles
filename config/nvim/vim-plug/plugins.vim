@@ -14,15 +14,8 @@ Plug 'tpope/vim-surround'
 " Git
 Plug 'tpope/vim-fugitive'
 
-" Latex live preview
-Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
-
 " Autocomplete engine
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-" Airline
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Tabularize (align stuff)
 Plug 'godlygeek/tabular'
@@ -47,16 +40,19 @@ Plug 'junegunn/fzf.vim'
 Plug 'alvan/vim-closetag'
 
 " Color schemes
-Plug 'morhetz/gruvbox'
-Plug 'ayu-theme/ayu-vim'
+"Plug 'morhetz/gruvbox'
+"Plug 'christianchiarulli/nvcode-color-schemes.vim'
+Plug 'gruvbox-community/gruvbox'
 
 "Async shit
 Plug 'tpope/vim-dispatch'
 
-call plug#end()
+Plug 'mhinz/vim-startify'
 
-" Automatically install missing plugins on startup
-autocmd VimEnter *
-  \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
-  \|   PlugInstall --sync | q
-  \| endif
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+Plug 'nvim-treesitter/playground'
+
+Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-lua/completion-nvim'
+
+call plug#end()

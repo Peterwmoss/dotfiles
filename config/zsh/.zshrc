@@ -1,8 +1,7 @@
 export ZSH="$HOME/.config/oh-my-zsh"
-export HISTFILE=$HOME/.local/share/zsh/history
+export HISTFILE=$HOME/.cache/zsh/history
 
 ZSH_THEME="spaceship"
-#ZSH_THEME="lambda-mod"
 
 plugins=(
 	git

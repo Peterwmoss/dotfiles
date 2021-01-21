@@ -1,18 +1,14 @@
 " Set history to 500
 set history=500
 
-" Set auto read when a file is changed from the outside
-set autoread
-au FocusGained,BufEnter,FocusLost * checktime
-
-" 15 lines after cursor still shown
-set so=15
+" 8 lines after cursor still shown
+set so=8
 
 " Buffers
-set hid
+set hidden
 
 " Turn on wild menu
-set wildmenu
+"set wildmenu
 
 " Don't redraw while executing macros
 set lazyredraw
@@ -26,28 +22,35 @@ set smarttab
 set tabstop=4 softtabstop=4
 set shiftwidth=4
 set smartindent
-set si
-set ai
+set autoindent
 set wrap
-au FileType cpp,c setlocal shiftwidth=2 softtabstop=2 expandtab
 au FileType Makefile setlocal noexpandtab
+au VimEnter,BufRead,BufNewFile *.c,*.cpp setlocal tabstop=2 softtabstop=2 shiftwidth=2
 
 " Search
 set ignorecase
 set nohlsearch
 
+set completeopt=menuone,noinsert,noselect
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
 " Filetypes
-au VimEnter *.fs,*.fsx,*.fsl,*.fsy setlocal filetype=fsharp
-au BufRead,BufNewFile *.tex set filetype=tex
+au VimEnter,BufRead,BufNewFile *.fs,*.fsx,*.fsl,*.fsy setlocal filetype=fsharp
+au BufRead,BufNewFile *.tex setlocal filetype=tex
 
 " General
 set encoding=utf-8
-set mouse=a
-set nocompatible
-set relativenumber
+set mouse=
 set number relativenumber
-set spelllang=en_us,da
+set spelllang=da,en_us
 set cursorline
+set signcolumn=yes
+set cmdheight=1
+
+set nobackup
+set nowritebackup
+
+set updatetime=50
 
 " Clipboard
 set clipboard=unnamedplus
@@ -55,9 +58,71 @@ set clipboard=unnamedplus
 " Fix splitting
 set splitbelow splitright
 
-set timeoutlen=500
-
 set conceallevel=0
 
 au BufWinLeave *.* mkview!
 au BufWinEnter *.* silent! loadview
+
+lua require('lspconfig').clangd.setup{ on_attach=require'completion'.on_attach }
+let g:completion_matchin_stategy_list = ['exact', 'substring', 'fuzzy']
+
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+    ensure_installed = "maintained",
+    highlight = {
+        enable = true,
+        disable = { },
+    },
+}
+EOF
+
+" Statusline
+set noshowmode
+
+function! GitBranch()
+  return system("git branch --show-current 2>/dev/null | tr -d '\n'")
+endfunction
+
+function! StatuslineGit()
+  let l:branchname = GitBranch()
+  return strlen(l:branchname) > 0 ? '  '.l:branchname : ''
+endfunction
+
+function! GetMode()
+    let l:mode = mode()
+
+    if l:mode ==# "n"
+        return "normal"
+    elseif l:mode ==# "i"
+        return "insert"
+    elseif l:mode ==# "v"
+        return "visual"
+    elseif l:mode ==# "V"
+        return "visual [line]"
+    elseif l:mode ==# "CTRL-V"
+        return "visual [block]"
+    elseif l:mode ==# "R"
+        return "replace"
+    elseif l:mode ==# "c"
+        return "command"
+    else
+        return l:mode
+    endif
+endfunction
+
+set statusline=
+set statusline+=%#Number#
+set statusline+=\ %{GetMode()}
+set statusline+=%#Keyword#
+set statusline+=%{StatuslineGit()}
+set statusline+=%#Type#
+set statusline+=\ %f
+set statusline+=\ %m
+set statusline+=\ %r
+set statusline+=%=
+set statusline+=%#Todo#
+"set statusline+=\ %{coc#status()}
+set statusline+=%#Comment#
+set statusline+=\ %y
+set statusline+=\ %l/%L
+set statusline+=\ %p%%
