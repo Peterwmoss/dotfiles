@@ -172,3 +172,5 @@ function set_bash_promt() {
 }
 
 export PROMPT_COMMAND=set_bash_promt
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
