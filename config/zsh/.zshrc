@@ -66,19 +66,9 @@ alias grep="grep --color=auto"
 alias gdbs="gdb --batch --ex run --ex bt --ex q --args"
 
 # School stuff
-alias oscex="cd ~/School/5/osc/exercises && alacritty &"
-alias ssosc="echo 'export SSDIR=/home/peter/School/5/osc/notes/img/' > ~/.config/zsh/ssdir && source ~/.config/zsh/ssdir"
-alias sspsd="echo 'export SSDIR=/home/peter/School/5/psd/notes/img/' > ~/.config/zsh/ssdir && source ~/.config/zsh/ssdir"
-alias ssfop="echo 'export SSDIR=/home/peter/School/5/fop/notes/img/' > ~/.config/zsh/ssdir && source ~/.config/zsh/ssdir"
-alias sspics="echo 'export SSDIR=/home/peter/pictures/' > ~/.config/zsh/ssdir && source ~/.config/zsh/ssdir"
-
 alias cdosc="cd $HOME/School/5/osc"
 alias cdpsd="cd $HOME/School/5/psd"
 alias cdfop="cd $HOME/School/5/fop"
-
-alias mntfallon="sshfs group87@fallon.itu.dk:/home/group87 ./fallon"
-
-source ~/.config/zsh/ssdir
 
 # Git
 alias addall="git add -A"

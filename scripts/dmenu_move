@@ -1,0 +1,25 @@
+#!/bin/sh
+FILE="$HOME/.config/screenshots/config"
+if [ -f $FILE ]; then
+    if [ $# -eq 0 ]; then
+        echo "No arguments supplied"
+        exit
+    fi
+    IMAGE=$1
+
+    SELECTION="$(cat $FILE | sort -u | sed -e "s|^~|$HOME|" | dmenu -i -p 'Save in >')"
+
+    if [ ! -d "$SELECTION" ]; then
+        echo "Dir does not exist"
+        exit
+    fi
+
+    if [ ! -z "$SELECTION" ]; then
+        mv -iv $IMAGE $SELECTION
+    else
+        echo "You need to select a directory"
+    fi
+else
+    echo "You need a config file in ~/.config/screenshots"
+    exit
+fi
