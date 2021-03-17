@@ -108,7 +108,7 @@ set statusline+=\ %m
 set statusline+=\ %r
 set statusline+=%=
 set statusline+=%#Todo#
-"set statusline+=\ %{coc#status()}
+set statusline+=\ %{coc#status()}
 set statusline+=%#Comment#
 set statusline+=\ %y
 set statusline+=\ %l/%L

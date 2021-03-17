@@ -36,9 +36,6 @@ Plug 'wellle/targets.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
-" Provides closing tags for html
-Plug 'alvan/vim-closetag'
-
 " Color schemes
 "Plug 'morhetz/gruvbox'
 "Plug 'christianchiarulli/nvcode-color-schemes.vim'

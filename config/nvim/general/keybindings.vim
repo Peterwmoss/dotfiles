@@ -47,18 +47,6 @@ map <leader>b :buffers<cr>:buffer<space>
 map <leader>B :buffers<cr>
 map <leader>d :bd<cr>
 
-" Paragraph selection
-vnoremap p }
-vnoremap P {
-nnoremap p }
-nnoremap P {
-
-" Pasting
-vnoremap <C-p> p
-nnoremap <C-p> p
-vnoremap <C-å> P
-nnoremap <C-å> P
-
 " Window switching
 nmap <C-h> <C-w>h
 nmap <C-l> <C-w>l
