@@ -22,8 +22,9 @@ map æ *
 map ø £
 map å ^
 
-" Toggle spelling
+" Toggle
 nmap <leader>ts :set spell!<cr>
+nmap <leader>tl :call ToggleLiveReload()<cr>
 
 " Map ½ to something useful
 map ½ $

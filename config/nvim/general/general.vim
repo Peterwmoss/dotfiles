@@ -24,19 +24,12 @@ set shiftwidth=4
 set smartindent
 set autoindent
 set wrap
-au FileType Makefile setlocal noexpandtab
-au VimEnter,BufRead,BufNewFile *.c,*.cpp setlocal tabstop=2 softtabstop=2 shiftwidth=2
 
 " Search
 set ignorecase
 set nohlsearch
 
 set completeopt=menuone,noinsert,noselect
-autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-
-" Filetypes
-au VimEnter,BufRead,BufNewFile *.fs,*.fsx,*.fsl,*.fsy setlocal filetype=fsharp
-au BufRead,BufNewFile *.tex setlocal filetype=tex
 
 " General
 set encoding=utf-8
@@ -60,11 +53,23 @@ set splitbelow splitright
 
 set conceallevel=0
 
-au BufWinLeave *.* mkview!
-au BufWinEnter *.* silent! loadview
-
 " Statusline
 set noshowmode
+
+let g:live_reload = 0
+
+" Autocommands
+augroup MyGroup
+    au!
+    au BufWritePost *.html :call ReloadFirefox()
+    au FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+    au FileType Makefile setlocal noexpandtab
+    au VimEnter,BufRead,BufNewFile *.c,*.cpp setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    au VimEnter,BufRead,BufNewFile *.fs,*.fsx,*.fsl,*.fsy setlocal filetype=fsharp
+    au BufRead,BufNewFile *.tex setlocal filetype=tex
+    au BufWinLeave *.* mkview!
+    au BufWinEnter *.* silent! loadview
+augroup END
 
 function! GitBranch()
   return system("git branch --show-current 2>/dev/null | tr -d '\n'")

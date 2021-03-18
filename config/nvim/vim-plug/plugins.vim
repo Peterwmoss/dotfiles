@@ -24,7 +24,8 @@ Plug 'godlygeek/tabular'
 Plug 'ap/vim-css-color'
 
 " Auto closing parentheses
-Plug 'Raimondi/delimitMate'
+"Plug 'Raimondi/delimitMate'
+Plug 'jiangmiao/auto-pairs'
 
 " Easy comments
 Plug 'tpope/vim-commentary'
@@ -45,5 +46,7 @@ Plug 'gruvbox-community/gruvbox'
 Plug 'tpope/vim-dispatch'
 
 Plug 'mhinz/vim-startify'
+
+Plug 'alvan/vim-closetag'
 
 call plug#end()
