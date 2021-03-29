@@ -24,7 +24,8 @@ Plug 'godlygeek/tabular'
 Plug 'ap/vim-css-color'
 
 " Auto closing parentheses
-Plug 'Raimondi/delimitMate'
+"Plug 'Raimondi/delimitMate'
+Plug 'jiangmiao/auto-pairs'
 
 " Easy comments
 Plug 'tpope/vim-commentary'
@@ -36,9 +37,6 @@ Plug 'wellle/targets.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
-" Provides closing tags for html
-Plug 'alvan/vim-closetag'
-
 " Color schemes
 "Plug 'morhetz/gruvbox'
 "Plug 'christianchiarulli/nvcode-color-schemes.vim'
@@ -49,4 +47,5 @@ Plug 'tpope/vim-dispatch'
 
 Plug 'mhinz/vim-startify'
 
+Plug 'alvan/vim-closetag'
 call plug#end()
