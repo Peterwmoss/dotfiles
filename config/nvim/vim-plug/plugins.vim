@@ -15,7 +15,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 
 " Autocomplete engine
-"Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Tabularize (align stuff)
 Plug 'godlygeek/tabular'
@@ -48,11 +48,5 @@ Plug 'gruvbox-community/gruvbox'
 Plug 'tpope/vim-dispatch'
 
 Plug 'mhinz/vim-startify'
-
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
-Plug 'nvim-treesitter/playground'
-
-Plug 'neovim/nvim-lspconfig'
-Plug 'nvim-lua/completion-nvim'
 
 call plug#end()

@@ -63,19 +63,6 @@ set conceallevel=0
 au BufWinLeave *.* mkview!
 au BufWinEnter *.* silent! loadview
 
-lua require('lspconfig').clangd.setup{ on_attach=require'completion'.on_attach }
-let g:completion_matchin_stategy_list = ['exact', 'substring', 'fuzzy']
-
-lua <<EOF
-require'nvim-treesitter.configs'.setup {
-    ensure_installed = "maintained",
-    highlight = {
-        enable = true,
-        disable = { },
-    },
-}
-EOF
-
 " Statusline
 set noshowmode
 

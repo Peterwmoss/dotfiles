@@ -47,7 +47,6 @@ alias cp="cp -i"
 alias rm="rm -i"
 
 # Easy vim
-alias vim="nvim"
 alias v="nvim"
 
 # Avoid conflicts in doas
