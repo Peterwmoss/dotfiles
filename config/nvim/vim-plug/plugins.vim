@@ -45,8 +45,13 @@ Plug 'gruvbox-community/gruvbox'
 "Async shit
 Plug 'tpope/vim-dispatch'
 
+" Startscreen
 Plug 'mhinz/vim-startify'
 
+" HTML closing tags
 Plug 'alvan/vim-closetag'
+
+" Ultisnips
+Plug 'sirver/UltiSnips'
 
 call plug#end()
