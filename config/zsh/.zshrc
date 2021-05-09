@@ -21,7 +21,10 @@ path+=("$HOME/.local/share/cargo/bin")
 path+=("$HOME/.local/bin")
 path+=("$HOME/.local/scripts")
 path+=("$HOME/.ghcup/bin/")
+path+=("/opt/openjdk-bin-11")
 export PATH
+
+export JDK_HOME="/opt/openjdk-bin-11"
 
 export EDITOR='nvim'
 export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
@@ -47,7 +50,6 @@ alias cp="cp -i"
 alias rm="rm -i"
 
 # Easy vim
-alias vim="nvim"
 alias v="nvim"
 
 # Avoid conflicts in doas

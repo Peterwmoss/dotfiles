@@ -12,7 +12,8 @@ let g:coc_global_extensions = [
   \ 'coc-omnisharp',
   \ 'coc-snippets',
   \ 'coc-fsharp',
-  \ 'coc-eslint'
+  \ 'coc-eslint',
+  \ 'coc-git'
   \ ]
 
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
@@ -80,22 +81,11 @@ augroup end
 
 nmap <leader>la <Plug>(coc-codeaction)
 vmap <leader>la <Plug>(coc-codeaction-selected)
-nmap <leader>lf  <Plug>(coc-format-selected)
+nmap <leader>lf  <Plug>(coc-format)
 vmap <leader>lf  <Plug>(coc-format-selected)
-vmap <leader>lfa  <Plug>(coc-format)
-nmap <leader>lfa  <Plug>(coc-format)
 
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
-
-" Use <C-l> for trigger snippet expand.
-imap <C-l> <Plug>(coc-snippets-expand)
-
-" Use <C-j> for select text for visual placeholder of snippet.
-vmap <C-j> <Plug>(coc-snippets-select)
-
-" Use <C-j> for both expand and jump (make expand higher priority.)
-imap <C-j> <Plug>(coc-snippets-expand-jump)
 
 let g:coc_snippet_next = '<tab>'
 let g:coc_snippet_prev = '<s-tab>'

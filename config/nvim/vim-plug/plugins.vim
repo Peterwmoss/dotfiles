@@ -33,6 +33,8 @@ Plug 'tpope/vim-commentary'
 " Enables di( out of parentheses
 Plug 'wellle/targets.vim' 
 
+Plug 'metakirby5/codi.vim'
+
 " Fuzzy finder
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'

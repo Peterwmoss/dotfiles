@@ -53,6 +53,9 @@ set splitbelow splitright
 
 set conceallevel=0
 
+au BufWinLeave *.* mkview!
+au BufWinEnter *.* silent! loadview
+
 " Statusline
 set noshowmode
 
