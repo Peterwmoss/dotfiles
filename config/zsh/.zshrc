@@ -102,6 +102,9 @@ alias updpkg="makepkg - g >> PKGBUILD && rm -rf src *.tar.gz && makepkg --prints
 alias eworld="doas emerge --newuse --update --deep @world"
 alias esync="doas emerge --sync --quiet"
 
+# Word count
+alias pagecount="wc -m | tr -d '\n' | awk '{print \$1\"/2400\"}' | bc -l"
+
 ##########################
 ### ARCHIVE EXTRACTION ###
 ##########################
