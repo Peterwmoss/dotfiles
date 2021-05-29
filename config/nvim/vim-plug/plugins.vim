@@ -15,7 +15,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 
 " Autocomplete engine
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
 
 " Tabularize (align stuff)
 Plug 'godlygeek/tabular'

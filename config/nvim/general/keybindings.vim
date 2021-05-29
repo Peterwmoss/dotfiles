@@ -18,8 +18,8 @@ nnoremap ; ,
 vnoremap , ;
 vnoremap ; ,
 
-map æ *
-map ø £
+map æ (
+map ø )
 map å ^
 
 " Toggle
