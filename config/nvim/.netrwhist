@@ -1,5 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =5
+let g:netrw_dirhistcnt =7
+let g:netrw_dirhist_7='/home/peter/dnd/src'
+let g:netrw_dirhist_6='/home/peter/dnd/sessions'
 let g:netrw_dirhist_5='/home/peter/git/dotfiles/config/nvim/UltiSnips'
 let g:netrw_dirhist_4='/home/peter/git/t150/hid-t150'
 let g:netrw_dirhist_3='/home/peter/git/qMarkdown/qmarkdown'
