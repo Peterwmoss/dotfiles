@@ -23,7 +23,7 @@ set tabstop=4 softtabstop=4
 set shiftwidth=4
 set smartindent
 set autoindent
-set wrap
+set wrap linebreak
 
 " Search
 set ignorecase
