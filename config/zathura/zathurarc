@@ -1,3 +1,5 @@
 set selection-clipboard clipboard
-set sandbox none
 set font "Hack Font Mono 9"
+set page-cache-size 100
+set zoom-min -1
+set zoom-max 1
