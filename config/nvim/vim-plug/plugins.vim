@@ -14,6 +14,9 @@ Plug 'tpope/vim-surround'
 " Git
 Plug 'tpope/vim-fugitive'
 
+" Emmet vim
+Plug 'mattn/emmet-vim'
+
 " Autocomplete engine
 Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
 
