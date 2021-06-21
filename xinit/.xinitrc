@@ -15,14 +15,14 @@ fi
 eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 export SSH_AUTH_SOCK
 
-export _JAVA_AWT_WM_NONREPARENTING=1
+#export _JAVA_AWT_WM_NONREPARENTING=1
 $(which wal) -R > /dev/null
-feh --bg-fill $HOME/pictures/fish.jpg
+nitrogen --restore
 setxkbmap dk
 setxkbmap -option caps:escape
 xbacklight -set 50
 xset r rate 400 75
-spotifyd
+#spotifyd
 if [ command -v nvidia-settings ] ; then
     nvidia-settings --config="$XDG_CONFIG_HOME"/nvidia/settings -l &
 fi
