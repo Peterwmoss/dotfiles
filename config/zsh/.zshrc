@@ -34,14 +34,21 @@ export PYLINTHOME="$XDG_CACHE_HOME"/pylint
 export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
 export LESSHISTFILE=-
 
+codi() {
+   local syntax="${1:-python}"
+   nvim -c \
+       "let g:startify_disable_at_vimenter = 1 |\
+       Codi $syntax" "$@"
+}
+
 ###############
 ### ALIASES ###
 ###############
 
 # Configs
 alias vimc="nvim ~/.config/nvim/init.vim"
-alias zshc="vim $HOME/.config/zsh/.zshrc"
-alias csgoc="vim /home/peter/.local/share/Steam/steamapps/common/Counter-Strike\ Global\ Offensive/csgo/cfg/autoexec.cfg"
+alias zshc="nvim $HOME/.config/zsh/.zshrc"
+alias csgoc="nvim /home/peter/.local/share/Steam/steamapps/common/Counter-Strike\ Global\ Offensive/csgo/cfg/autoexec.cfg"
 alias dwmc="cd ~/git/suckless-builds/dwm/ && vim config.h"
 
 # Safety for deleting and overwriting

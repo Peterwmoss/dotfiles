@@ -17,6 +17,9 @@ Plug 'tpope/vim-fugitive'
 " Emmet vim
 Plug 'mattn/emmet-vim'
 
+" Code stuff on the fly
+Plug 'metakirby5/codi.vim'
+
 " Autocomplete engine
 Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
 
