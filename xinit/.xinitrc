@@ -18,7 +18,7 @@ export SSH_AUTH_SOCK
 #export _JAVA_AWT_WM_NONREPARENTING=1
 $(which wal) -R > /dev/null
 nitrogen --restore
-setxkbmap dk
+setxkbmap dk -variant prog
 setxkbmap -option caps:escape
 xbacklight -set 50
 xset r rate 400 75

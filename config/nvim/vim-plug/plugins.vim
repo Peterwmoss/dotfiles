@@ -60,4 +60,8 @@ Plug 'alvan/vim-closetag'
 " Ultisnips
 Plug 'sirver/UltiSnips'
 
+" Bufferline
+Plug 'kyazdani42/nvim-web-devicons' " Recommended (for coloured icons)
+Plug 'akinsho/nvim-bufferline.lua'
+
 call plug#end()

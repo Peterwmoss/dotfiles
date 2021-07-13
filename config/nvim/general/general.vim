@@ -8,7 +8,7 @@ set so=8
 set hidden
 
 " Turn on wild menu
-"set wildmenu
+set wildmenu
 
 " Don't redraw while executing macros
 set lazyredraw
@@ -19,8 +19,8 @@ set showmatch
 " Indents
 set expandtab
 set smarttab
-set tabstop=4 softtabstop=4
-set shiftwidth=4
+set tabstop=2 softtabstop=2
+set shiftwidth=2
 set smartindent
 set autoindent
 set wrap linebreak
@@ -53,22 +53,18 @@ set splitbelow splitright
 
 set conceallevel=0
 
-au BufWinLeave *.* mkview!
-au BufWinEnter *.* silent! loadview
-
 " Statusline
 set noshowmode
 
 let g:live_reload = 0
 
+set viewoptions="folds,options,cursor"
+
 " Autocommands
 augroup MyGroup
     au!
     au BufWritePost *.html :call ReloadFirefox()
-    au FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
     au FileType Makefile setlocal noexpandtab
-    au VimEnter,BufRead,BufNewFile *.c,*.cpp setlocal tabstop=2 softtabstop=2 shiftwidth=2
-    au VimEnter,BufRead,BufNewFile *.fs,*.fsx,*.fsl,*.fsy setlocal filetype=fsharp
     au BufRead,BufNewFile *.tex setlocal filetype=tex
     au BufWinLeave *.* mkview!
     au BufWinEnter *.* silent! loadview

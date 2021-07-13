@@ -13,6 +13,7 @@ source $HOME/.config/nvim/plugin-config/coc.vim
 source $HOME/.config/nvim/plugin-config/git.vim
 source $HOME/.config/nvim/plugin-config/tabularize.vim
 source $HOME/.config/nvim/plugin-config/coc.vim
+source $HOME/.config/nvim/plugin-config/bufferline.vim
 
 " Others
 source $HOME/.config/nvim/themes/colors.vim

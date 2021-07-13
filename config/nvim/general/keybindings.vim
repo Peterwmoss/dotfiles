@@ -22,6 +22,12 @@ map æ (
 map ø )
 map å ^
 
+" Indenting
+vnoremap < <gv
+vnoremap > >gv
+vnoremap <s-tab> >gv
+vnoremap <tab> <gv
+
 " Toggle
 nmap <leader>ts :set spell!<cr>
 nmap <leader>tl :call ToggleLiveReload()<cr>
