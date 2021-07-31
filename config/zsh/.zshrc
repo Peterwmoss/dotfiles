@@ -58,6 +58,7 @@ alias rm="rm -i"
 
 # Easy vim
 alias v="nvim"
+alias pv="pvim"
 
 # Avoid conflicts in doas
 # alias doas="doas --"
