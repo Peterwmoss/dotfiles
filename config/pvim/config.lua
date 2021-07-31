@@ -32,9 +32,6 @@ pvim.custom_mappings = {
   -- Use space-o to to open file
   { mode = "n", comb = "<leader>o", mapping = ":e<space>", options = { noremap = true } },
 
-  -- Debugging
-  { mode = "n", comb = "<leader>d", mapping = ":e<space>", options = { noremap = true } },
-
   -- Searching is centered
   { mode = "n", comb = "n", mapping = "nzz", options = { noremap = true } },
   { mode = "n", comb = "N", mapping = "Nzz", options = { noremap = true } },
