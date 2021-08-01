@@ -15,7 +15,7 @@ fi
 eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 export SSH_AUTH_SOCK
 
-#export _JAVA_AWT_WM_NONREPARENTING=1
+export _JAVA_AWT_WM_NONREPARENTING=1
 $(which wal) -R > /dev/null
 nitrogen --restore
 setxkbmap dk -variant prog
