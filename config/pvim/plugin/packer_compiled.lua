@@ -70,6 +70,7 @@ time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
   ["barbar.nvim"] = {
+    config = { "\27LJ\1\2+\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\16core.barbar\frequire\0" },
     loaded = true,
     path = "/home/peter/.local/share/pennyvim/site/pack/packer/start/barbar.nvim"
   },
@@ -105,7 +106,7 @@ _G.packer_plugins = {
     path = "/home/peter/.local/share/pennyvim/site/pack/packer/start/nvim-compe"
   },
   ["nvim-dap"] = {
-    config = { "\27LJ\1\2§\1\0\0\4\0\b\0\f3\0\0\0004\1\1\0007\1\2\0017\1\3\1%\2\4\0\16\3\0\0>\1\3\0014\1\5\0007\1\6\0017\1\a\1>\1\1\1G\0\1\0\bdap\16custom_init\tpvim\18DapBreakpoint\16sign_define\afn\bvim\1\0\4\vtexthl\28LspDiagnosticsSignError\ttext\bï—£\vlinehl\5\nnumhl\5\0" },
+    config = { "\27LJ\1\2M\0\0\2\0\5\0\b4\0\0\0%\1\1\0>\0\2\0014\0\2\0007\0\3\0007\0\4\0>\0\1\1G\0\1\0\bdap\16custom_init\tpvim\rcore/dap\frequire\0" },
     loaded = true,
     path = "/home/peter/.local/share/pennyvim/site/pack/packer/start/nvim-dap"
   },
@@ -155,22 +156,26 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: nvim-lspconfig
+time([[Config for nvim-lspconfig]], true)
+try_loadstring("\27LJ\1\2.\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\19core.lspconfig\frequire\0", "config", "nvim-lspconfig")
+time([[Config for nvim-lspconfig]], false)
 -- Config for: nvim-treesitter
 time([[Config for nvim-treesitter]], true)
 try_loadstring("\27LJ\1\2/\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\20core.treesitter\frequire\0", "config", "nvim-treesitter")
 time([[Config for nvim-treesitter]], false)
 -- Config for: nvim-dap
 time([[Config for nvim-dap]], true)
-try_loadstring("\27LJ\1\2§\1\0\0\4\0\b\0\f3\0\0\0004\1\1\0007\1\2\0017\1\3\1%\2\4\0\16\3\0\0>\1\3\0014\1\5\0007\1\6\0017\1\a\1>\1\1\1G\0\1\0\bdap\16custom_init\tpvim\18DapBreakpoint\16sign_define\afn\bvim\1\0\4\vtexthl\28LspDiagnosticsSignError\ttext\bï—£\vlinehl\5\nnumhl\5\0", "config", "nvim-dap")
+try_loadstring("\27LJ\1\2M\0\0\2\0\5\0\b4\0\0\0%\1\1\0>\0\2\0014\0\2\0007\0\3\0007\0\4\0>\0\1\1G\0\1\0\bdap\16custom_init\tpvim\rcore/dap\frequire\0", "config", "nvim-dap")
 time([[Config for nvim-dap]], false)
 -- Config for: which-key.nvim
 time([[Config for which-key.nvim]], true)
 try_loadstring("\27LJ\1\2<\0\0\2\0\3\0\0064\0\0\0%\1\1\0>\0\2\0027\0\2\0>\0\1\1G\0\1\0\nsetup\19core.which-key\frequire\0", "config", "which-key.nvim")
 time([[Config for which-key.nvim]], false)
--- Config for: nvim-lspconfig
-time([[Config for nvim-lspconfig]], true)
-try_loadstring("\27LJ\1\2.\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\19core.lspconfig\frequire\0", "config", "nvim-lspconfig")
-time([[Config for nvim-lspconfig]], false)
+-- Config for: barbar.nvim
+time([[Config for barbar.nvim]], true)
+try_loadstring("\27LJ\1\2+\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\16core.barbar\frequire\0", "config", "barbar.nvim")
+time([[Config for barbar.nvim]], false)
 -- Config for: gitsigns.nvim
 time([[Config for gitsigns.nvim]], true)
 try_loadstring("\27LJ\1\0026\0\0\2\0\3\0\0064\0\0\0%\1\1\0>\0\2\0027\0\2\0>\0\1\1G\0\1\0\nsetup\rgitsigns\frequire\0", "config", "gitsigns.nvim")
