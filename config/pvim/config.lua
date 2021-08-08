@@ -7,6 +7,12 @@ pvim.colorscheme = "edge"
   -- Add custom plugins
 pvim.custom_plugins = {
   { "tpope/vim-dispatch" },
+  {
+    "blackCauldron7/surround.nvim",
+    config = function()
+      require "surround".setup {}
+    end
+  },
 }
 
 pvim.custom_mappings = {
@@ -17,7 +23,8 @@ pvim.custom_mappings = {
   { mode = "v", comb = ";", mapping = ",", options = { noremap = true } },
 
   -- Dont replace when pasting over something
-  { mode = "v", comb = "_", mapping = '"_', options = { noremap = true } },
+  { mode = "v", comb = "p", mapping = '"_dp', options = { noremap = true } },
+  { mode = "v", comb = "P", mapping = '"_dP', options = { noremap = true } },
 
   -- To keep it consistent
   { mode = "n", comb = "Y", mapping = "y$", options = { noremap = true } },
@@ -64,7 +71,7 @@ pvim.custom_settings = {
 
 pvim.custom_autocommands = {
   "BufWritePost *.tex :silent! Start! pdflatex -interaction=nonstopmode main.tex ; [[ -a main.bcf ]] && biber main ; pdflatex -interaction=nonstopmode main.tex; pdflatex -interaction=nonstopmode main.tex; latexmk -c main.tex",
-  'TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=150}',
+  'TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=100}',
 }
 
 pvim.custom_init.dap = function()
