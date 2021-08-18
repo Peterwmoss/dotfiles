@@ -26,7 +26,7 @@ export PATH
 
 export JDK_HOME="/opt/openjdk-bin-11"
 
-export EDITOR='nvim'
+export EDITOR='pvim'
 export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
 export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc

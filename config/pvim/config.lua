@@ -1,16 +1,16 @@
-  -- Your preferred leader key
+-- Your preferred leader key
 pvim.leader = "space"
 
-  -- Your preferred colorscheme, this one, among others, has treesitter support
+-- Your preferred colorscheme, this one, among others, has treesitter support
 pvim.colorscheme = "gruvbox"
 
-  -- Add custom plugins
+pvim.extensions = {
+  -- { name = "Peterkmoss/example-pennyvim-extension" },
+}
+
+-- Add custom plugins
 pvim.custom_plugins = {
   { "tpope/vim-dispatch" },
-  {
-    "npxbr/gruvbox.nvim",
-    requires = { "rktjmp/lush.nvim" }
-  },
 }
 
 pvim.custom_mappings = {
@@ -72,7 +72,7 @@ pvim.custom_variables = function()
 end
 
 pvim.custom_autocommands = {
-  "BufWritePost *.tex :silent! Start! xelatex -interaction=nonstopmode main.tex ; [[ -a main.bcf ]] && biber main ; xelatex -interaction=nonstopmode main.tex; latexmk -c main.tex",
+  "BufWritePost *.tex :silent! Start! pdflatex -interaction=nonstopmode main.tex ; [[ -a main.bcf ]] && biber main ; pdflatex -interaction=nonstopmode main.tex; latexmk -c main.tex",
   'TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=100}',
 }
 
