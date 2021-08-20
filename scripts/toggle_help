@@ -1,0 +1,12 @@
+#!/bin/sh
+OPEN=$HOME/.config/conky/.open
+
+if [ -e $OPEN ]; then
+  rm $OPEN
+  pkill conky
+  conky -b -c ~/.config/conky/closed.lua &>/dev/null
+else
+  touch $OPEN
+  pkill conky
+  conky -b -c ~/.config/conky/open.lua &>/dev/null
+fi
