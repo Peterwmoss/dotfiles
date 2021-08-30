@@ -1,0 +1,6 @@
+#!/bin/sh
+
+X=$(echo "" | dmenu)
+
+echo "x = $X
+print(x)" | python | dmenu >& /dev/null
