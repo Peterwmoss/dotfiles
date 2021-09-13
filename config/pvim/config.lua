@@ -11,6 +11,13 @@ pvim.extensions = {
 -- Add custom plugins
 pvim.custom_plugins = {
   { "tpope/vim-dispatch" },
+  {
+    "folke/trouble.nvim",
+    requires = "kyazdani42/nvim-web-devicons",
+    config = function()
+      require("trouble").setup { }
+    end
+  },
 }
 
 pvim.custom_mappings = {
@@ -61,6 +68,9 @@ pvim.custom_mappings = {
   -- Change word
   { mode = "n", comb = "cn", mapping = "*``cgn", options = { noremap = true } },
   { mode = "n", comb = "cN", mapping = "*``cgN", options = { noremap = true } },
+
+  -- Show errors, etc
+  { mode = "n", comb = "<leader>tt", mapping = ":TroubleToggle<CR>", options = { noremap = true } },
 }
 
 pvim.custom_settings = {
@@ -83,7 +93,7 @@ pvim.custom_init.dap = function()
   dap.adapters.node2 = {
     type = 'executable',
     command = 'node',
-    args = {os.getenv('HOME') .. '/git/vscode-node-debug2/out/src/nodeDebug.js'},
+    args = {os.getenv('HOME') .. '/work/vscode-node-debug2/out/src/nodeDebug.js'},
   }
 
   -- Javascript
