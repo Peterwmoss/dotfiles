@@ -46,9 +46,9 @@ codi() {
 ###############
 
 # Configs
-alias vimc="nvim ~/.config/nvim/init.vim"
-alias zshc="nvim $HOME/.config/zsh/.zshrc"
-alias csgoc="nvim /home/peter/.local/share/Steam/steamapps/common/Counter-Strike\ Global\ Offensive/csgo/cfg/autoexec.cfg"
+alias vimc="pvim ~/.config/nvim/init.vim"
+alias zshc="pvim $HOME/.config/zsh/.zshrc"
+alias csgoc="pvim /home/peter/.local/share/Steam/steamapps/common/Counter-Strike\ Global\ Offensive/csgo/cfg/autoexec.cfg"
 alias dwmc="cd ~/git/suckless-builds/dwm/ && vim config.h"
 
 # Safety for deleting and overwriting
@@ -63,7 +63,6 @@ alias pv="pvim"
 # Avoid conflicts in doas
 # alias doas="doas --"
 
-alias mklatex="mkdir -p notes && cp -r ~/git/dotfiles/LaTeX/templates/report/* notes && cd notes && nvim main.tex"
 alias wget="wget --hsts-file="$XDG_CACHE_HOME/wget-hsts""
 
 # Pretty ls and grep
@@ -74,11 +73,6 @@ alias grep="grep --color=auto"
 
 # C see stacktrace of crashing program
 alias gdbs="gdb --batch --ex run --ex bt --ex q --args"
-
-# School stuff
-alias cdosc="cd $HOME/School/5/osc"
-alias cdpsd="cd $HOME/School/5/psd"
-alias cdfop="cd $HOME/School/5/fop"
 
 # Git
 alias addall="git add -A"
@@ -91,7 +85,7 @@ alias fetch="git fetch"
 alias prune="git fetch --prune"
 alias pull="git pull"
 alias push="git push"
-alias commit="git commit -m"
+alias commit="git commit"
 alias commitall="git commit -am"
 alias gitlog="git log --all --graph --decorate --oneline"
 
@@ -106,16 +100,8 @@ alias qm="qmarkdown -dark"
 # PKGBUILDS
 alias updpkg="makepkg - g >> PKGBUILD && rm -rf src *.tar.gz && makepkg --printsrcinfo > .SRCINFO && git add PKGBUILD .SRCINFO && git commit -m"
 
-# Gentoo
-alias eworld="doas emerge --newuse --update --deep @world"
-alias esync="doas emerge --sync --quiet"
-
 # Word count
 alias pagecount="wc -m | tr -d '\n' | awk '{print \$1\"/2400\"}' | bc -l"
-
-calc() {
-  echo "x = $1\nprint(x)" | python
-}
 
 ##########################
 ### ARCHIVE EXTRACTION ###
