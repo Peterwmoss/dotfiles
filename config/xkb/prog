@@ -1,0 +1,40 @@
+default partial alphanumeric_keys
+xkb_symbols "basic" {
+
+    include "latin(type2)"
+
+    name[Group1]="Prog";
+
+    key <AE11>	{ [      plus,   question,    plusminus, questiondown ]	};
+    key <AE12>	{ [dead_acute, dead_grave,          bar,    brokenbar ]	};
+
+
+    key <AC10>	{ [        ae,        AE,   dead_acute, dead_doubleacute ] };
+    key <AC11>	{ [    oslash,  Ooblique, dead_circumflex, dead_caron ]	};
+    key <TLDE>	{ [   onehalf,   section, threequarters,    paragraph ]	};
+
+    key <BKSL>	{ [apostrophe,   asterisk, dead_doubleacute, multiply ]	};
+
+    key <LSGT>	{ [      less,    greater,    backslash,      notsign ]	};
+
+    include "kpdl(comma)"
+
+    include "level3(ralt_switch)"
+};
+
+partial alphanumeric_keys
+xkb_symbols "dk" {
+
+    include "prog(basic)"
+
+    name[Group1]="Prog (Danish)";
+
+    key <AE04>	{ [ 4, dollar, dollar, onequarter ]	};
+    key <AE07>	{ [ 7, slash, diaeresis, asciicircum ]	};
+    key <AE08>	{ [ 8, parenleft, bracketleft, bracketleft ]	};
+    key <AE09>	{ [ 9, parenright, bracketright, bracketright ]	};
+    key <AE10>	{ [ 0, equal ]	};
+
+    key <AD12>	{ [ braceleft, braceright, asciitilde, macron ]	};
+    key <BKSL>	{ [ apostrophe, asterisk, dead_doubleacute, multiply ]	};
+};

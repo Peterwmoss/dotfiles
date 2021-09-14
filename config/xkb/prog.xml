@@ -1,0 +1,18 @@
+<layout>
+  <configItem>
+    <name>prog</name>
+    <shortDescription>prog</shortDescription>
+    <description>Programmer</description>
+    <languageList>
+      <iso639Id>dan</iso639Id>
+    </languageList>
+  </configItem>
+  <variantList>
+    <variant>
+      <configItem>
+        <name>dk</name>
+        <description>Programmer (DK)</description>
+      </configItem>
+    </variant>
+  </variantList>
+</layout>
