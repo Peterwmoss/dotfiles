@@ -18,6 +18,21 @@ pvim.custom_plugins = {
       require("trouble").setup { }
     end
   },
+  {
+    "folke/todo-comments.nvim",
+    requires = "nvim-lua/plenary.nvim",
+    config = function()
+      require("todo-comments").setup {
+        colors = {
+          error = { "LspDiagnosticsDefaultError", "ErrorMsg", "#DC2626" },
+          warning = { "LspDiagnosticsDefaultWarning", "WarningMsg", "#FBBF24" },
+          info = { "LspDiagnosticsDefaultInformation", "#2563EB" },
+          hint = { "LspDiagnosticsDefaultHint", "#10B981" },
+          default = { "Identifier", "#7C3AED" },
+        }
+      }
+    end
+  },
 }
 
 pvim.custom_mappings = {
@@ -71,11 +86,18 @@ pvim.custom_mappings = {
 
   -- Show errors, etc
   { mode = "n", comb = "<leader>tt", mapping = ":TroubleToggle<CR>", options = { noremap = true } },
+
+  -- Better mark navigation
+  { mode = "n", comb = "'", mapping = "`", options = { noremap = true } },
+
+  -- Copy all
+  { mode = "n", comb = "yA", mapping = "m'ggyG`'zz", options = { noremap = true } },
 }
 
 pvim.custom_settings = {
   spelllang = { "da", "en_us" },
   background = "dark",
+  colorcolumn = "100",
 }
 
 pvim.custom_variables = function()
