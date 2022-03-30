@@ -18,21 +18,6 @@ pvim.custom_plugins = {
       require("trouble").setup { }
     end
   },
-  {
-    "folke/todo-comments.nvim",
-    requires = "nvim-lua/plenary.nvim",
-    config = function()
-      require("todo-comments").setup {
-        colors = {
-          error = { "LspDiagnosticsDefaultError", "ErrorMsg", "#DC2626" },
-          warning = { "LspDiagnosticsDefaultWarning", "WarningMsg", "#FBBF24" },
-          info = { "LspDiagnosticsDefaultInformation", "#2563EB" },
-          hint = { "LspDiagnosticsDefaultHint", "#10B981" },
-          default = { "Identifier", "#7C3AED" },
-        }
-      }
-    end
-  },
 }
 
 pvim.custom_mappings = {
@@ -52,7 +37,7 @@ pvim.custom_mappings = {
   -- Fewer keystrokes
   { mode = "n", comb = "cw", mapping = "ciw", options = { noremap = true } },
 
-  -- Tab to indent in visual mode as well
+  -- Tab to indent in visual mode
   { mode = "v", comb = "<tab>", mapping = ">gv", options = { noremap = true } },
   { mode = "v", comb = "<s-tab>", mapping = "<gv", options = { noremap = true } },
 
