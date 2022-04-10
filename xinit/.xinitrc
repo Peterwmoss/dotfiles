@@ -22,6 +22,7 @@ setxkbmap prog -variant dk
 setxkbmap -option caps:escape
 xbacklight -set 50
 xset r rate 400 75
+dunst &
 #spotifyd
 if [ command -v nvidia-settings ] ; then
     nvidia-settings --config="$XDG_CONFIG_HOME"/nvidia/settings -l &

@@ -18,21 +18,6 @@ pvim.custom_plugins = {
       require("trouble").setup { }
     end
   },
-  {
-    "folke/todo-comments.nvim",
-    requires = "nvim-lua/plenary.nvim",
-    config = function()
-      require("todo-comments").setup {
-        colors = {
-          error = { "LspDiagnosticsDefaultError", "ErrorMsg", "#DC2626" },
-          warning = { "LspDiagnosticsDefaultWarning", "WarningMsg", "#FBBF24" },
-          info = { "LspDiagnosticsDefaultInformation", "#2563EB" },
-          hint = { "LspDiagnosticsDefaultHint", "#10B981" },
-          default = { "Identifier", "#7C3AED" },
-        }
-      }
-    end
-  },
 }
 
 pvim.custom_mappings = {
@@ -58,6 +43,10 @@ pvim.custom_mappings = {
 
   -- Use space-o to to open file
   { mode = "n", comb = "<leader>o", mapping = ":e<space>", options = { noremap = true } },
+
+  -- Move buffers around
+  { mode = "n", comb = "<leader>bl", mapping = ":BufferLineMoveNext<cr>", options = { noremap = true } },
+  { mode = "n", comb = "<leader>bh", mapping = ":BufferLineMovePrev<cr>", options = { noremap = true } },
 
   -- Searching is centered
   { mode = "n", comb = "n", mapping = "nzz", options = { noremap = true } },
