@@ -2,3 +2,4 @@ config/zsh/.zcomp*
 
 config/pvim/lua
 config/pvim/plugin
+config/zsh/zprezto
