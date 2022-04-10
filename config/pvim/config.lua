@@ -37,7 +37,7 @@ pvim.custom_mappings = {
   -- Fewer keystrokes
   { mode = "n", comb = "cw", mapping = "ciw", options = { noremap = true } },
 
-  -- Tab to indent in visual mode as well
+  -- Tab to indent in visual mode
   { mode = "v", comb = "<tab>", mapping = ">gv", options = { noremap = true } },
   { mode = "v", comb = "<s-tab>", mapping = "<gv", options = { noremap = true } },
 
@@ -71,11 +71,18 @@ pvim.custom_mappings = {
 
   -- Show errors, etc
   { mode = "n", comb = "<leader>tt", mapping = ":TroubleToggle<CR>", options = { noremap = true } },
+
+  -- Better mark navigation
+  { mode = "n", comb = "'", mapping = "`", options = { noremap = true } },
+
+  -- Copy all
+  { mode = "n", comb = "yA", mapping = "m'ggyG`'zz", options = { noremap = true } },
 }
 
 pvim.custom_settings = {
   spelllang = { "da", "en_us" },
   background = "dark",
+  colorcolumn = "100",
 }
 
 pvim.custom_variables = function()

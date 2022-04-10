@@ -35,6 +35,6 @@ xkb_symbols "dk" {
     key <AE09>	{ [ 9, parenright, bracketright, bracketright ]	};
     key <AE10>	{ [ 0, equal ]	};
 
-    key <AD12>	{ [ braceleft, braceright, asciitilde, macron ]	};
+    key <AD12>	{ [ braceleft, braceright, asciitilde, dead_diaeresis ]	};
     key <BKSL>	{ [ apostrophe, asterisk, dead_doubleacute, multiply ]	};
 };

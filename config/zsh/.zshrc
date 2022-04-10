@@ -1,26 +1,10 @@
-export ZSH="$HOME/.config/oh-my-zsh"
 export HISTFILE=$HOME/.cache/zsh/history
 
-ZSH_THEME="spaceship"
-
-plugins=(
-	git
-	docker
-	npm
-	wd
-	archlinux
-	extract
-	zsh-syntax-highlighting
-	zsh-autosuggestions
-)
-
-source $ZSH/oh-my-zsh.sh
-
-# My own path
 path+=("$HOME/.local/share/cargo/bin")
 path+=("$HOME/.local/bin")
 path+=("$HOME/.local/scripts")
 path+=("$HOME/.ghcup/bin/")
+path+=("$HOME/.local/share/npm/bin/")
 path+=("/opt/openjdk-bin-11")
 export PATH
 
@@ -60,15 +44,16 @@ alias rm="rm -i"
 alias v="nvim"
 alias pv="pvim"
 
-# Avoid conflicts in doas
-# alias doas="doas --"
+# Easier docker
+alias docker="doas docker"
+alias d-c="doas docker-compose"
 
 alias wget="wget --hsts-file="$XDG_CACHE_HOME/wget-hsts""
 
 # Pretty ls and grep
-alias ls="lsd"
-alias lt="ls --tree"
-alias lla="ls -la"
+# alias ls="lsd"
+# alias lt="ls --tree"
+# alias lla="ls -la"
 alias grep="grep --color=auto"
 
 # C see stacktrace of crashing program
@@ -81,18 +66,18 @@ alias addp="git add -p"
 alias stash="git stash"
 alias pop="git stash pop"
 alias status="git status"
-alias fetch="git fetch"
-alias prune="git fetch --prune"
+alias fetch="git fetch --prune"
 alias pull="git pull"
 alias push="git push"
 alias commit="git commit"
-alias commitall="git commit -am"
+alias commitm="git commit -m"
 alias gitlog="git log --all --graph --decorate --oneline"
 
 # Tmux
 alias tn="tmux -u new"
 alias ta="tmux -u attach"
 alias tc="nvim ~/git/dotfiles/config/tmux/tmux.conf"
+alias work="tmux attach -t work"
 
 # QMarkdown
 alias qm="qmarkdown -dark"
@@ -134,3 +119,4 @@ ex ()
     echo "'$1' is not a valid file"
   fi
 }
+source "${ZDOTDIR:-$HOME}/zprezto/init.zsh"
