@@ -37,7 +37,7 @@ pvim.custom_mappings = {
   -- Fewer keystrokes
   { mode = "n", comb = "cw", mapping = "ciw", options = { noremap = true } },
 
-  -- Tab to indent in visual mode as well
+  -- Tab to indent in visual mode
   { mode = "v", comb = "<tab>", mapping = ">gv", options = { noremap = true } },
   { mode = "v", comb = "<s-tab>", mapping = "<gv", options = { noremap = true } },
 

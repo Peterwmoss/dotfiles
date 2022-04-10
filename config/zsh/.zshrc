@@ -88,6 +88,8 @@ alias updpkg="makepkg - g >> PKGBUILD && rm -rf src *.tar.gz && makepkg --prints
 # Word count
 alias pagecount="wc -m | tr -d '\n' | awk '{print \$1\"/2400\"}' | bc -l"
 
+alias dndscreen="xrandr --output HDMI1 --right-of ePD1 --mode 2560x1440"
+
 ##########################
 ### ARCHIVE EXTRACTION ###
 ##########################
