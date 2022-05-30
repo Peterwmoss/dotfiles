@@ -2,9 +2,20 @@
 STYLUS=$(xsetwacom --list devices | grep stylus | awk '{ print $8 }')
 PAD=$(xsetwacom --list devices | grep PAD | awk '{ print $8 }')
 TOUCH=$(xsetwacom --list devices | grep TOUCH | awk '{ print $8 }')
+if [ -z "$STYLUS" ] ||  [ -z "$PAD" ] || [ -z "$TOUCH" ]; then
+  echo "Can't find device"
+  exit 1
+fi
+echo "Setting rotation: buttons right"
 xsetwacom set $STYLUS rotate half
+echo "Setting button 1"
 xsetwacom -s set $PAD Button 1 "key +shift button +2"
+echo "Setting button 2"
 xsetwacom -s set $PAD Button 2 "2"
+echo "Setting button 10"
 xsetwacom -s set $PAD Button 10 "key +ctrl z -ctrl"
+echo "Setting button 11"
 xsetwacom -s set $PAD Button 11 "key +ctrl +shift z -shift -ctrl"
+echo "Setting touch: OFF"
 xsetwacom -s set $TOUCH Touch off
+echo "Done!"
