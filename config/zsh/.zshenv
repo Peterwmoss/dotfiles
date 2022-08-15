@@ -1,1 +1,1 @@
-/home/peter/.config/zsh/zprezto/runcoms/zshenv
+/home/peter/.config/zsh/.zprezto/runcoms/zshenv

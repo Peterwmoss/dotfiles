@@ -1,1 +1,1 @@
-/home/peter/.config/zsh/zprezto/runcoms/zlogin
+/home/peter/.config/zsh/.zprezto/runcoms/zlogin
