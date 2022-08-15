@@ -5,11 +5,13 @@ path+=("$HOME/.local/bin")
 path+=("$HOME/.local/scripts")
 path+=("$HOME/.ghcup/bin/")
 path+=("$HOME/.local/share/npm/bin/")
+path+=("$HOME/.sdkman/bin/sdkman-init.sh")
 path+=("/opt/openjdk-bin-11")
 export PATH
 
-export JDK_HOME="/opt/openjdk-bin-11"
+export JDK_HOME="/opt/openjdk-bin-18"
 
+export ZDOTDIR="$HOME/.config/zsh/"
 export EDITOR='pvim'
 export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
@@ -119,4 +121,8 @@ ex ()
     echo "'$1' is not a valid file"
   fi
 }
-source "${ZDOTDIR:-$HOME}/zprezto/init.zsh"
+source "$ZDOTDIR/zprezto/init.zsh"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
