@@ -7,4 +7,5 @@ export DISPLAY XAUTHORITY HOME
 
 setxkbmap prog -variant dk
 setxkbmap -option caps:escape
+xmodmap -e "keycode 49 = Escape"
 xset r rate 400 75

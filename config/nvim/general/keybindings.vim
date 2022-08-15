@@ -3,11 +3,6 @@ let mapleader = " "
 
 " Fast saving
 nmap <leader>w :w<CR>
-nmap <leader>W :wa<CR>
-
-" Easy quit
-nmap <leader>q :q<CR>
-nmap <leader>Q :qa<CR>
 
 " Search
 nnoremap <F5> :set nohlsearch!<cr>
@@ -28,9 +23,16 @@ vnoremap > >gv
 vnoremap <s-tab> >gv
 vnoremap <tab> <gv
 
+nnoremap Y y$
+
+nnoremap cw ciw
+
+nnoremap ' `
+
+nnoremap yA m'ggyG`'zz
+
 " Toggle
 nmap <leader>ts :set spell!<cr>
-nmap <leader>tl :call ToggleLiveReload()<cr>
 
 " Map ½ to something useful
 map ½ $
@@ -48,11 +50,11 @@ vnoremap <down> :m '>+1<CR>gv=gv
 vnoremap <up> :m '<-2<CR>gv=gv
 
 " Buffers
-nmap <tab> :bnext<cr>
-nmap <S-tab> :bprevious<cr>
+nmap <tab> :tabnext<cr>
+nmap <S-tab> :tabprevious<cr>
 map <leader>b :buffers<cr>:buffer<space>
 map <leader>B :buffers<cr>
-map <leader>d :bd<cr>
+map <leader>d :tabclose<cr>
 
 " Window switching
 nmap <C-h> <C-w>h

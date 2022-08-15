@@ -19,10 +19,8 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 export PATH=$PATH:$HOME/.local/scripts
 $(which wal) -R > /dev/null
 nitrogen --restore
-setxkbmap prog -variant dk
-setxkbmap -option caps:escape
+$HOME/.local/scripts/kbd
 xbacklight -set 50
-xset r rate 400 75
 dunst &
 #spotifyd
 if [ command -v nvidia-settings ] ; then
