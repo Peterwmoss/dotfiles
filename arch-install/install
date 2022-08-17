@@ -1,0 +1,135 @@
+#!/bin/sh
+set -e
+
+function run_wpa_supplicant() {
+  # Show interfaces
+  ip link
+  echo -n "What interface do you want to start wpa_supplicant on? "
+  read W_INTERFACE
+  wpa_supplicant -B -i $W_INTERFACE -c /etc/wpa_supplicant/wpa_supplicant.conf
+  dhcpcd $W_INTERFACE
+}
+
+loadkeys dk-latin1
+
+ls /sys/firmware/efi/efivars > /dev/null
+
+# Connect to wifi
+echo "ctrl_interface=/run/wpa_supplicant
+update_config=1" > /etc/wpa_supplicant/wpa_supplicant.conf
+
+echo -n "Do you know the ssid and psk for your network? ([y]es/[N]o)? "
+read KNOW_NETWORK
+if [[ "$KNOW_NETWORK" = "y" ]] || [[ "$KNOW_NETWORK" = "Y" ]] || [[ "$KNOW_NETWORK" = "yes" ]]; then
+  echo -n "SSID: "
+  read SSID
+  echo -n "Passphrase: "
+  read PSK
+  echo "
+network={
+      ssid=\"$SSID\"
+      psk=\"$PSK\"
+      mesh_fwding=1
+}
+" >> /etc/wpa_supplicant/wpa_supplicant.conf
+  run_wpa_supplicant
+else
+  run_wpa_supplicant
+  echo "Run the following:
+- scan
+- add_network
+- set network 0 ssid <network ssid>
+- set network 0 psk <passphrase>
+- enable_network 0
+- save_config
+- quit"
+  wpa_cli
+fi
+
+echo "Waiting 10 seconds for network to connect and provide an IP before testing connection..."
+echo "10..."
+sleep 1
+echo "9..."
+sleep 1
+echo "8..."
+sleep 1
+echo "7..."
+sleep 1
+echo "6..."
+sleep 1
+echo "5..."
+sleep 1
+echo "4..."
+sleep 1
+echo "3..."
+sleep 1
+echo "2..."
+sleep 1
+echo "1..."
+sleep 1
+
+ping -w 5 archlinux.org
+
+# Update time
+timedatectl set-ntp true
+
+# Start partitioning
+echo "Time for partitions:
+500M EFI
+8G+ Swap
+Remaining Linux file system"
+
+# Show devices
+lsblk
+
+# Select device to partition
+echo -n "Which device do you want to partition? (e.g. /dev/nvme0n1) "
+read DEVICE
+
+# Partition using fdisk
+fdisk "$DEVICE"
+
+# Create efi fs
+echo -n "EFI partition number: "
+read EFI_PARTITION
+mkfs.fat -F 32 "$DEVICE""EFI_PARTITION"
+
+# Create swap fs
+echo -n "Swap partition number: "
+read SWAP_PARTITION
+mkswap "$DEVICE""SWAP_PARTITION"
+
+# Create root fs
+echo -n "Root fs partition number: "
+read ROOTFS_PARTITION
+mkfs.ext4 "$DEVICE""ROOTFS_PARTITION"
+
+# Mount filesystem
+mount "$DEVICE""ROOTFS_PARTITION" /mnt
+mount --mkdir "$DEVICE""EFI_PARTITION" /mnt/boot
+swapon "$DEVICE""SWAP_PARTITION"
+
+# Install packages provided in packages.txt
+pacstrap /mnt - < /etc/packages.txt
+
+# Genfstab
+genfstab -U /mnt >> /mnt/etc/fstab
+
+# Copy post chroot script
+cp /etc/post-chroot /mnt/etc/post-chroot
+cp /etc/aur /mnt/etc/aur
+
+# Run the script in chroot
+arch-chroot /mnt /etc/post-chroot
+arch-chroot /mnt /etc/aur
+arch-chroot /mnt pacman -Rcns sudo
+
+# Remove post chroot script and unmount fs
+rm /mnt/post-chroot
+rm /mnt/aur
+umount -R /mnt
+
+# Reboot
+echo "Install complete, rebooting"
+sleep 3
+reboot
