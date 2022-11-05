@@ -18,6 +18,12 @@ pvim.custom_plugins = {
       require("trouble").setup { }
     end
   },
+  {
+    "nvim-tree/nvim-tree.lua",
+    config = function()
+      require "nvim-tree".setup{}
+    end
+  },
 }
 
 pvim.custom_mappings = {
@@ -81,6 +87,9 @@ pvim.custom_mappings = {
 
   -- Copy all
   { mode = "n", comb = "yA", mapping = "m'ggyG`'zz", options = { noremap = true } },
+
+  -- NVim tree
+  { mode = "n", comb = "<leader>e", mapping = ":NvimTreeToggle<CR>", options = { noremap = true } },
 }
 
 pvim.custom_settings = {
