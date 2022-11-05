@@ -12,14 +12,14 @@ if [ -f $HOME/.config/X11/xresources ] ; then
     xrdb -merge $HOME/.config/X11/xresources
 fi
 
-eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
+eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh) &
 export SSH_AUTH_SOCK
 
 export _JAVA_AWT_WM_NONREPARENTING=1
 $(which wal) -R > /dev/null
-nitrogen --restore
-$HOME/.local/scripts/kbd
-xbacklight -set 50
+nitrogen --restore &
+$HOME/.local/scripts/kbd &
+xbacklight -set 50 &
 dunst &
 #spotifyd
 if [ command -v nvidia-settings ] ; then
