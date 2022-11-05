@@ -1,0 +1,42 @@
+#!/bin/sh
+
+function ask_install() {
+  INSTALL=
+  PKG=$1
+  NAME=$2
+  echo -n "Do you want to install $NAME? ([y]es/[N]o) "
+  read INSTALL
+
+  if [[ "$INSTALL" = "y" ]] || [[ "$INSTALL" = "yes" ]]; then
+    echo "Installing $NAME"
+    yay -Sy $PKG
+  fi
+}
+
+# AUR helper
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+cd ..
+rm -rf yay
+
+# Use doas for yay
+yay --sudo doas --sudoflags -- --save
+
+yay -Sy \
+  pywal-git\
+  i3lock-fancy-git i3lock-fancy-multimonitor\
+  mkinitcpio-firmware\
+  cmst
+
+# intellij
+ask_install "intellij-idea-ultimate-edition" "intellij idea ultimate edition"
+
+# nerd fonts
+ask_install "nerd-fonts-complete" "nerd fonts complete"
+
+# slack
+ask_install "slack-desktop" "slack"
+
+# Cpupower gui
+ask_install "cpupower-gui" "cpupower gui"

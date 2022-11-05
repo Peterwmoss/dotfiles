@@ -1,0 +1,42 @@
+#!/bin/sh
+
+# Set time zone to Copenhagen
+ln -sf /usr/share/zoneinfo/Europe/Copenhagen /etc/localtime
+
+# Sync hardware clock
+hwclock --systohc
+
+# Generate locales
+echo "
+da_DK.UTF-8 UTF-8  
+en_DK.UTF-8 UTF-8
+en_GB.UTF-8 UTF-8  
+en_US.UTF-8 UTF-8" >> /etc/locale.gen
+locale-gen
+
+# Set locale
+echo "LANG=en_DK.UTF-8" > /etc/locale.conf
+
+# Keymap in tty
+echo "KEYMAP=dk-latin1" > /etc/vconsole.conf
+
+# Set hostname
+echo -n "What should your hostname be? "
+read HOSTNAME
+echo "$HOSTNAME" > /etc/hostname
+
+
+# Set root password
+passwd
+
+# Install boot-loader
+grub-install --target=x86_64-efi --efi-directory /boot --bootloader-id=GRUB
+grub-mkconfig -o /boot/grub/grub.cfg
+
+# Create user
+useradd -m peter -G wheel,audio,input,video
+passwd peter
+
+echo "permit persist :wheel
+permit nopass peter as root cmd reboot
+permit nopass peter as root cmd poweroff" > /etc/doas.conf

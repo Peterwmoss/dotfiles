@@ -1,25 +1,38 @@
 #!/bin/sh
-FILE="$HOME/.config/screenshots/config"
-if [ -f $FILE ]; then
-    if [ $# -eq 0 ]; then
-        echo "No arguments supplied"
-        exit
-    fi
-    IMAGE=$1
 
-    SELECTION="$(cat $FILE | sort -u | sed -e "s|^~|$HOME|" | dmenu -i -p 'Save in >')"
-
-    if [ ! -d "$SELECTION" ]; then
-        echo "Dir does not exist"
-        exit
-    fi
-
-    if [ ! -z "$SELECTION" ]; then
-        mv -iv $IMAGE $SELECTION
-    else
-        echo "You need to select a directory"
-    fi
-else
-    echo "You need a config file in ~/.config/screenshots"
-    exit
+if [ $# -eq 0 ]; then
+    echo "No arguments supplied"
+    exit 1
 fi
+
+IMAGE=$1
+
+function show_save_menu() {
+  SELECTION=$(sort -u | sed -e "s|^~|$HOME|" | dmenu -i -p 'Save in >') <&0
+  echo "$SELECTION"
+}
+
+CONFIG="$HOME/.config/screenshots/config"
+if [ -f $CONFIG ]; then
+  SELECTION="$(cat $CONFIG | show_save_menu)"
+else
+  if [ -d "$HOME/pictures" ]; then
+    SELECTION="$(printf \"$HOME/pictures\" | show_save_menu)"
+  elif [ -d "$HOME/Pictures" ]; then
+    SELECTION="$(printf \"$HOME/Pictures\" | show_save_menu)"
+  fi
+fi
+
+if [ -z "$SELECTION" ]; then
+  printf  "You need to select a directory\n"
+  rm -f $IMAGE
+  exit 1
+fi
+
+if [ ! -d "$SELECTION" ]; then
+  printf "Directory does not exist\n"
+  rm -f $IMAGE
+  exit 1
+fi
+
+mv -v $IMAGE $SELECTION
