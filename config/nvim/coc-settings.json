@@ -1,7 +1,0 @@
-{
-    "eslint.autoFixOnSave": false,
-    "explorer.width": 30,
-    "explorer.icon.enableNerdfont": true,
-    "prettier.tabWidth": 4,
-    "snippets.userSnippetsDirectory": "$HOME/git/dotfiles/config/nvim/snippets"
-}
