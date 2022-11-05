@@ -121,10 +121,11 @@ ex ()
     echo "'$1' is not a valid file"
   fi
 }
+
 export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:=$HOME/.config}"
 export ZDOTDIR="${ZDOTDIR:=$XDG_CONFIG_HOME/zsh}"
 source "$ZDOTDIR/.zshenv"
-source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+source "${ZDOTDIR:-$HOME}/zprezto/init.zsh"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"

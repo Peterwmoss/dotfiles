@@ -1,1 +1,1 @@
-/home/peter/.config/zsh/.zprezto/runcoms/zlogout
+zprezto/runcoms/zlogout
