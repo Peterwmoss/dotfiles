@@ -12,7 +12,7 @@ if [ -f $HOME/.config/X11/xresources ] ; then
     xrdb -merge $HOME/.config/X11/xresources
 fi
 
-eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh) &
+eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 export SSH_AUTH_SOCK
 
 export _JAVA_AWT_WM_NONREPARENTING=1
