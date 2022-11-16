@@ -16,13 +16,17 @@ pvim.custom_plugins = {
     requires = "kyazdani42/nvim-web-devicons",
     config = function()
       require("trouble").setup { }
-    end
+    end,
   },
   {
     "nvim-tree/nvim-tree.lua",
     config = function()
       require "nvim-tree".setup{}
-    end
+    end,
+  },
+  {
+    "xiyaowong/telescope-emoji.nvim",
+    requires = "nvim-telescope/telescope.nvim",
   },
 }
 
@@ -50,10 +54,6 @@ pvim.custom_mappings = {
   -- Use space-o to to open file
   { mode = "n", comb = "<leader>o", mapping = ":e<space>", options = { noremap = true } },
 
-  -- Move buffers around
-  { mode = "n", comb = "<leader>bl", mapping = ":BufferLineMoveNext<cr>", options = { noremap = true } },
-  { mode = "n", comb = "<leader>bh", mapping = ":BufferLineMovePrev<cr>", options = { noremap = true } },
-
   -- Searching is centered
   { mode = "n", comb = "n", mapping = "nzz", options = { noremap = true } },
   { mode = "n", comb = "N", mapping = "Nzz", options = { noremap = true } },
@@ -75,10 +75,6 @@ pvim.custom_mappings = {
   { mode = "n", comb = "<leader>j", mapping = ":m .+1<CR>==", options = { noremap = true } },
   { mode = "n", comb = "<leader>k", mapping = ":m .-2<CR>==", options = { noremap = true } },
 
-  -- Change word
-  { mode = "n", comb = "cn", mapping = "*``cgn", options = { noremap = true } },
-  { mode = "n", comb = "cN", mapping = "*``cgN", options = { noremap = true } },
-
   -- Show errors, etc
   { mode = "n", comb = "<leader>tt", mapping = ":TroubleToggle<CR>", options = { noremap = true } },
 
@@ -87,9 +83,6 @@ pvim.custom_mappings = {
 
   -- Copy all
   { mode = "n", comb = "yA", mapping = "m'ggyG`'zz", options = { noremap = true } },
-
-  -- NVim tree
-  { mode = "n", comb = "<leader>e", mapping = ":NvimTreeToggle<CR>", options = { noremap = true } },
 }
 
 pvim.custom_settings = {

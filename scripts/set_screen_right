@@ -4,3 +4,4 @@ AVAILABLE=$(xrandr --current | grep -P -i ' connected (?!primary)' | cut -f 1 -d
 PRIMARY=$(xrandr --current | grep -P -i ' connected primary' | cut -f 1 -d ' ')
 
 xrandr --output $AVAILABLE --right-of $PRIMARY --auto
+nitrogen --restore
