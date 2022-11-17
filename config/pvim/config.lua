@@ -19,12 +19,6 @@ pvim.custom_plugins = {
     end,
   },
   {
-    "nvim-tree/nvim-tree.lua",
-    config = function()
-      require "nvim-tree".setup{}
-    end,
-  },
-  {
     "xiyaowong/telescope-emoji.nvim",
     requires = "nvim-telescope/telescope.nvim",
   },
