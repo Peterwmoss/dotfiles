@@ -11,7 +11,6 @@ export PATH
 
 export JDK_HOME="/opt/openjdk-bin-18"
 
-export ZDOTDIR="$HOME/.config/zsh/"
 export EDITOR='pvim'
 export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
@@ -19,13 +18,6 @@ export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 export PYLINTHOME="$XDG_CACHE_HOME"/pylint
 export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
 export LESSHISTFILE=-
-
-codi() {
-   local syntax="${1:-python}"
-   nvim -c \
-       "let g:startify_disable_at_vimenter = 1 |\
-       Codi $syntax" "$@"
-}
 
 ###############
 ### ALIASES ###
@@ -45,10 +37,6 @@ alias rm="rm -i"
 # Easy vim
 alias v="nvim"
 alias pv="pvim"
-
-# Easier docker
-alias docker="doas docker"
-alias d-c="doas docker-compose"
 
 alias wget="wget --hsts-file="$XDG_CACHE_HOME/wget-hsts""
 
@@ -130,7 +118,3 @@ source "${ZDOTDIR:-$HOME}/zprezto/init.zsh"
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-
-
-# Load Angular CLI autocompletion.
-source <(ng completion script)
