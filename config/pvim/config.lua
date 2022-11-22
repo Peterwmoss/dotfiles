@@ -25,6 +25,11 @@ pvim.custom_plugins = {
 }
 
 pvim.custom_mappings = {
+  { mode = "n", comb = "<C-p>", mapping = '"0p', options = { noremap = true } },
+  { mode = "n", comb = "<C-P>", mapping = '"0P', options = { noremap = true } },
+
+  { mode = "n", comb = "{", mapping = '<C-^>', options = { noremap = true } },
+
   -- , to ; and vice versa
   { mode = "n", comb = ",", mapping = ";", options = { noremap = true } },
   { mode = "n", comb = ";", mapping = ",", options = { noremap = true } },
