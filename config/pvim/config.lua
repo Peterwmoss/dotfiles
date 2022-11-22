@@ -25,8 +25,11 @@ pvim.custom_plugins = {
 }
 
 pvim.custom_mappings = {
-  { mode = "n", comb = "<C-p>", mapping = '"0p', options = { noremap = true } },
-  { mode = "n", comb = "<C-P>", mapping = '"0P', options = { noremap = true } },
+  { mode = "n", comb = "<leader>p", mapping = '"0p', options = { noremap = true } },
+  { mode = "n", comb = "<leader>P", mapping = '"0P', options = { noremap = true } },
+
+  { mode = "v", comb = "<leader>p", mapping = '"0p', options = { noremap = true } },
+  { mode = "v", comb = "<leader>P", mapping = '"0P', options = { noremap = true } },
 
   { mode = "n", comb = "{", mapping = '<C-^>', options = { noremap = true } },
 
@@ -35,10 +38,6 @@ pvim.custom_mappings = {
   { mode = "n", comb = ";", mapping = ",", options = { noremap = true } },
   { mode = "v", comb = ",", mapping = ";", options = { noremap = true } },
   { mode = "v", comb = ";", mapping = ",", options = { noremap = true } },
-
-  -- Dont replace when pasting over something
-  { mode = "v", comb = "p", mapping = '"_dP', options = { noremap = true } },
-  { mode = "v", comb = "P", mapping = '"_dlP', options = { noremap = true } },
 
   -- To keep it consistent
   { mode = "n", comb = "Y", mapping = "y$", options = { noremap = true } },
