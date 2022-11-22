@@ -25,6 +25,8 @@ pvim.custom_plugins = {
 }
 
 pvim.custom_mappings = {
+  { mode = "n", comb = "<leader>x", mapping = ':Explore<CR>', options = { noremap = true } },
+
   { mode = "n", comb = "<leader>p", mapping = '"0p', options = { noremap = true } },
   { mode = "n", comb = "<leader>P", mapping = '"0P', options = { noremap = true } },
 
@@ -95,6 +97,7 @@ end
 pvim.custom_autocommands = {
   "BufWritePost *.tex :silent! Start! pdflatex -interaction=nonstopmode main.tex ; [[ -a main.bcf ]] && biber main ; pdflatex -interaction=nonstopmode main.tex; latexmk -c main.tex",
   'TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=100}',
+  'FileType netrw nmap <buffer> <leader>x :Rexplore<CR>'
 }
 
 pvim.custom_init.dap = function()
