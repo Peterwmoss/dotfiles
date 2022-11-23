@@ -80,6 +80,8 @@ pvim.custom_mappings = {
 
   -- Better mark navigation
   { mode = "n", comb = "'", mapping = "`", options = { noremap = true } },
+  { mode = "n", comb = "ø", mapping = "`", options = { noremap = true } },
+  { mode = "n", comb = "æ", mapping = "`", options = { noremap = true } },
 
   -- Copy all
   { mode = "n", comb = "yA", mapping = "m'ggyG`'zz", options = { noremap = true } },
