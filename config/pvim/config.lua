@@ -22,6 +22,10 @@ pvim.custom_plugins = {
     "xiyaowong/telescope-emoji.nvim",
     requires = "nvim-telescope/telescope.nvim",
   },
+  {
+    'nvim-treesitter/nvim-treesitter-context',
+    requires = 'nvim-treesitter/nvim-treesitter',
+  }
 }
 
 pvim.custom_mappings = {
