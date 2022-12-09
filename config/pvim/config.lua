@@ -29,8 +29,6 @@ pvim.custom_plugins = {
 }
 
 pvim.custom_mappings = {
-  { mode = "n", comb = "<leader>x", mapping = ':Explore<CR>', options = { noremap = true } },
-
   { mode = "n", comb = "<leader>p", mapping = '"0p', options = { noremap = true } },
   { mode = "n", comb = "<leader>P", mapping = '"0P', options = { noremap = true } },
 
@@ -79,13 +77,11 @@ pvim.custom_mappings = {
   { mode = "n", comb = "<leader>j", mapping = ":m .+1<CR>==", options = { noremap = true } },
   { mode = "n", comb = "<leader>k", mapping = ":m .-2<CR>==", options = { noremap = true } },
 
-  -- Show errors, etc
-  { mode = "n", comb = "<leader>tt", mapping = ":TroubleToggle<CR>", options = { noremap = true } },
-
   -- Better mark navigation
   { mode = "n", comb = "'", mapping = "`", options = { noremap = true } },
-  { mode = "n", comb = "ø", mapping = "`", options = { noremap = true } },
-  { mode = "n", comb = "æ", mapping = "`", options = { noremap = true } },
+
+  -- Easy go to matching parentheses
+  { mode = "n", comb = "å", mapping = "%", options = { noremap = true } },
 
   -- Copy all
   { mode = "n", comb = "yA", mapping = "m'ggyG`'zz", options = { noremap = true } },
