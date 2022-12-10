@@ -31,10 +31,11 @@ pvim.custom_plugins = {
   },
   {
     'rmehri01/onenord.nvim',
-    config = function()
-      require("onenord").setup{}
-    end,
-  }
+  },
+  {
+    'monsonjeremy/onedark.nvim',
+    branch = 'treesitter',
+  },
 }
 
 pvim.custom_mappings = {
