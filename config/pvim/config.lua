@@ -2,7 +2,7 @@
 pvim.leader = "space"
 
 -- Your preferred colorscheme, this one, among others, has treesitter support
-pvim.colorscheme = "gruvbox"
+pvim.colorscheme = "onenord"
 
 pvim.extensions = {
   -- { name = "Peterkmoss/example-pennyvim-extension" },
@@ -28,17 +28,17 @@ pvim.custom_plugins = {
   },
   {
     'towolf/vim-helm'
+  },
+  {
+    'rmehri01/onenord.nvim',
+    config = function()
+      require("onenord").setup{}
+    end,
   }
 }
 
 pvim.custom_mappings = {
-  { mode = "n", comb = "<leader>x", mapping = ':Explore<CR>', options = { noremap = true } },
-
-  { mode = "n", comb = "<leader>p", mapping = '"0p', options = { noremap = true } },
-  { mode = "n", comb = "<leader>P", mapping = '"0P', options = { noremap = true } },
-
-  { mode = "v", comb = "<leader>p", mapping = '"0p', options = { noremap = true } },
-  { mode = "v", comb = "<leader>P", mapping = '"0P', options = { noremap = true } },
+  { mode = "n", comb = "<C-P>", mapping = ':SourcePennyVim<CR>:PackerSync<CR>', options = { noremap = true } },
 
   { mode = "n", comb = "{", mapping = '<C-^>', options = { noremap = true } },
 
@@ -82,13 +82,11 @@ pvim.custom_mappings = {
   { mode = "n", comb = "<leader>j", mapping = ":m .+1<CR>==", options = { noremap = true } },
   { mode = "n", comb = "<leader>k", mapping = ":m .-2<CR>==", options = { noremap = true } },
 
-  -- Show errors, etc
-  { mode = "n", comb = "<leader>tt", mapping = ":TroubleToggle<CR>", options = { noremap = true } },
-
   -- Better mark navigation
   { mode = "n", comb = "'", mapping = "`", options = { noremap = true } },
-  { mode = "n", comb = "ø", mapping = "`", options = { noremap = true } },
-  { mode = "n", comb = "æ", mapping = "`", options = { noremap = true } },
+
+  -- Easy go to matching parentheses
+  { mode = "n", comb = "å", mapping = "%", options = { noremap = true } },
 
   -- Copy all
   { mode = "n", comb = "yA", mapping = "m'ggyG`'zz", options = { noremap = true } },
