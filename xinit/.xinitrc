@@ -18,9 +18,9 @@ export SSH_AUTH_SOCK
 export _JAVA_AWT_WM_NONREPARENTING=1
 export PATH=$PATH:$HOME/.local/scripts
 $(which wal) -R > /dev/null
-nitrogen --restore &
+nitrogen --restore
 $HOME/.local/scripts/kbd
-xbacklight -set 50 &
+xbacklight -set 50
 dunst &
 #spotifyd
 if [ command -v nvidia-settings ] ; then
