@@ -26,7 +26,11 @@ dunst &
 if [ command -v nvidia-settings ] ; then
     nvidia-settings --config="$XDG_CONFIG_HOME"/nvidia/settings -l &
 fi
-exec $HOME/git/dotfiles/xinit/startdwm # DWM
+if [ command -v picom ]; then
+  picom -b
+fi
+#exec $HOME/git/dotfiles/xinit/startdwm # DWM
 #exec startplasma-x11
 #exec bspwm # BSPWM
 #exec i3 # i3
+exec qtile start # qtile
