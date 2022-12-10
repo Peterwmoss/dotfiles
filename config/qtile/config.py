@@ -31,12 +31,12 @@ keys = [
 
     Key([mod], "q", lazy.window.kill(), desc="Kill focused window"),
 
-    Key([mod, "shift"], "r", lazy.reload_config(), desc="Reload the config"),
-    Key([mod, "shift"], "e", lazy.shutdown(), desc="Shutdown Qtile"),
+    Key([mod], "r", lazy.reload_config(), desc="Reload the config"),
+    Key([mod, "shift"], "r", lazy.restart(), desc="Restart Qtile"),
+    Key([mod, "control"], "e", lazy.shutdown(), desc="Shutdown Qtile"),
 
     Key([mod], "d", lazy.spawn("rofi -show drun -show-icons -font \"hack 10\""), desc="Launch rofi"),
 
-    Key([mod], "r", lazy.spawn("st -e ranger"), desc="Ranger"),
     Key([mod], "p", lazy.spawn("/home/peter/.local/scripts/sysmenu"), desc="System menu"),
     Key([mod], "s", lazy.spawn("flameshot gui -p /home/peter/pictures/screenshots"), desc="Screenshot"),
 
@@ -74,9 +74,19 @@ for i in groups:
         ]
     )
 
+colors = []
+cache='/home/peter/.cache/wal/colors'
+def load_colors(cache):
+    with open(cache, 'r') as file:
+        for i in range(8):
+            colors.append(file.readline().strip())
+    colors.append('#ffffff')
+    lazy.reload()
+load_colors(cache)
+
 layouts = [
     layout.Columns(
-        border_focus = "#7F61A7", 
+        border_focus = colors[3], 
         border_width = 2,
         border_on_single = True,
         margin= 6,
@@ -113,26 +123,26 @@ screens = [
                     fontsize = 12,
                     borderwidth = 3,
                     highlight_method = 'block',
-                    active = '#FFFFFF',
-                    block_highlight_text_color="#CFB3E5",
-                    highlight_color='#4B427E',
-                    inactive='#BD85CB',
-                    this_current_screen_border='#52548D',
-                    this_screen_border='#52548D',
-                    other_current_screen_border='#52548D',
-                    other_screen_border='#52548D',
-                    urgent_border='#52548D',
-                    rounded=True,
-                    disable_drag=True,
+                    active = colors[7],
+                    inactive = colors[3],
+                    block_highlight_text_color = colors[0],
+                    highlight_color = colors[1],
+                    this_current_screen_border = colors[4],
+                    this_screen_border = colors[4],
+                    other_current_screen_border = colors[4],
+                    other_screen_border = colors[4],
+                    urgent_border = colors[2],
+                    rounded = True,
+                    disable_drag = True,
                 ),
                 widget.CurrentLayoutIcon(
-                    foreground = '#FFFFFF',
+                    foreground = colors[7],
                     padding = 0,
                     scale = 0.5,
                 ),
                 widget.Spacer(),
                 widget.Sep(
-                    foreground = '#FFFFFF',
+                    foreground = colors[7],
                     linewith = 2,
                     size_percent = 100,
                 ),
@@ -146,7 +156,7 @@ screens = [
                     limit_max_volume = True,
                 ),
                 widget.Sep(
-                    foreground = '#FFFFFF',
+                    foreground = colors[7],
                     linewith = 2,
                     size_percent = 100,
                 ),
@@ -155,12 +165,11 @@ screens = [
                 ),
                 widget.Spacer(
                     length = 20, 
-                    background='#4B427E',
                 ),
             ],
             24,
             margin = [6,12,0,12],
-            background = '#4B427E',
+            background = colors[0],
         ),
     ),
 ]
