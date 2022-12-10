@@ -2,7 +2,7 @@
 pvim.leader = "space"
 
 -- Your preferred colorscheme, this one, among others, has treesitter support
-pvim.colorscheme = "gruvbox"
+pvim.colorscheme = "onenord"
 
 pvim.extensions = {
   -- { name = "Peterkmoss/example-pennyvim-extension" },
@@ -25,15 +25,17 @@ pvim.custom_plugins = {
   {
     'nvim-treesitter/nvim-treesitter-context',
     requires = 'nvim-treesitter/nvim-treesitter',
+  },
+  {
+    'rmehri01/onenord.nvim',
+    config = function()
+      require("onenord").setup{}
+    end,
   }
 }
 
 pvim.custom_mappings = {
-  { mode = "n", comb = "<leader>p", mapping = '"0p', options = { noremap = true } },
-  { mode = "n", comb = "<leader>P", mapping = '"0P', options = { noremap = true } },
-
-  { mode = "v", comb = "<leader>p", mapping = '"0p', options = { noremap = true } },
-  { mode = "v", comb = "<leader>P", mapping = '"0P', options = { noremap = true } },
+  { mode = "n", comb = "<C-P>", mapping = ':SourcePennyVim<CR>:PackerSync<CR>', options = { noremap = true } },
 
   { mode = "n", comb = "{", mapping = '<C-^>', options = { noremap = true } },
 
