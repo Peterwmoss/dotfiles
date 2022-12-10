@@ -116,9 +116,7 @@ screens = [
     Screen(
         top=bar.Bar(
             [
-                widget.Spacer(
-                    length = 20, 
-                ),
+                widget.Spacer(length = 3),
                 widget.GroupBox(
                     fontsize = 12,
                     borderwidth = 3,
@@ -144,7 +142,6 @@ screens = [
                 widget.Sep(
                     foreground = colors[7],
                     linewith = 2,
-                    size_percent = 100,
                 ),
                 widget.TextBox(
                     text=" ",
@@ -158,17 +155,14 @@ screens = [
                 widget.Sep(
                     foreground = colors[7],
                     linewith = 2,
-                    size_percent = 100,
                 ),
                 widget.Clock(
-                    format="%d-%m-%Y - %a %I:%M %p",
+                    format="%d-%m-%Y - %a %H:%M:%S",
                 ),
-                widget.Spacer(
-                    length = 20, 
-                ),
+                widget.Spacer(length = 3),
             ],
             24,
-            margin = [6,12,0,12],
+            margin = [6,6,0,6],
             background = colors[0],
         ),
     ),
