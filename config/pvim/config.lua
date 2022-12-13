@@ -106,7 +106,6 @@ pvim.custom_autocommands = {
   "BufWritePost *.tex :silent! Start! pdflatex -interaction=nonstopmode main.tex ; [[ -a main.bcf ]] && biber main ; pdflatex -interaction=nonstopmode main.tex; latexmk -c main.tex",
   'TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=100}',
   'FileType netrw nmap <buffer> <leader>x :Rexplore<CR>',
-  'FileType helm,yaml,yml lua vim.defer_fn(function() vim.cmd("set filetype=helm") end, 1000)',
   'VimEnter,BufEnter Chart.yaml,values.yaml,templates/*.yaml setfiletype helm',
   'VimEnter,BufEnter Chart.yaml,values.yaml,templates/*.yaml lua require("custom-init").checkHelm()',
 }
