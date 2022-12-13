@@ -22,6 +22,7 @@ nitrogen --restore
 $HOME/.local/scripts/kbd
 xbacklight -set 50
 dunst &
+xsetroot -cursor_name left_ptr
 #spotifyd
 if [ command -v nvidia-settings ] ; then
     nvidia-settings --config="$XDG_CONFIG_HOME"/nvidia/settings -l &
