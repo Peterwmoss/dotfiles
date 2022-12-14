@@ -2,7 +2,7 @@
 pvim.leader = "space"
 
 -- Your preferred colorscheme, this one, among others, has treesitter support
-pvim.colorscheme = "pywal"
+pvim.colorscheme = "onenord"
 
 pvim.extensions = {
   -- { name = "Peterkmoss/example-pennyvim-extension" },
