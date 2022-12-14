@@ -31,21 +31,36 @@ keys = [
 
     Key([mod], "q", lazy.window.kill(), desc="Kill focused window"),
 
+    ## Qtile stuff ##
     Key([mod], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "shift"], "r", lazy.restart(), desc="Restart Qtile"),
     Key([mod, "control"], "e", lazy.shutdown(), desc="Shutdown Qtile"),
 
+    ## Run programs ##
     Key([mod], "d", lazy.spawn("rofi -show drun -show-icons -font \"hack 10\""), desc="Launch rofi"),
 
+    ## System menu - poweroff, reboot etc. ##
     Key([mod], "p", lazy.spawn("/home/peter/.local/scripts/sysmenu"), desc="System menu"),
+
+    ## Screenshot ##
     Key([mod], "s", lazy.spawn("flameshot gui -p /home/peter/pictures/screenshots"), desc="Screenshot"),
 
+
+    Key([mod, "shift"], "Space", lazy.window.toggle_floating(), desc="Toggle floating"),
+
+    Key([mod, "shift"], "l", lazy.spawn('i3lock-fancy-multimonitor -b=0x8'), desc="Lock screen"),
+
+    Key([mod], "f3", lazy.spawn('doas -- rogauracore brightness 1'), desc="Keyboard brightness up"),
+    Key([mod], "f2", lazy.spawn('doas -- rogauracore brightness 0'), desc="Keyboard brightness down"),
+
+    Key([mod], "b", lazy.spawn('doas -- light -A 10'), desc="Screen brightness up"),
+    Key([mod, "shift"], "b", lazy.spawn('doas -- light -U 10'), desc="Screen brightness down"),
+
+    ## Volume control ##
     Key([mod], "u", lazy.spawn("pactl set-sink-volume 0 +5%"), desc="Volume up"),
     Key([mod, "shift"], "u", lazy.spawn("pactl set-sink-volume 0 -5%"), desc="Volume down"),
 
     Key([mod], "y", lazy.spawn("pulsemixer --toggle-mute"), desc="Toggle mute"),
-
-    Key([mod, "shift"], "Space", lazy.window.toggle_floating(), desc="Toggle floating"),
 ]
 
 groups = [Group(i) for i in "123456789"]
@@ -151,6 +166,7 @@ screens = [
                 widget.PulseVolume(
                     get_volume_command = "pamixer --get-volume-human",
                     limit_max_volume = True,
+                    update_interval = 0.1,
                 ),
                 widget.Sep(
                     foreground = colors[7],
