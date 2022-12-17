@@ -166,7 +166,7 @@ screens = [
                 widget.PulseVolume(
                     get_volume_command = "pamixer --get-volume-human",
                     limit_max_volume = True,
-                    update_interval = 0.01,
+                    update_interval = 0.1,
                 ),
                 widget.Sep(
                     foreground = colors[7],

@@ -36,6 +36,9 @@ pvim.custom_plugins = {
     'monsonjeremy/onedark.nvim',
     branch = 'treesitter',
   },
+  {
+    'arcticicestudio/nord-vim',
+  },
 }
 
 pvim.custom_mappings = {
