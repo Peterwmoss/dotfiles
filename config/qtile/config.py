@@ -171,6 +171,7 @@ screens = [
                     scale=0.5,
                 ),
                 widget.Spacer(),
+                widget.Bluetooth(),
                 widget.Sep(
                     foreground=colors[7],
                     linewith=2,
@@ -192,8 +193,13 @@ screens = [
                     foreground=colors[7],
                     linewith=2,
                 ),
+                widget.BatteryIcon(
+                    theme_path="/home/peter/.config/qtile/battery-icons",
+                    scale=1,
+                    update_interval=10,
+                ),
                 widget.Battery(
-                    format="  {percent:2.0%} ({hour:d}:{min:02d} left) - {watt:.2f}W ",
+                    format="{percent:2.0%} ({hour:d}:{min:02d} left) - {watt:.2f}W ",
                     update_interval=10,
                 ),
                 widget.Sep(
@@ -201,7 +207,7 @@ screens = [
                     linewith=2,
                 ),
                 widget.TextBox(
-                    text=" ",
+                    text="  ",
                     fontsize=14,
                     padding=0,
                 ),
