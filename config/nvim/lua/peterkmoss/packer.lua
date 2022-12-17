@@ -9,9 +9,12 @@ return require('packer').startup(function(use)
     requires = { { 'nvim-lua/plenary.nvim' } }
   }
 
-  use {
-    'rmehri01/onenord.nvim',
-  }
+  use { 'rmehri01/onenord.nvim' }
+  use { 'catppuccin/nvim', as = 'catppuccin' }
+  use({
+    'rose-pine/neovim',
+    as = 'rose-pine',
+  })
 
   use {
     'nvim-treesitter/nvim-treesitter',

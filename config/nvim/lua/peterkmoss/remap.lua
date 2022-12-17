@@ -35,8 +35,8 @@ vim.keymap.set("v", "<tab>", ">gv")
 
 vim.keymap.set("n", "<leader>bd", vim.cmd.bdelete)
 
-vim.keymap.set("n", "sv", vim.cmd.vnew)
-vim.keymap.set("n", "sh", vim.cmd.new)
+vim.keymap.set("n", "<leader>sv", vim.cmd.vnew)
+vim.keymap.set("n", "<leader>sh", vim.cmd.new)
 
 -- , to ; and vice versa
 vim.keymap.set("n", ",", ";", { noremap = true })

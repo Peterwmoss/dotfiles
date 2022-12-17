@@ -14,8 +14,10 @@ keys = [
     Key([mod], "h", lazy.layout.grow_left(), desc="Grow left"),
     Key([mod], "l", lazy.layout.grow_right(), desc="Grow right"),
 
-    Key([mod, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"),
-    Key([mod, "shift"], "l", lazy.layout.shuffle_right(), desc="Move window to the right"),
+    Key([mod, "shift"], "h", lazy.layout.shuffle_left(),
+        desc="Move window to the left"),
+    Key([mod, "shift"], "l", lazy.layout.shuffle_right(),
+        desc="Move window to the right"),
     Key([mod, "shift"], "j", lazy.layout.shuffle_down(), desc="Move window down"),
     Key([mod, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
 
@@ -37,28 +39,38 @@ keys = [
     Key([mod, "control"], "e", lazy.shutdown(), desc="Shutdown Qtile"),
 
     ## Run programs ##
-    Key([mod], "d", lazy.spawn("rofi -show drun -show-icons -font \"hack 10\""), desc="Launch rofi"),
+    Key([mod], "d", lazy.spawn(
+        "rofi -show drun -show-icons -font \"hack 10\""), desc="Launch rofi"),
 
     ## System menu - poweroff, reboot etc. ##
-    Key([mod], "p", lazy.spawn("/home/peter/.local/scripts/sysmenu"), desc="System menu"),
+    Key([mod], "p", lazy.spawn(
+        "/home/peter/.local/scripts/sysmenu"), desc="System menu"),
 
     ## Screenshot ##
-    Key([mod], "s", lazy.spawn("flameshot gui -p /home/peter/pictures/screenshots"), desc="Screenshot"),
+    Key([mod], "s", lazy.spawn(
+        "flameshot gui -p /home/peter/pictures/screenshots"), desc="Screenshot"),
 
 
-    Key([mod, "shift"], "Space", lazy.window.toggle_floating(), desc="Toggle floating"),
+    Key([mod, "shift"], "Space",
+        lazy.window.toggle_floating(), desc="Toggle floating"),
 
-    Key([mod, "shift"], "l", lazy.spawn('i3lock-fancy-multimonitor -b=0x8'), desc="Lock screen"),
+    Key([mod, "shift"], "l", lazy.spawn(
+        'i3lock-fancy-multimonitor -b=0x8'), desc="Lock screen"),
 
-    Key([mod], "f3", lazy.spawn('doas -- rogauracore brightness 1'), desc="Keyboard brightness up"),
-    Key([mod], "f2", lazy.spawn('doas -- rogauracore brightness 0'), desc="Keyboard brightness down"),
+    Key([mod], "f3", lazy.spawn('doas -- rogauracore brightness 1'),
+        desc="Keyboard brightness up"),
+    Key([mod], "f2", lazy.spawn('doas -- rogauracore brightness 0'),
+        desc="Keyboard brightness down"),
 
-    Key([mod], "b", lazy.spawn('doas -- light -A 10'), desc="Screen brightness up"),
-    Key([mod, "shift"], "b", lazy.spawn('doas -- light -U 10'), desc="Screen brightness down"),
+    Key([mod], "b", lazy.spawn('doas -- light -A 10'),
+        desc="Screen brightness up"),
+    Key([mod, "shift"], "b", lazy.spawn(
+        'doas -- light -U 10'), desc="Screen brightness down"),
 
     ## Volume control ##
     Key([mod], "u", lazy.spawn("pactl set-sink-volume 0 +5%"), desc="Volume up"),
-    Key([mod, "shift"], "u", lazy.spawn("pactl set-sink-volume 0 -5%"), desc="Volume down"),
+    Key([mod, "shift"], "u", lazy.spawn(
+        "pactl set-sink-volume 0 -5%"), desc="Volume down"),
 
     Key([mod], "y", lazy.spawn("pulsemixer --toggle-mute"), desc="Toggle mute"),
 ]
@@ -80,7 +92,8 @@ for i in groups:
                 [mod, "shift"],
                 i.name,
                 lazy.window.togroup(i.name, switch_group=False),
-                desc="Switch to & move focused window to group {}".format(i.name),
+                desc="Switch to & move focused window to group {}".format(
+                    i.name),
             ),
             # Or, use below if you prefer not to switch to that group.
             # # mod1 + shift + letter of group = move focused window to group
@@ -90,21 +103,25 @@ for i in groups:
     )
 
 colors = []
-cache='/home/peter/.cache/wal/colors'
+cache = '/home/peter/.cache/wal/colors'
+
+
 def load_colors(cache):
     with open(cache, 'r') as file:
         for i in range(8):
             colors.append(file.readline().strip())
     colors.append('#ffffff')
     lazy.reload()
+
+
 load_colors(cache)
 
 layouts = [
     layout.Columns(
-        border_focus = colors[3], 
-        border_width = 2,
-        border_on_single = True,
-        margin= 6,
+        border_focus=colors[4],
+        border_width=2,
+        border_on_single=True,
+        margin=6,
     ),
     layout.Max(),
     # Try more layouts by unleashing below layouts.
@@ -131,32 +148,57 @@ screens = [
     Screen(
         top=bar.Bar(
             [
-                widget.Spacer(length = 3),
+                widget.Spacer(length=3),
                 widget.GroupBox(
-                    fontsize = 12,
-                    borderwidth = 3,
-                    highlight_method = 'block',
-                    active = colors[7],
-                    inactive = colors[3],
-                    block_highlight_text_color = colors[0],
-                    highlight_color = colors[1],
-                    this_current_screen_border = colors[4],
-                    this_screen_border = colors[4],
-                    other_current_screen_border = colors[4],
-                    other_screen_border = colors[4],
-                    urgent_border = colors[2],
-                    rounded = True,
-                    disable_drag = True,
+                    fontsize=12,
+                    borderwidth=3,
+                    highlight_method='block',
+                    active=colors[7],
+                    inactive=colors[3],
+                    block_highlight_text_color=colors[0],
+                    highlight_color=colors[1],
+                    this_current_screen_border=colors[4],
+                    this_screen_border=colors[4],
+                    other_current_screen_border=colors[4],
+                    other_screen_border=colors[4],
+                    urgent_border=colors[2],
+                    rounded=True,
+                    disable_drag=True,
                 ),
                 widget.CurrentLayoutIcon(
-                    foreground = colors[7],
-                    padding = 0,
-                    scale = 0.5,
+                    foreground=colors[7],
+                    padding=0,
+                    scale=0.5,
                 ),
                 widget.Spacer(),
                 widget.Sep(
-                    foreground = colors[7],
-                    linewith = 2,
+                    foreground=colors[7],
+                    linewith=2,
+                ),
+                widget.Backlight(
+                    update_interval=1,
+                    backlight_name="intel_backlight",
+                    format="  {percent:2.0%} "
+                ),
+                widget.Sep(
+                    foreground=colors[7],
+                    linewith=2,
+                ),
+                widget.Memory(
+                    format="{MemUsed: .1f}{mm} /{MemTotal: .1f}{mm} ",
+                    measure_mem="G"
+                ),
+                widget.Sep(
+                    foreground=colors[7],
+                    linewith=2,
+                ),
+                widget.Battery(
+                    format="  {percent:2.0%} ({hour:d}:{min:02d} left) - {watt:.2f}W ",
+                    update_interval=10,
+                ),
+                widget.Sep(
+                    foreground=colors[7],
+                    linewith=2,
                 ),
                 widget.TextBox(
                     text=" ",
@@ -164,30 +206,37 @@ screens = [
                     padding=0,
                 ),
                 widget.PulseVolume(
-                    get_volume_command = "pamixer --get-volume-human",
-                    limit_max_volume = True,
-                    update_interval = 0.1,
+                    get_volume_command="pamixer --get-volume-human",
+                    limit_max_volume=True,
+                    update_interval=0.1,
+                ),
+                widget.TextBox(
+                    text=" ",
+                    fontsize=14,
+                    padding=0,
                 ),
                 widget.Sep(
-                    foreground = colors[7],
-                    linewith = 2,
+                    foreground=colors[7],
+                    linewith=2,
                 ),
                 widget.Clock(
                     format="%d-%m-%Y - %a %H:%M:%S",
                 ),
-                widget.Spacer(length = 3),
+                widget.Spacer(length=3),
             ],
             24,
-            margin = [6,6,0,6],
-            background = colors[0],
+            margin=[6, 6, 0, 6],
+            background=colors[0],
         ),
     ),
 ]
 
 # Drag floating layouts.
 mouse = [
-    Drag([mod], "Button1", lazy.window.set_position_floating(), start=lazy.window.get_position()),
-    Drag([mod], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()),
+    Drag([mod], "Button1", lazy.window.set_position_floating(),
+         start=lazy.window.get_position()),
+    Drag([mod], "Button3", lazy.window.set_size_floating(),
+         start=lazy.window.get_size()),
     Click([mod], "Button2", lazy.window.bring_to_front()),
 ]
 
@@ -207,8 +256,8 @@ floating_layout = layout.Floating(
         Match(title="branchdialog"),  # gitk
         Match(title="pinentry"),  # GPG key password entry
     ],
-    border_focus = "#7F61A7", 
-    border_width = 2,
+    border_focus=colors[4],
+    border_width=2,
 )
 auto_fullscreen = True
 focus_on_window_activation = "smart"

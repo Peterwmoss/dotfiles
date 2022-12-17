@@ -1,5 +1,5 @@
 function SetColors(color)
-	color = color or "onenord"
+	color = color or 'onenord'
 	vim.cmd.colorscheme(color)
 end
 

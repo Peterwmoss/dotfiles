@@ -2,6 +2,8 @@ local CACHE_DIR = vim.fn.stdpath "cache"
 
 vim.opt.clipboard = "unnamedplus"
 
+vim.opt.mouse = ""
+
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.numberwidth = 4
