@@ -1,7 +1,6 @@
 #!/bin/sh
-MENU="$(printf "  Shutdown\n  Reboot\n  Hibernate\n" | dmenu -i -fn 'Hack Nerd Font')"
+MENU="$(printf "  Shutdown\n  Reboot\n" | rofi -p "Command" -dmenu -i -fn 'Hack Nerd Font')"
 case "$MENU" in
   *Shutdown) doas poweroff ;;
   *Reboot) doas reboot ;;
-  *Hibernate) loginctl hibernate ;;
 esac
