@@ -19,19 +19,24 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 export PATH=$PATH:$HOME/.local/scripts
 $(which wal) -R > /dev/null
 nitrogen --restore
+
 $HOME/.local/scripts/kbd
-xbacklight -set 50
+
+xbacklight -set 30
+
 dunst &
-xsetroot -cursor_name left_ptr
-#spotifyd
-if [ command -v nvidia-settings ] ; then
+
+if [ "$(command -v nvidia-settings)" ] ; then
     nvidia-settings --config="$XDG_CONFIG_HOME"/nvidia/settings -l &
 fi
-if [ command -v picom ]; then
+
+if [ "$(command -v picom)" ] ; then
   picom -b
 fi
+
+exec qtile start # qtile
+
 #exec $HOME/git/dotfiles/xinit/startdwm # DWM
 #exec startplasma-x11
 #exec bspwm # BSPWM
 #exec i3 # i3
-exec qtile start # qtile
