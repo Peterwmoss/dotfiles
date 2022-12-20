@@ -56,6 +56,8 @@ vim.opt.timeoutlen = 500
 
 vim.opt.cursorline = true
 
+vim.opt.showmode = false
+
 vim.opt.fileencoding = "utf-8"
 vim.opt.viewoptions = { "folds", "cursor" }
 vim.opt.spell = false
