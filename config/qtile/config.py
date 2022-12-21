@@ -45,6 +45,9 @@ keys = [
     Key([mod], "d", lazy.spawn(
         "rofi -show drun -show-icons -font \"hack 10\""), desc="Launch rofi"),
 
+    Key([mod, "shift"], "d", lazy.spawn(
+        "rofi -show run -font \"hack 10\""), desc="Launch rofi"),
+
     # System menu - poweroff, reboot etc.
     Key([mod], "p", lazy.spawn(
         "/home/peter/.local/scripts/sysmenu"), desc="System menu"),
@@ -139,6 +142,77 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
+widgets = [
+    widget.CurrentLayoutIcon(
+        foreground=colors[7],
+        padding=0,
+        scale=0.5,
+    ),
+    widget.Spacer(),
+    widget.Bluetooth(
+        hci="/dev_F0_B6_1E_7E_05_35",
+    ),
+    widget.Sep(
+        foreground=colors[7],
+        linewith=2,
+    ),
+    widget.Backlight(
+        update_interval=1,
+        backlight_name="intel_backlight",
+        format="  {percent:2.0%} "
+    ),
+    widget.Sep(
+        foreground=colors[7],
+        linewith=2,
+    ),
+    widget.Memory(
+        format="{MemUsed: .1f}{mm} /{MemTotal: .1f}{mm} ",
+        measure_mem="G"
+    ),
+    widget.Sep(
+        foreground=colors[7],
+        linewith=2,
+    ),
+    widget.BatteryIcon(
+        theme_path="/home/peter/.config/qtile/battery-icons",
+        scale=1,
+        update_interval=10,
+    ),
+    widget.Battery(
+        format="{percent:2.0%} ({hour:d}:{min:02d} left) - {watt:.2f}W ",
+        update_interval=10,
+    ),
+    widget.Sep(
+        foreground=colors[7],
+        linewith=2,
+    ),
+    widget.TextBox(
+        text="  ",
+        fontsize=14,
+        padding=0,
+    ),
+    widget.PulseVolume(
+        get_volume_command="pamixer --get-volume-human",
+        limit_max_volume=True,
+        update_interval=0.1,
+    ),
+    widget.TextBox(
+        text=" ",
+        fontsize=14,
+        padding=0,
+    ),
+    widget.Sep(
+        foreground=colors[7],
+        linewith=2,
+    ),
+    widget.Clock(
+        format="%d-%m-%Y - %a %H:%M:%S",
+    ),
+    widget.Spacer(length=3),
+
+]
+
+
 def myBar():
     return bar.Bar(
         [
@@ -159,73 +233,8 @@ def myBar():
                 rounded=True,
                 disable_drag=True,
             ),
-            widget.CurrentLayoutIcon(
-                foreground=colors[7],
-                padding=0,
-                scale=0.5,
-            ),
-            widget.Spacer(),
-            widget.Bluetooth(
-                hci="/dev_F0_B6_1E_7E_05_35",
-            ),
-            widget.Sep(
-                foreground=colors[7],
-                linewith=2,
-            ),
-            widget.Backlight(
-                update_interval=1,
-                backlight_name="intel_backlight",
-                format="  {percent:2.0%} "
-            ),
-            widget.Sep(
-                foreground=colors[7],
-                linewith=2,
-            ),
-            widget.Memory(
-                format="{MemUsed: .1f}{mm} /{MemTotal: .1f}{mm} ",
-                measure_mem="G"
-            ),
-            widget.Sep(
-                foreground=colors[7],
-                linewith=2,
-            ),
-            widget.BatteryIcon(
-                theme_path="/home/peter/.config/qtile/battery-icons",
-                scale=1,
-                update_interval=10,
-            ),
-            widget.Battery(
-                format="{percent:2.0%} ({hour:d}:{min:02d} left) - {watt:.2f}W ",
-                update_interval=10,
-            ),
-            widget.Sep(
-                foreground=colors[7],
-                linewith=2,
-            ),
-            widget.TextBox(
-                text="  ",
-                fontsize=14,
-                padding=0,
-            ),
-            widget.PulseVolume(
-                get_volume_command="pamixer --get-volume-human",
-                limit_max_volume=True,
-                update_interval=0.1,
-            ),
-            widget.TextBox(
-                text=" ",
-                fontsize=14,
-                padding=0,
-            ),
-            widget.Sep(
-                foreground=colors[7],
-                linewith=2,
-            ),
-            widget.Clock(
-                format="%d-%m-%Y - %a %H:%M:%S",
-            ),
-            widget.Spacer(length=3),
-        ],
+        ] +
+        widgets,
         24,
         margin=[6, 6, 0, 6],
         background=colors[0],
