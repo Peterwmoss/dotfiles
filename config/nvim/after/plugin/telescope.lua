@@ -1,3 +1,14 @@
+require('telescope').setup({
+  defaults = {
+    layout_config = {
+      prompt_position = 'top'
+    },
+    sorting_strategy = 'ascending',
+    scroll_strategy = 'limit',
+    preview = false,
+  }
+})
+
 local builtin = require('telescope.builtin')
 
 vim.keymap.set('n', '<C-p>', builtin.commands)

@@ -59,7 +59,7 @@ keys = [
     Key([mod, "shift"], "Space",
         lazy.window.toggle_floating(), desc="Toggle floating"),
 
-    Key([mod, "shift"], "l", lazy.spawn(
+    Key([mod, "control"], "l", lazy.spawn(
         'i3lock-fancy-multimonitor -b=0x8'), desc="Lock screen"),
 
     Key([mod], "f3", lazy.spawn('doas -- rogauracore brightness 1'),
