@@ -1,3 +1,5 @@
+require('dap-go').setup()
+
 local dap, dapui = require("dap"), require("dapui")
 
 dap.listeners.after.event_initialized["dapui_config"] = function()
@@ -21,7 +23,7 @@ vim.keymap.set("n", "<leader>dsi", dap.step_into)
 vim.keymap.set("n", "<leader>dso", dap.step_over)
 vim.keymap.set("n", "<leader>dt", dap.terminate)
 vim.keymap.set("n", "<leader>do", dapui.open)
-vim.keymap.set("n", "<leader>dc", function()
+vim.keymap.set("n", "<leader>dk", function()
   dapui.close()
   dap.repl.close()
 end)

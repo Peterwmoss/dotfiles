@@ -59,6 +59,8 @@ return require('packer').startup(function(use)
     end
   }
 
+  use 'leoluz/nvim-dap-go'
+
   use {
     'theHamsta/nvim-dap-virtual-text',
     requires = { 'mfussenegger/nvim-dap' },
