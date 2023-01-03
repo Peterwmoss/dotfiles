@@ -56,6 +56,9 @@ keys = [
     Key([mod], "s", lazy.spawn(
         "flameshot gui -p /home/peter/pictures/screenshots"), desc="Screenshot"),
 
+    Key([mod, "shift"], "s", lazy.spawn(
+        "flameshot gui --clipboard"), desc="Screenshot"),
+
     Key([mod, "shift"], "Space",
         lazy.window.toggle_floating(), desc="Toggle floating"),
 
@@ -205,11 +208,6 @@ widgets = [
         foreground=colors[7],
         linewith=2,
     ),
-    widget.Clock(
-        format="%d-%m-%Y - %a %H:%M:%S",
-    ),
-    widget.Spacer(length=3),
-
 ]
 
 
@@ -234,7 +232,13 @@ def myBar():
                 disable_drag=True,
             ),
         ] +
-        widgets,
+        widgets +
+        [
+            widget.Clock(
+                format="%d-%m-%Y - %a %H:%M:%S",
+            ),
+            widget.Spacer(length=3),
+        ],
         24,
         margin=[6, 6, 0, 6],
         background=colors[0],
