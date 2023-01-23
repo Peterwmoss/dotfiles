@@ -1,0 +1,4 @@
+#!/bin/sh
+
+export WLR_NO_HARDWARE_CURSORS=1
+Hyprland
