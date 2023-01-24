@@ -59,6 +59,8 @@ return require('packer').startup(function(use)
     end
   }
 
+  use 'towolf/vim-helm'
+
   use 'leoluz/nvim-dap-go'
 
   use {

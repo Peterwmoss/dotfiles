@@ -18,7 +18,7 @@ local autocommands = {
   'TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=100}',
   'FileType netrw nmap <buffer> <leader>x :Rexplore<CR>`z',
   'VimEnter,BufEnter Chart.yaml,values.yaml,templates/*.yaml setfiletype helm',
-  'VimEnter,BufEnter Chart.yaml,values.yaml,templates/*.yaml lua require("custom-init").checkHelm()',
+  'VimEnter,BufEnter Chart.yaml,values.yaml,templates/*.yaml lua require("peterkmoss.helm").checkHelm()',
 }
 
 create_augroup(autocommands, "DefaultGroup")
