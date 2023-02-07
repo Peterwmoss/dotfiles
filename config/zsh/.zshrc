@@ -67,7 +67,7 @@ alias gitlog="git log --all --graph --decorate --oneline"
 alias tn="tmux -u new"
 alias ta="tmux -u attach"
 alias tc="nvim ~/git/dotfiles/config/tmux/tmux.conf"
-alias work="tmux attach -t work"
+alias work="cd ~/work/fst/git && tmux attach -t work"
 
 # QMarkdown
 alias qm="qmarkdown -dark"

@@ -30,9 +30,9 @@ if [ "$(command -v nvidia-settings)" ] ; then
     nvidia-settings --config="$XDG_CONFIG_HOME"/nvidia/settings -l &
 fi
 
-exec qtile start # qtile
+# exec qtile start # qtile
 
-#exec $HOME/git/dotfiles/xinit/startdwm # DWM
+exec $HOME/git/dotfiles/xinit/startdwm # DWM
 #exec startplasma-x11
 #exec bspwm # BSPWM
 #exec i3 # i3
