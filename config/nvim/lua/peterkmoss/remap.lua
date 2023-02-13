@@ -66,8 +66,20 @@ vim.keymap.set("i", "?", "?<c-g>u", { noremap = true })
 -- Better mark na
 vim.keymap.set("n", "'", "`", { noremap = true })
 
--- Easy go to matching parentheses
-vim.keymap.set("n", "å", "%", { noremap = true })
+vim.keymap.set("n", "å", "^", { noremap = true })
+vim.keymap.set("v", "å", "^", { noremap = true })
+vim.keymap.set("o", "å", "^", { noremap = true })
+vim.keymap.set("x", "å", "^", { noremap = true })
+
+vim.keymap.set("n", "Å", "$", { noremap = true })
+vim.keymap.set("v", "Å", "$", { noremap = true })
+vim.keymap.set("o", "Å", "$", { noremap = true })
+vim.keymap.set("x", "Å", "$", { noremap = true })
+
+vim.keymap.set("n", "æ", "%", { noremap = true })
+vim.keymap.set("v", "æ", "%", { noremap = true })
+vim.keymap.set("o", "æ", "%", { noremap = true })
+vim.keymap.set("x", "æ", "%", { noremap = true })
 
 -- Copy entire file
 vim.keymap.set("n", "yA", "m'ggyG`'zz", { noremap = true })
