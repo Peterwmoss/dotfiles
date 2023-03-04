@@ -34,6 +34,7 @@ vim.keymap.set("v", ">", ">gv")
 vim.keymap.set("v", "<tab>", ">gv")
 
 vim.keymap.set("n", "<leader>bd", vim.cmd.bdelete)
+vim.keymap.set("n", "<leader>bD", [[:%bd| e# | bd#<CR>]])
 
 vim.keymap.set("n", "<leader>sv", vim.cmd.vnew)
 vim.keymap.set("n", "<leader>sh", vim.cmd.new)
