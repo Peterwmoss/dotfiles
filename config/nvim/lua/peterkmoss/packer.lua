@@ -61,6 +61,8 @@ return require('packer').startup(function(use)
 
   use 'towolf/vim-helm'
 
+  use 'aklt/plantuml-syntax'
+
   use 'leoluz/nvim-dap-go'
 
   use {
