@@ -17,7 +17,7 @@ export SSH_AUTH_SOCK
 
 export _JAVA_AWT_WM_NONREPARENTING=1
 export PATH=$PATH:$HOME/.local/scripts
-#$(which wal) -R > /dev/null
+$(which wal) -R > /dev/null
 nitrogen --restore
 
 $HOME/.local/scripts/kbd
@@ -30,9 +30,9 @@ if [ "$(command -v nvidia-settings)" ] ; then
     nvidia-settings --config="$XDG_CONFIG_HOME"/nvidia/settings -l &
 fi
 
-exec qtile start # qtile
+# exec qtile start # qtile
 
-#exec $HOME/git/dotfiles/xinit/startdwm # DWM
-#exec startplasma-x11
-#exec bspwm # BSPWM
-#exec i3 # i3
+exec $HOME/git/dotfiles/xinit/startdwm # DWM
+# exec startplasma-x11
+# exec bspwm # BSPWM
+# exec i3 # i3
