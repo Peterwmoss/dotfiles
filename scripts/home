@@ -1,0 +1,5 @@
+#!/bin/sh
+
+xrandr --output HDMI-1-0 --auto --right-of eDP-2
+nitrogen --restore
+kbd

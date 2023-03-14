@@ -50,7 +50,7 @@ lsp.on_attach(function(_, bufnr)
 
   vim.keymap.set("n", "ga", vim.lsp.buf.code_action, opts)
   vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-  vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
+  vim.keymap.set("n", "gr", ":Telescope lsp_references<CR>", opts)
   vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
 
   -- vim.keymap.set("n", "<leader>lws", vim.lsp.buf.workspace_symbol, opts) Handled by telescope

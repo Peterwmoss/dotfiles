@@ -2,6 +2,7 @@ require("nvim-tree").setup({
   diagnostics = {
     enable = true,
   },
+  hijack_netrw = false,
   sync_root_with_cwd = true,
   sort_by = "name",
   on_attach = "disable",
