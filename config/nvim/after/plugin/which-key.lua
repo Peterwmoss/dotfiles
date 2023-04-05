@@ -4,7 +4,6 @@ vim.o.timeoutlen = 200
 require("which-key").setup {}
 
 local wk = require("which-key")
-
 local ts_bultin = require('telescope.builtin')
 
 -- Normal mode <leader> prefix keymaps
@@ -30,7 +29,7 @@ wk.register({
     d = { vim.cmd.Gvdiffsplit, 'Diff split' },
     s = { vim.cmd.Git, 'Status' },
     m = { function() vim.cmd.Git 'mergetool' end, 'Mergetool' },
-    l = { function() vim.cmd.Git 'log' end, 'Log' },
+    l = { function() vim.cmd.Git('log --graph') end, 'Log' },
     n = { vim.cmd.GitConflictNextConflict, 'Next Conflict' },
     p = { vim.cmd.GitConflictPrevConflict, 'Prev Conflict' },
     j = { vim.cmd.GitConflictChooseTheirs, 'Conflict choose theirs' },
