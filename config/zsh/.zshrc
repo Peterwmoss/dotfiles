@@ -1,3 +1,5 @@
+export HISTFILESIZE=
+export HISTSIZE=
 export HISTFILE=$HOME/.cache/zsh/history
 
 path+=("$HOME/.local/share/cargo/bin")
@@ -12,6 +14,7 @@ export PATH
 export JDK_HOME="/opt/openjdk-bin-18"
 
 export EDITOR='pvim'
+export XDG_DATA_HOME=$HOME/.local/share
 export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
 export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
@@ -79,6 +82,12 @@ alias updpkg="makepkg - g >> PKGBUILD && rm -rf src *.tar.gz && makepkg --prints
 alias pagecount="wc -m | tr -d '\n' | awk '{print \$1\"/2400\"}' | bc -l"
 
 alias dndscreen="xrandr --output HDMI1 --right-of ePD1 --mode 2560x1440"
+
+# Kubernetes
+
+alias k8s-test="kubectl config use-context k8s-cluster005; kubectl config set-context --current --namespace=bariam-test"
+alias k8s-dev="kubectl config use-context k8s-cluster005; kubectl config set-context --current --namespace=bariam-dev"
+alias k8s-local="kubectl config use-context minikube"
 
 ##########################
 ### ARCHIVE EXTRACTION ###

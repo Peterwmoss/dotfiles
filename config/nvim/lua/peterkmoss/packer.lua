@@ -59,7 +59,7 @@ return require('packer').startup(function(use)
     end
   }
 
-  use 'towolf/vim-helm'
+  -- use 'towolf/vim-helm'
 
   use 'aklt/plantuml-syntax'
 
