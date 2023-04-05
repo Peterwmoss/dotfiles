@@ -12,9 +12,6 @@ require('telescope').setup({
 local builtin = require('telescope.builtin')
 
 vim.keymap.set('n', '<C-p>', builtin.commands)
-vim.keymap.set('n', '<leader>f', builtin.find_files)
-vim.keymap.set('n', '<leader>g', builtin.git_files)
-vim.keymap.set('n', '<leader>F', function() builtin.find_files({ hidden = true }) end)
 
 vim.keymap.set('n', '<leader>ls', builtin.lsp_document_symbols)
 vim.keymap.set('n', '<leader>lws', builtin.lsp_workspace_symbols)
