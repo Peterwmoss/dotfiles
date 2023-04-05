@@ -37,8 +37,8 @@ wk.register({
       j = { vim.cmd.GitConflictChooseTheirs, 'Conflict choose theirs' },
       f = { vim.cmd.GitConflictChooseOurs, 'Conflict choose ours' },
     },
-    p = { vim.cmd.Gpull, 'Pull' },
-    P = { vim.cmd.Gpush, 'Push' },
+    p = { function() vim.cmd.Git 'pull' end, 'Pull' },
+    P = { function() vim.cmd.Git 'push' end, 'Push' },
   },
   v = {
     name = 'vim',
