@@ -75,6 +75,7 @@ wk.register({
   y = {
     A = { "m'ggyG`'zz", 'Yank entire file' },
   },
+  ['<C-t>'] = { function() require("nvterm.terminal").toggle('float') end, 'Terminal' },
 })
 
 wk.register({
@@ -82,17 +83,16 @@ wk.register({
   ['>'] = { '>gv', '' },
   ['<s-tab>'] = { '<gv', '' },
   ['<tab>'] = { '>gv', '' },
-}, { prefix = '<leader>', mode = 'v' })
-
-wk.register({
-  ['<leader>'] = {
-    p = { [["_dP]], 'Paste, no overwrite register' },
-    d = { [["_d]], 'Delete, no overwrite register' },
-  },
   [','] = { ';', '' },
   [';'] = { ',', '' },
+}, { mode = 'v' })
+
+wk.register({
+  p = { [["_dP]], 'Paste, no overwrite register' },
+  d = { [["_d]], 'Delete, no overwrite register' },
 }, {
-  mode = 'x',
+  prefix = '<leader>',
+  mode = 'v',
 })
 
 wk.register({
@@ -107,3 +107,7 @@ wk.register({
   ['å'] = { '$', 'End of line' },
   ['æ'] = { '%', 'Matching bracket' },
 }, { mode = { 'n', 'o', 'v' } })
+
+wk.register({
+  ['<C-t>'] = { function() require("nvterm.terminal").toggle('float') end, 'Terminal' },
+}, { mode = 't' })

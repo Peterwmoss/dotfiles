@@ -141,4 +141,8 @@ return require('packer').startup(function(use)
     require('git-conflict').setup()
   end }
 
+  use {
+    'NvChad/nvterm',
+  }
+
 end)

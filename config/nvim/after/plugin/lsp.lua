@@ -63,6 +63,21 @@ end)
 
 lsp.setup()
 
+local nvim_lsp = require('lspconfig')
+local configs = require('lspconfig.configs')
+
+if not configs.regols then
+  configs.regols = {
+    default_config = {
+      cmd = {'rego-lsp', '--stdio'},
+      filetypes = {'rego'},
+      root_dir = nvim_lsp.util.root_pattern('.git', '.'),
+    }
+  }
+end
+
+configs.regols.setup{}
+
 vim.diagnostic.config({
   virtual_text = true,
   signs = true,
