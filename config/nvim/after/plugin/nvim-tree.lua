@@ -2,10 +2,13 @@ require("nvim-tree").setup({
   diagnostics = {
     enable = true,
   },
-  hijack_netrw = false,
+  hijack_netrw = true,
   sync_root_with_cwd = true,
   sort_by = "name",
   on_attach = "disable",
+  view = {
+    width = 30,
+  },
   git = {
     enable = true,
     ignore = false,

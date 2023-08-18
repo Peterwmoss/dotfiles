@@ -14,7 +14,24 @@ wk.register({
   },
   f = {
     name = 'find',
-    f = { function() ts_bultin.find_files({ hidden = true }) end, 'Find File' },
+    f = {
+      function()
+        local function exists(file)
+          local ok, err, code = os.rename(file, file)
+          if not ok then
+            if code == 13 then
+              -- Permission denied, but it exists
+              return true
+            end
+          end
+          return ok, err
+        end
+        if exists(".git") then
+          ts_bultin.git_files({ hidden = true, show_untracked = true })
+        else
+          ts_bultin.find_files({ hidden = true })
+        end
+      end, 'Find File' },
     b = { ts_bultin.buffers, 'Find Buffer' },
     s = { ts_bultin.grep_string, 'String' },
   },
@@ -25,17 +42,23 @@ wk.register({
   g = {
     name = 'git',
     b = { ts_bultin.git_branches, 'Branches' },
-    B = { function() vim.cmd.Git 'blame' end, 'Blame' },
+    B = { ':Git checkout -b ', 'Checkout new branch' },
+    f = {
+      name = 'File',
+      B = { function() vim.cmd.Git 'blame' end, 'Blame' },
+    },
+    g = { ':Git ', 'Git command' },
     d = { vim.cmd.Gvdiffsplit, 'Diff split' },
     s = { vim.cmd.Git, 'Status' },
     m = { function() vim.cmd.Git 'mergetool' end, 'Mergetool' },
     l = { function() vim.cmd.Git('log --graph') end, 'Log' },
-    C = {
-      name = 'conflict',
+    c = {
+      name = 'Conflict',
       n = { vim.cmd.GitConflictNextConflict, 'Next Conflict' },
       p = { vim.cmd.GitConflictPrevConflict, 'Prev Conflict' },
       j = { vim.cmd.GitConflictChooseTheirs, 'Conflict choose theirs' },
       f = { vim.cmd.GitConflictChooseOurs, 'Conflict choose ours' },
+      b = { vim.cmd.GitConflictChooseBoth, 'Conflict choose both' },
     },
     p = { function() vim.cmd.Git 'pull' end, 'Pull' },
     P = { function() vim.cmd.Git 'push' end, 'Push' },

@@ -22,7 +22,6 @@ lsp.ensure_installed({
   'marksman',
   'texlab',
   'volar',
-  'yamlls',
 })
 
 local cmp = require('cmp')
@@ -69,7 +68,7 @@ local configs = require('lspconfig.configs')
 if not configs.regols then
   configs.regols = {
     default_config = {
-      cmd = {'rego-lsp', '--stdio'},
+      cmd = {'regols'},
       filetypes = {'rego'},
       root_dir = nvim_lsp.util.root_pattern('.git', '.'),
     }

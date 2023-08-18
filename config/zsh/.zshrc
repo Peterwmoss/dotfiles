@@ -7,6 +7,7 @@ path+=("$HOME/.local/bin")
 path+=("$HOME/.local/scripts")
 path+=("$HOME/.ghcup/bin/")
 path+=("$HOME/.local/share/npm/bin/")
+path+=("$HOME/.dotnet/")
 path+=("$HOME/.sdkman/bin/sdkman-init.sh")
 path+=("/opt/openjdk-bin-11")
 export PATH
@@ -64,7 +65,7 @@ alias pull="git pull"
 alias push="git push"
 alias commit="git commit"
 alias commitm="git commit -m"
-alias gitlog="git log --all --graph --decorate --oneline"
+alias gitlog="git log --all --graph --decorate --oneline --abbrev=8"
 
 # Tmux
 alias tn="tmux -u new"
@@ -85,8 +86,10 @@ alias dndscreen="xrandr --output HDMI1 --right-of ePD1 --mode 2560x1440"
 
 # Kubernetes
 
-alias k8s-test="kubectl config use-context k8s-cluster005; kubectl config set-context --current --namespace=bariam-test"
-alias k8s-dev="kubectl config use-context k8s-cluster005; kubectl config set-context --current --namespace=bariam-dev"
+alias k8s-dev-1-5="kubectl config use-context gov-1-5; kubectl config set-context --current --namespace=iam-development"
+alias k8s-test-1-5="kubectl config use-context gov-1-5; kubectl config set-context --current --namespace=iam-test"
+alias k8s-test-1-0="kubectl config use-context gov-1-0; kubectl config set-context --current --namespace=bariam-test"
+alias k8s-dev-1-0="kubectl config use-context gov-1-0; kubectl config set-context --current --namespace=bariam-dev"
 alias k8s-local="kubectl config use-context minikube"
 
 ##########################
@@ -120,7 +123,7 @@ ex ()
 }
 
 export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:=$HOME/.config}"
-export ZDOTDIR="${ZDOTDIR:=$XDG_CONFIG_HOME/zsh}"
+export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 source "$ZDOTDIR/.zshenv"
 source "${ZDOTDIR:-$HOME}/zprezto/init.zsh"
 
@@ -129,3 +132,8 @@ export GOBIN="$HOME/.local/bin"
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+eval "$(zoxide init zsh)"
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/bin/terraform terraform

@@ -145,4 +145,11 @@ return require('packer').startup(function(use)
     'NvChad/nvterm',
   }
 
+  use {
+    "petertriho/nvim-scrollbar",
+  }
+
+  use {
+    'towolf/vim-helm'
+  }
 end)
