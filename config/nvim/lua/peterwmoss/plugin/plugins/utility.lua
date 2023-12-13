@@ -10,10 +10,7 @@ M.plugins = {
 
   { 'windwp/nvim-autopairs' },
 
-  {
-    "terrortylor/nvim-comment",
-    cmd = "CommentToggle",
-  },
+  { 'numToStr/Comment.nvim' },
 
   { "tpope/vim-dispatch" },
 
