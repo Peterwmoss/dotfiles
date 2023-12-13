@@ -53,6 +53,8 @@ alias grep="grep --color=auto"
 # C see stacktrace of crashing program
 alias gdbs="gdb --batch --ex run --ex bt --ex q --args"
 
+alias gw="./gradlew"
+
 # Git
 alias addall="git add -A"
 alias add="git add"
@@ -71,7 +73,7 @@ alias gitlog="git log --all --graph --decorate --oneline --abbrev=8"
 alias tn="tmux -u new"
 alias ta="tmux -u attach"
 alias tc="nvim ~/git/dotfiles/config/tmux/tmux.conf"
-alias work="cd ~/work/fst/git && tmux attach -t work"
+alias work="cd ~/work/fst/local-development && tmux attach -t work"
 
 # QMarkdown
 alias qm="qmarkdown -dark"
@@ -88,9 +90,7 @@ alias dndscreen="xrandr --output HDMI1 --right-of ePD1 --mode 2560x1440"
 
 alias k8s-dev-1-5="kubectl config use-context gov-1-5; kubectl config set-context --current --namespace=iam-development"
 alias k8s-test-1-5="kubectl config use-context gov-1-5; kubectl config set-context --current --namespace=iam-test"
-alias k8s-test-1-0="kubectl config use-context gov-1-0; kubectl config set-context --current --namespace=bariam-test"
-alias k8s-dev-1-0="kubectl config use-context gov-1-0; kubectl config set-context --current --namespace=bariam-dev"
-alias k8s-local="kubectl config use-context minikube"
+alias k8s-local="kubectl config use-context minikube; kubectl config set-context --current --namespace=iam-local"
 
 ##########################
 ### ARCHIVE EXTRACTION ###

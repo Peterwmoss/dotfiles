@@ -1,19 +1,19 @@
 vim.o.timeout = true
 vim.o.timeoutlen = 200
 
-require("which-key").setup {}
+require("which-key").setup { }
 
 local wk = require("which-key")
 local ts_bultin = require('telescope.builtin')
 
 -- Normal mode <leader> prefix keymaps
 wk.register({
-  l = {
-    name = 'lsp',
-    f = { vim.lsp.buf.format, 'Format Buffer' },
+  e = {
+    function() require("nvim-tree.api").tree.toggle({ find_file = true, }) end,
+    'Explore',
   },
   f = {
-    name = 'find',
+    name = 'Find',
     f = {
       function()
         local function exists(file)
@@ -31,13 +31,10 @@ wk.register({
         else
           ts_bultin.find_files({ hidden = true })
         end
-      end, 'Find File' },
-    b = { ts_bultin.buffers, 'Find Buffer' },
+      end, 'File' },
+    F = { function() ts_bultin.find_files({ hidden = true }) end, 'File (no .gitignore)' },
+    b = { ts_bultin.buffers, 'Buffer' },
     s = { ts_bultin.grep_string, 'String' },
-  },
-  P = {
-    name = 'packer',
-    s = { '<cmd>PackerSync<cr>', 'Sync' },
   },
   g = {
     name = 'git',
@@ -63,6 +60,20 @@ wk.register({
     p = { function() vim.cmd.Git 'pull' end, 'Pull' },
     P = { function() vim.cmd.Git 'push' end, 'Push' },
   },
+  h = {
+    name = 'Harpoon',
+    a =  { function() require("harpoon.mark").add_file() end, 'Add file' },
+    h =  { function() require("harpoon.ui").toggle_quick_menu() end, 'Quick menu' },
+  },
+  l = {
+    name = 'lsp',
+    f = { vim.lsp.buf.format, 'Format Buffer' },
+  },
+  P = {
+    name = 'packer',
+    s = { '<cmd>PackerSync<cr>', 'Sync' },
+    i = { '<cmd>PackerInstall<cr>', 'Install' },
+  },
   v = {
     name = 'vim',
     h = { ts_bultin.help_tags, 'Help' },
@@ -78,8 +89,8 @@ wk.register({
 
 -- Normal mode no prefix keymaps
 wk.register({
-  ['<s-tab>'] = { vim.cmd.BufferLineCyclePrev, 'Prev buffer' },
-  ['<tab>'] = { vim.cmd.BufferLineCycleNext, 'Next buffer' },
+  -- ['<s-tab>'] = { vim.cmd.BufferLineCyclePrev, 'Prev buffer' },
+  -- ['<tab>'] = { vim.cmd.BufferLineCycleNext, 'Next buffer' },
   ['<C-d>'] = { '<C-d>zz', '' },
   ['<C-u>'] = { '<C-u>zz', '' },
   v = { 'v', '' },
@@ -98,7 +109,8 @@ wk.register({
   y = {
     A = { "m'ggyG`'zz", 'Yank entire file' },
   },
-  ['<C-t>'] = { function() require("nvterm.terminal").toggle('float') end, 'Terminal' },
+  ['<C-t>'] = { function() require'toggleterm'.toggle(nil, nil, nil, 'float') end, 'Terminal' },
+  ['{'] = { '<C-^>', 'Prev file' },
 })
 
 wk.register({
@@ -132,5 +144,8 @@ wk.register({
 }, { mode = { 'n', 'o', 'v' } })
 
 wk.register({
-  ['<C-t>'] = { function() require("nvterm.terminal").toggle('float') end, 'Terminal' },
+  ['<C-t>'] = { vim.cmd.ToggleTerm, 'Terminal' },
+  ['<C-j>'] = { '<CMD>wincmd j<CR>', '' },
+  ['<C-k>'] = { '<CMD>wincmd k<CR>', '' },
+  ['<M-q>'] = { [[<C-\><C-n>]], '' },
 }, { mode = 't' })

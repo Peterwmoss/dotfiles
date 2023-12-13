@@ -1,4 +1,8 @@
-require('telescope').setup({
+local ts = require('telescope')
+local builtin = require('telescope.builtin')
+local normalMappings = require('peterwmoss.remap.normal')
+
+ts.setup({
   defaults = {
     layout_config = {
       prompt_position = 'top'
@@ -9,18 +13,22 @@ require('telescope').setup({
   }
 })
 
-local builtin = require('telescope.builtin')
+ts.load_extension('ui-select')
 
-vim.keymap.set('n', '<C-p>', builtin.commands)
+normalMappings.addMapping('<C-p>', builtin.commands)
 
-vim.keymap.set('n', '<leader>ls', builtin.lsp_document_symbols)
-vim.keymap.set('n', '<leader>lws', builtin.lsp_workspace_symbols)
+normalMappings.addLeaderMapping( 'fS', builtin.lsp_document_symbols)
+normalMappings.addLeaderMapping( 'fs', builtin.live_grep)
 
-vim.keymap.set('n', '<leader>th', builtin.help_tags)
-vim.keymap.set('n', '<leader>ts', builtin.grep_string)
-vim.keymap.set('n', '<leader>tk', builtin.keymaps)
-vim.keymap.set('n', '<leader>tm', builtin.marks)
-vim.keymap.set('n', '<leader>tr', builtin.registers)
-vim.keymap.set('n', '<leader>tgf', builtin.git_files)
-vim.keymap.set('n', '<leader>tgb', builtin.git_branches)
-vim.keymap.set('n', '<leader>tgc', builtin.git_commits)
+normalMappings.addLeaderMapping('ff', function()
+  builtin.find_files({
+    hidden = true
+  })
+end)
+
+normalMappings.addLeaderMapping( 'fg', function()
+  builtin.git_files({
+    hidden = true,
+    show_untracked = true,
+  })
+end)

@@ -1,4 +1,12 @@
-require('dap-go').setup()
+require('dapui').setup({
+  icons = {
+    expanded = "",
+    collapsed = "",
+    current_frame = ""
+  },
+})
+
+require('nvim-dap-virtual-text').setup()
 
 local dap, dapui = require("dap"), require("dapui")
 

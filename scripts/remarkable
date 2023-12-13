@@ -1,0 +1,3 @@
+#!/bin/bash
+
+rmview $HOME/.config/rmview/rmview-${1:-portrait}.json
