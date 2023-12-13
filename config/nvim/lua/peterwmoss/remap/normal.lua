@@ -65,16 +65,24 @@ local function add_leader_mappings()
 
   -- Find file
   addLeaderMapping('ff', function()
-    ts_builtin.find_files({
-      hidden = true
-    })
+    vim.fn.system("git rev-parse --is-inside-work-tree")
+    if vim.v.shell_error == 0 then
+      ts_builtin.git_files({
+        include_untracked = true,
+        hidden = true,
+      })
+    else
+      ts_builtin.find_files({
+        no_ignore = true,
+        hidden = true,
+      })
+    end
   end)
 
-  -- Find git files
-  addLeaderMapping('fg', function()
-    ts_builtin.git_files({
+  -- Find all files
+  addLeaderMapping('fF', function()
+    ts_builtin.find_files({
       hidden = true,
-      show_untracked = true,
     })
   end)
 
@@ -115,11 +123,11 @@ local function add_leader_mappings()
   end, { expr = true })
 
   -- Git conflicts
-  addLeaderMapping('n', cmd.GitConflictNextConflict)
-  addLeaderMapping('p', cmd.GitConflictPrevConflict)
-  addLeaderMapping('j', cmd.GitConflictChooseTheirs)
-  addLeaderMapping('f', cmd.GitConflictChooseOurs)
-  addLeaderMapping('b', cmd.GitConflictChooseBoth)
+  addLeaderMapping('gcn', cmd.GitConflictNextConflict)
+  addLeaderMapping('gcp', cmd.GitConflictPrevConflict)
+  addLeaderMapping('gcj', cmd.GitConflictChooseTheirs)
+  addLeaderMapping('gcf', cmd.GitConflictChooseOurs)
+  addLeaderMapping('gcb', cmd.GitConflictChooseBoth)
 
   -- Harpoon
   addLeaderMapping('h', require("harpoon.ui").toggle_quick_menu)
