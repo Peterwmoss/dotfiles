@@ -68,7 +68,7 @@ local function add_leader_mappings()
     vim.fn.system("git rev-parse --is-inside-work-tree")
     if vim.v.shell_error == 0 then
       ts_builtin.git_files({
-        include_untracked = true,
+        show_untracked = true,
         hidden = true,
       })
     else

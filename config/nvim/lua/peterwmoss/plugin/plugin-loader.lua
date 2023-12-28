@@ -10,8 +10,8 @@ local function get_plugins()
 
   local plugins = {}
 
-  for _, category in pairs(categories) do
-    for _, plugin in pairs(category.plugins) do
+  for _, category in ipairs(categories) do
+    for _, plugin in ipairs(category.plugins) do
       table.insert(plugins, plugin)
     end
   end
