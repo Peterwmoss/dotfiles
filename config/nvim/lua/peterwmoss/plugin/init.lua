@@ -9,7 +9,7 @@ M.setup = function(opts)
     opts = {}
   end
 
-  for _, module in pairs(modules) do
+  for _, module in ipairs(modules) do
     module.setup(opts)
   end
 end
