@@ -3,7 +3,6 @@ local M = {}
 M.plugins = {
   {
     'nvim-treesitter/nvim-treesitter',
-    build = ':TSUpdate',
   },
 
   { 'tpope/vim-fugitive' },

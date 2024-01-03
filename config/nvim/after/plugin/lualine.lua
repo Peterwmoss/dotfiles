@@ -1,14 +1,20 @@
 require('lualine').setup{
   options = {
-    theme = 'catppuccin-mocha'
+    theme = 'gruvbox-material',
+    component_separators = '|',
+    section_separators = { left = '', right = '' },
   },
   sections = {
-    lualine_a = { 'mode' },
-    lualine_b = { 'branch', 'diff', 'diagnostics' },
-    lualine_c = { 'filename' },
+    lualine_a = {
+      { 'mode', right_padding = 2 },
+    },
+    lualine_b = { 'filename' },
+    lualine_c = { 'branch', 'diff', 'diagnostics' },
     lualine_x = { 'encoding', 'fileformat', 'filetype' },
     lualine_y = { 'progress' },
-    lualine_z = { 'location' },
-  }
+    lualine_z = {
+      { 'location', left_padding = 2 },
+    },
+  },
 }
 
