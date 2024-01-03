@@ -36,6 +36,8 @@ M.plugins = {
   },
 
   { "sindrets/diffview.nvim" },
+
+  { 'echasnovski/mini.nvim', version = '*' },
 }
 
 return M

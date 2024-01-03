@@ -28,7 +28,7 @@ opt.undofile = true
 
 opt.hlsearch = false
 opt.incsearch = true
-opt.ignorecase = false
+opt.ignorecase = true
 
 opt.termguicolors = true
 
@@ -61,7 +61,6 @@ opt.cursorline = true
 
 opt.showmode = false
 
-opt.fileencoding = "utf-8"
 opt.viewoptions = { "folds", "cursor" }
 opt.spell = false
 
