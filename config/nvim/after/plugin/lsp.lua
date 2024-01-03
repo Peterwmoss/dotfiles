@@ -113,11 +113,41 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
+-- START templ
+vim.filetype.add {
+  extension = {
+    templ = "templ"
+  }
+}
+local treesitter_parser_config = require "nvim-treesitter.parsers".get_parser_configs()
+treesitter_parser_config.templ = treesitter_parser_config.templ or {
+  install_info = {
+    url = "https://github.com/vrischmann/tree-sitter-templ.git",
+    files = { "src/parser.c", "src/scanner.c" },
+    branch = "master",
+  },
+}
+vim.treesitter.language.register('templ', 'templ')
+local configs = require 'lspconfig.configs'
+if not configs.templ then
+  configs.templ = {
+    default_config = {
+      cmd = { "templ", "lsp" },
+      filetypes = { 'templ' },
+      root_dir = require "lspconfig.util".root_pattern("go.mod", ".git"),
+      settings = {},
+    },
+  }
+end
+-- END templ
+
 require('mason-lspconfig').setup_handlers {
   function (server)
     require('lspconfig')[server].setup{}
-  end
+  end,
 }
+
+lspconfig.templ.setup{}
 
 local jdtls_dir = vim.fn.stdpath('data') .. '/mason/packages/jdtls'
 local config_dir = jdtls_dir .. '/config_linux'
