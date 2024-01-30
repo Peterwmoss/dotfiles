@@ -23,3 +23,11 @@ dap.listeners.before.event_exited["dapui_config"] = function()
   dapui.close()
   dap.repl.close()
 end
+
+dap.configurations.java = {
+  {
+    type = 'java-debug-adapter',
+    request = 'launch',
+    name = '',
+  }
+}

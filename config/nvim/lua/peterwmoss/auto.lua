@@ -14,6 +14,7 @@ local autocommands = {
   "BufWinLeave *.* mkview!",
   "BufWinEnter *.* silent! loadview",
   'TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=100}',
+  'BufWinEnter * silent! lua vim.cmd.highlight("CursorLine guibg=#313131")',
 }
 
 create_augroup(autocommands, "DefaultGroup")

@@ -1,6 +1,14 @@
 local ts = require('telescope')
+local actions = require('telescope.actions')
 
 ts.setup({
+  pickers = {
+    git_branches = {
+      mappings = {
+        i = { ["<cr>"] = actions.git_switch_branch },
+      },
+    },
+  },
   defaults = {
     layout_config = {
       prompt_position = 'top'

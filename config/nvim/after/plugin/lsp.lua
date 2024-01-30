@@ -70,22 +70,20 @@ cmp.setup{
   completion = { completeopt = 'menu,menuone,noinsert,noselect' },
 }
 
-local servers = {
-  'lua_ls',
-  'jdtls',
-  'gopls',
-  'tsserver',
-  'dockerls',
-  'omnisharp',
-  'volar',
-}
-
 require('mason').setup({
   ui = {border = 'rounded'}
 })
 
 require('mason-lspconfig').setup{
-  ensure_installed = servers,
+  ensure_installed = {
+    'lua_ls',
+    'jdtls',
+    'gopls',
+    'tsserver',
+    'dockerls',
+    'omnisharp@v1.39.8',
+    'volar',
+  },
 }
 
 local lspconfig = require('lspconfig')
@@ -116,7 +114,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end)
 
     buf_map("n", "K", vim.lsp.buf.hover)
-    buf_map("", "<C-i>", vim.lsp.buf.signature_help)
+    buf_map("", "<leader>lsh", vim.lsp.buf.signature_help)
 
     buf_map("n", "dl", vim.diagnostic.open_float)
     buf_map("n", "dn", vim.diagnostic.goto_next)
@@ -159,10 +157,11 @@ local default_handler = function (server)
   lspconfig[server].setup{ }
 end
 
-local jdtls_handler = function()
+local setup_jdtls = function()
   local jdtls_dir = vim.fn.stdpath('data') .. '/mason/packages/jdtls'
   local config_dir = jdtls_dir .. '/config_linux'
   local plugins_dir = jdtls_dir .. '/plugins'
+  local java_dap = '/home/peter/.m2/repository/com/microsoft/java/com.microsoft.java.debug.plugin/0.50.0'
 
   local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
   local workspace_dir = vim.fn.stdpath('data') .. '/site/java/workspace-root/' .. project_name
@@ -184,17 +183,23 @@ local jdtls_handler = function()
       '--add-opens', 'java.base/java.util=ALL-UNNAMED',
       '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
 
-      '-jar', plugins_dir .. '/org.eclipse.equinox.launcher_1.6.600.v20231106-1826.jar',
+      '-jar', plugins_dir .. '/org.eclipse.equinox.launcher_1.6.700.v20231214-2017.jar',
       '-configuration', config_dir,
       '-data', workspace_dir,
+    },
+    init_options = {
+      bundles = {
+        vim.fn.glob(java_dap .. 'com.microsoft.java.debug.plugin-0.50.0.jar', 1)
+      },
     },
   }
 end
 
 require('mason-lspconfig').setup_handlers({
   default_handler,
-  ['jdtls'] = jdtls_handler
 })
+
+setup_jdtls()
 
 lspconfig.templ.setup{}
 
