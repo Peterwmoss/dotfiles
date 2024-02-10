@@ -122,6 +122,12 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
     buf_map("n", "<leader>lr", vim.lsp.buf.rename)
     buf_map("n", "<F2>", vim.lsp.buf.rename)
+
+    vim.cmd.highlight('DiagnosticSignWarn guibg=NONE guifg=#ffcc00')
+    vim.cmd.highlight('DiagnosticSignError guibg=NONE guifg=#e60000')
+    vim.cmd.highlight('DiagnosticSignInfo guibg=NONE guifg=#99ccff')
+    vim.cmd.highlight('DiagnosticSignHint guibg=NONE guifg=#33ccff')
+    vim.cmd.highlight('DiagnosticSignOk guibg=NONE guifg=#33cc33')
   end
 })
 
