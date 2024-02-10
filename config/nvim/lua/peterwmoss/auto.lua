@@ -1,20 +1,45 @@
-local cmd = vim.cmd
+local defaultGroup = vim.api.nvim_create_augroup('DefaultGroup', { clear = true })
 
-local create_augroup = function(autocmds, name)
-  cmd("augroup " .. name)
-  cmd("au!")
-  for _, au in ipairs(autocmds) do
-    cmd("au " .. au)
+-- vim.api.nvim_create_autocmd('BufWinLeave', {
+--   group = defaultGroup,
+--   pattern = { '*.*' },
+--   callback = function()
+--     local buf = vim.api.nvim_win_get_buf(0)
+--     if not vim.bo[buf].readonly then
+--       vim.cmd [[ mkview! ]]
+--     end
+--   end
+-- })
+
+-- vim.api.nvim_create_autocmd('BufWinEnter', {
+--   group = defaultGroup,
+--   pattern = { '*.*' },
+--   callback = function()
+--     vim.cmd [[ silent! loadview ]]
+--   end
+-- })
+
+vim.api.nvim_create_autocmd('TextYankPost', {
+  group = defaultGroup,
+  pattern = { '*' },
+  callback = function()
+    vim.cmd [[ silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=100} ]]
   end
-  cmd("augroup END")
-end
+})
 
-local autocommands = {
-  "BufRead,BufNewFile *.tex setlocal filetype=tex",
-  "BufWinLeave *.* mkview!",
-  "BufWinEnter *.* silent! loadview",
-  'TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=100}',
-  'BufWinEnter * silent! lua vim.cmd.highlight("CursorLine guibg=#313131")',
-}
+vim.api.nvim_create_autocmd('BufWinEnter', {
+  group = defaultGroup,
+  pattern = { '*' },
+  callback = function()
+    vim.cmd [[ silent! lua vim.cmd.highlight("CursorLine guibg=#313131") ]]
+  end
+})
 
-create_augroup(autocommands, "DefaultGroup")
+
+vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+  group = defaultGroup,
+  pattern = { "*.tex" },
+  callback = function()
+    vim.cmd [[ setlocal filetype=tex ]]
+  end
+})

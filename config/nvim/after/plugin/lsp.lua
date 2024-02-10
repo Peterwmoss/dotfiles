@@ -157,49 +157,10 @@ local default_handler = function (server)
   lspconfig[server].setup{ }
 end
 
-local setup_jdtls = function()
-  local jdtls_dir = vim.fn.stdpath('data') .. '/mason/packages/jdtls'
-  local config_dir = jdtls_dir .. '/config_linux'
-  local plugins_dir = jdtls_dir .. '/plugins'
-  local java_dap = '/home/peter/.m2/repository/com/microsoft/java/com.microsoft.java.debug.plugin/0.50.0'
-
-  local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
-  local workspace_dir = vim.fn.stdpath('data') .. '/site/java/workspace-root/' .. project_name
-  os.execute('mkdir -p ' .. workspace_dir)
-
-  lspconfig.jdtls.setup {
-    filetypes = { "gradle", "java", "groovy" },
-    cmd = {
-      'java',
-
-      '-javaagent:' .. jdtls_dir .. '/lombok.jar',
-      '-Declipse.application=org.eclipse.jdt.ls.core.id1',
-      '-Dosgi.bundles.defaultStartLevel=4',
-      '-Declipse.product=org.eclipse.jdt.ls.core.product',
-      '-Dlog.protocol=true',
-      '-Dlog.level=ALL',
-      '-Xmx1g',
-      '--add-modules=ALL-SYSTEM',
-      '--add-opens', 'java.base/java.util=ALL-UNNAMED',
-      '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
-
-      '-jar', plugins_dir .. '/org.eclipse.equinox.launcher_1.6.700.v20231214-2017.jar',
-      '-configuration', config_dir,
-      '-data', workspace_dir,
-    },
-    init_options = {
-      bundles = {
-        vim.fn.glob(java_dap .. 'com.microsoft.java.debug.plugin-0.50.0.jar', 1)
-      },
-    },
-  }
-end
-
 require('mason-lspconfig').setup_handlers({
   default_handler,
+  ['jdtls'] = function() end
 })
-
-setup_jdtls()
 
 lspconfig.templ.setup{}
 

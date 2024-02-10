@@ -112,6 +112,16 @@ local function get_plugins()
       'smoka7/hop.nvim',
       version = '*',
     },
+
+    {
+      'dstein64/nvim-scrollview',
+    },
+
+    {
+      "folke/trouble.nvim",
+      dependencies = { "nvim-tree/nvim-web-devicons" },
+      opts = {},
+    },
   }
 end
 

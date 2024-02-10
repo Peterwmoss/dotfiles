@@ -32,7 +32,7 @@ opt.ignorecase = true
 
 opt.termguicolors = true
 
-opt.scrolloff = 4
+opt.scrolloff = 12
 
 opt.signcolumn = "yes"
 
