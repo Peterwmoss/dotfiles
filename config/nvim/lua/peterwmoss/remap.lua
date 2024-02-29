@@ -27,11 +27,8 @@ addMapping('n', '<leader>db', require("dap").toggle_breakpoint, { desc = 'Toggle
 addMapping('n', '<leader>dB', function()
   dap.set_breakpoint(vim.fn.input('Breakpoint condition > '))
 end, { desc = 'Add breakpoint with condition' })
-addMapping('n', '<F12>', require("dap").continue, { desc = 'Continue' })
 addMapping('n', '<leader>dc', require("dap").continue, { desc = 'Continue' })
-addMapping('n', '<F11>', require("dap").step_into, { desc = 'Step into' })
 addMapping('n', '<leader>dN', require("dap").step_into, { desc = 'Step into' })
-addMapping('n', '<F10>', require("dap").step_over, { desc = 'Step over' })
 addMapping('n', '<leader>dn', require("dap").step_over, { desc = 'Step over' })
 addMapping('n', '<leader>dt', function()
   require("dap").terminate()
@@ -110,6 +107,7 @@ addMapping('n', '<C-p>', require('telescope.builtin').commands, { desc = 'Run co
 addMapping('n', '<leader>q', vim.cmd.q, { desc = 'Quit' })
 -- r
 -- s
+addMapping('', '<leader>ss', function() vim.cmd.Silicon() end, { desc = "Take screenshot" })
 -- t
 addMapping('n', '<C-t>', function() require("toggleterm").toggle(nil, nil, nil, 'float') end)
 addMapping('t', '<C-t>', vim.cmd.ToggleTerm)
@@ -150,3 +148,6 @@ addMapping('i', ',', ',<c-g>u')
 addMapping('i', '.', '.<c-g>u')
 addMapping('i', '!', '!<c-g>u')
 addMapping('i', '?', '?<c-g>u')
+addMapping('n', '<F12>', require("dap").continue, { desc = 'Continue' })
+addMapping('n', '<F11>', require("dap").step_into, { desc = 'Step into' })
+addMapping('n', '<F10>', require("dap").step_over, { desc = 'Step over' })
