@@ -37,6 +37,12 @@ end
 local function test()
   return {
     t("@Test"),
+    t({ "", "void test_" }),
+    i(1),
+    t("() {"),
+    t({ "", "\t" }),
+    i(0),
+    t({ "", "}" }),
     f(function()
       local filter = function(action)
         return action.kind == 'source'
@@ -44,12 +50,6 @@ local function test()
       vim.lsp.buf.code_action({}, filter, true)
       return ''
     end),
-    t({ "", "void test_" }),
-    i(1),
-    t("() {"),
-    t({ "", "\t" }),
-    i(0),
-    t({ "", "}" }),
   }
 end
 

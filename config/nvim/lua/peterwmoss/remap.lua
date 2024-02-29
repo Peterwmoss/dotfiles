@@ -11,6 +11,8 @@ vim.g.mapleader = ' '
 
 -- a
 -- b
+addMapping('n', '<tab>', vim.cmd.bnext, { desc = 'Next buffer' })
+addMapping('n', '<s-tab>', vim.cmd.bprev, { desc = 'Previous buffer' })
 -- c
 addMapping({ 'v', 'x', 's' }, '<leader>cl', '<Plug>(comment_toggle_linewise_visual)', { desc = "Toggle line comment" })
 addMapping({ 'v', 'x', 's' }, '<leader>cb', '<Plug>(comment_toggle_blockwise_visual)', { desc = "Toggle block comment" })
@@ -45,12 +47,6 @@ end, { desc = 'Kill debugger' })
 addMapping('n', '<leader>e', function() require("nvim-tree.api").tree.toggle({ find_file = true, }) end,
   { desc = 'Open file tree' })
 -- f
-addMapping('', 'f',
-  function() require('hop').hint_char1({ direction = require('hop.hint').HintDirection.AFTER_CURSOR, current_line_only = true }) end,
-  { remap = true, desc = 'Find character forwards' })
-addMapping('', 'F',
-  function() require('hop').hint_char1({ direction = require('hop.hint').HintDirection.BEFORE_CURSOR, current_line_only = true }) end,
-  { remap = true, desc = 'Find character backwards' })
 addMapping('n', '<C-f>', vim.lsp.buf.format)
 addMapping('n', '<leader>fs', require('telescope.builtin').live_grep, { desc = 'Find string (live grep)' })
 addMapping('n', '<leader>ff', function()
@@ -78,7 +74,7 @@ addMapping('n', '<leader>gfP', function() vim.cmd.Git('push --force-with-lease')
 addMapping('n', '<leader>gl', function() vim.cmd.Git('log --graph --oneline') end, { desc = 'Git log' })
 addMapping('n', '<leader>gfb', function() vim.cmd.Git('blame') end, { desc = 'Git blame' })
 addMapping('n', '<leader>gcb', function() require('telescope.builtin').git_branches() end, { desc = 'Git branches' })
-addMapping('n', '<leader>gcnb', ':Git checkout -b ', { desc = 'Git checkout new branch' })
+addMapping('n', '<leader>gcnb', ':Git switch -c ', { desc = 'Git switch to new branch' })
 -- h
 addMapping('n', '<C-h>', '<C-w>h')
 addMapping('n', '<leader>h', require("harpoon.ui").toggle_quick_menu, { desc = 'Harpoon quick menu' })
@@ -115,12 +111,6 @@ addMapping('n', '<leader>q', vim.cmd.q, { desc = 'Quit' })
 -- r
 -- s
 -- t
-addMapping('', 't',
-  function() require('hop').hint_char1({ direction = require('hop.hint').HintDirection.AFTER_CURSOR, current_line_only = true, hint_offset = -1 }) end,
-  { remap = true, desc = 'To character forwards' })
-addMapping('', 'T',
-  function() require('hop').hint_char1({ direction = require('hop.hint').HintDirection.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 }) end,
-  { remap = true, desc = 'To character backwards' })
 addMapping('n', '<C-t>', function() require("toggleterm").toggle(nil, nil, nil, 'float') end)
 addMapping('t', '<C-t>', vim.cmd.ToggleTerm)
 addMapping('t', '<M-q>', [[<C-\><C-n>]])
@@ -134,7 +124,8 @@ addMapping('n', '<C-u>', '<C-u>zz')
 addMapping('n', '<leader>w', vim.cmd.w, { desc = 'Save' })
 addMapping('n', '<leader>W', vim.cmd.wa, { desc = 'Save all' })
 -- x
-addMapping('n', '<leader>X', function() vim.cmd.bclose() end, { desc = 'Close buffer' })
+addMapping('n', '<leader>x', function() vim.cmd.bdelete() end, { desc = 'Close current buffer' })
+addMapping('n', '<leader>X', ":silent! mkview<cr>:%bd|e#|bd#<cr>:silent! loadview<cr>", { desc = 'Close all buffers except current' })
 -- y
 addMapping('n', 'Y', 'y$')
 addMapping('n', 'yA', "m'ggyG`'zz", { desc = 'Yank entire file' })

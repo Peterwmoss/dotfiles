@@ -84,6 +84,9 @@ local function get_plugins()
 
     {
       'nvim-treesitter/nvim-treesitter',
+      dependencies = {
+        'nvim-treesitter/nvim-treesitter-textobjects',
+      }
     },
 
     { 'tpope/vim-fugitive' },
@@ -122,6 +125,12 @@ local function get_plugins()
       dependencies = { "nvim-tree/nvim-web-devicons" },
       opts = {},
     },
+
+    {
+      'echasnovski/mini.nvim',
+      version = false,
+    },
+
   }
 end
 

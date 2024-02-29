@@ -5,7 +5,10 @@ ts.setup({
   pickers = {
     git_branches = {
       mappings = {
-        i = { ["<cr>"] = actions.git_checkout },
+        i = {
+          ["<cr>"] = actions.git_switch_branch,
+          ["<c-d>"] = actions.git_delete_branch,
+        },
       },
     },
   },
