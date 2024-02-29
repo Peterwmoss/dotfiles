@@ -22,4 +22,4 @@ ts.setup({
   }
 })
 
-ts.load_extension('ui-select')
+-- ts.load_extension('ui-select')
