@@ -1,3 +1,6 @@
 return {
-  { 'onsails/lspkind.nvim' },
+  {
+    'onsails/lspkind.nvim',
+    lazy = true,
+  },
 }

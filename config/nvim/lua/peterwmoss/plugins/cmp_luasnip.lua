@@ -1,3 +1,6 @@
 return {
-  { 'saadparwaiz1/cmp_luasnip' },
+  {
+    'saadparwaiz1/cmp_luasnip',
+    event = "BufEnter",
+  },
 }
