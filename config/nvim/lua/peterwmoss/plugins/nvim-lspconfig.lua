@@ -1,13 +1,14 @@
 return {
   {
     'neovim/nvim-lspconfig',
-    event = 'BufEnter',
     dependencies = {
       { 'onsails/lspkind.nvim' },
       { 'mfussenegger/nvim-jdtls' },
       { 'williamboman/mason.nvim' },
       { "williamboman/mason-lspconfig.nvim" },
       { 'hrsh7th/nvim-cmp' },
+      { 'nvim-telescope/telescope.nvim' },
+      { 'L3MON4D3/LuaSnip' },
     },
     config = function()
       local has_words_before = function()
@@ -90,7 +91,6 @@ return {
         ensure_installed = {
           'lua_ls',
           'jdtls',
-          'gopls',
           'tsserver',
           'dockerls',
           'omnisharp@v1.39.8',
@@ -126,7 +126,7 @@ return {
           end)
 
           buf_map("n", "K", vim.lsp.buf.hover)
-          buf_map("", "<leader>lsh", vim.lsp.buf.signature_help)
+          buf_map("", "<leader>sh", vim.lsp.buf.signature_help)
 
           buf_map("n", "dl", vim.diagnostic.open_float)
           buf_map("n", "dn", vim.diagnostic.goto_next)
@@ -181,6 +181,7 @@ return {
       })
 
       lspconfig.templ.setup {}
+      lspconfig.gopls.setup {}
 
       -------------------------------
       -- DIAGNOSTICS CONFIGURATION --
