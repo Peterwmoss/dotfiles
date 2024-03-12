@@ -13,6 +13,7 @@ if [ -f $HOME/.config/X11/xresources ] ; then
 fi
 
 eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
+SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/gcr/ssh
 export SSH_AUTH_SOCK
 
 export _JAVA_AWT_WM_NONREPARENTING=1
@@ -36,7 +37,7 @@ fi
 
 # exec qtile start # qtile
 
-exec $HOME/git/dotfiles/xinit/startdwm # DWM
+# exec $HOME/git/dotfiles/xinit/startdwm # DWM
 # exec startplasma-x11
 # exec bspwm # BSPWM
-# exec i3 # i3
+exec i3 # i3
