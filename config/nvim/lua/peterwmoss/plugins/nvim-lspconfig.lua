@@ -182,6 +182,7 @@ return {
 
       lspconfig.templ.setup {}
       lspconfig.gopls.setup {}
+      lspconfig.htmx.setup{}
 
       -------------------------------
       -- DIAGNOSTICS CONFIGURATION --
