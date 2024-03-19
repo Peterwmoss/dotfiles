@@ -70,10 +70,11 @@ alias commitm="git commit -m"
 alias gitlog="git log --all --graph --decorate --oneline --abbrev=8"
 
 # Tmux
-alias tn="tmux -u new"
-alias ta="tmux -u attach"
+alias tn="tmux -u new -s"
+alias ta="tmux -u attach -t"
 alias tc="nvim ~/git/dotfiles/config/tmux/tmux.conf"
-alias work="cd ~/work/fst/local-development && tmux attach -t work"
+alias work="tmux -u attach -t work || tmux -u new -s work -c ~/work/fst/git"
+alias config="tmux -u attach -t config || tmux -u new -s config -c ~/git/dotfiles/config"
 
 # QMarkdown
 alias qm="qmarkdown -dark"
