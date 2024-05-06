@@ -61,6 +61,8 @@ opt.cursorline = true
 
 opt.showmode = false
 
+opt.autoread = true
+
 opt.viewoptions = { "folds", "cursor" }
 opt.spell = false
 

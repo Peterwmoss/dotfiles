@@ -35,6 +35,13 @@ vim.api.nvim_create_autocmd('BufWinEnter', {
   end
 })
 
+vim.api.nvim_create_autocmd('BufEnter', {
+  group = defaultGroup,
+  pattern = { '*' },
+  callback = function()
+    vim.cmd [[ checktime ]]
+  end
+})
 
 vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
   group = defaultGroup,
