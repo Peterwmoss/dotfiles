@@ -1,0 +1,10 @@
+[window.padding]
+x = 5
+y = 5
+
+[scrolling]
+history = 100000
+
+[font]
+size = 9
+normal = { family = "Hack Nerd Font Mono", style = "Regular" }
