@@ -94,7 +94,6 @@ return {
           'tsserver',
           'dockerls',
           'omnisharp@v1.39.8',
-          'volar',
         },
       }
 

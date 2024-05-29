@@ -1,0 +1,4 @@
+#!/bin/sh
+
+MENU="$(autorandr --list | rofi -p "Load screen setup" -dmenu -i -fn 'Hack Nerd Font')"
+autorandr --load $MENU

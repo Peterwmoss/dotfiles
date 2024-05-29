@@ -93,6 +93,10 @@ alias k8s-dev-1-5="kubectl config use-context gov-1-5; kubectl config set-contex
 alias k8s-test-1-5="kubectl config use-context gov-1-5; kubectl config set-context --current --namespace=iam-test"
 alias k8s-local="kubectl config use-context minikube; kubectl config set-context --current --namespace=iam-local"
 
+# FST
+alias fstkube="kubectl --kubeconfig ~/.kube/racher-config"
+alias fstk9s="k9s --kubeconfig ~/.kube/racher-config"
+
 ##########################
 ### ARCHIVE EXTRACTION ###
 ##########################

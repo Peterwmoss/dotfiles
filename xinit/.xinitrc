@@ -37,7 +37,7 @@ fi
 
 # exec qtile start # qtile
 
-# exec $HOME/git/dotfiles/xinit/startdwm # DWM
+exec $HOME/git/dotfiles/xinit/startdwm # DWM
 # exec startplasma-x11
 # exec bspwm # BSPWM
-exec i3 # i3
+# exec i3 # i3
