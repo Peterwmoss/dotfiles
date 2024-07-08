@@ -24,9 +24,20 @@ local function st()
   }
 end
 
+local function err()
+  return {
+    t("if err != nil {"),
+    t({ "", "\t" }),
+    i(0),
+    t({ "", "}" }),
+  }
+end
+
+
 return {
   s("func", fn()),
   s("fn", fn()),
   s("struct", st()),
   s("sc", st()),
+  s("err", err()),
 }
