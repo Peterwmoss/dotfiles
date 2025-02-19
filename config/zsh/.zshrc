@@ -142,3 +142,7 @@ eval "$(zoxide init zsh)"
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/terraform terraform
+
+eval "$(ssh-agent -s)" &> /dev/null
+ssh-add ~/.ssh/id_ed25519 &> /dev/null
+ssh-add ~/.ssh/cloudservers &> /dev/null

@@ -11,8 +11,6 @@ vim.g.mapleader = ' '
 
 -- a
 -- b
-addMapping('n', '<tab>', vim.cmd.bnext, { desc = 'Next buffer' })
-addMapping('n', '<s-tab>', vim.cmd.bprev, { desc = 'Previous buffer' })
 -- c
 addMapping({ 'v', 'x', 's' }, '<leader>cl', '<Plug>(comment_toggle_linewise_visual)', { desc = "Toggle line comment" })
 addMapping({ 'v', 'x', 's' }, '<leader>cb', '<Plug>(comment_toggle_blockwise_visual)', { desc = "Toggle block comment" })
@@ -45,6 +43,7 @@ addMapping('n', '<leader>e', function() require("nvim-tree.api").tree.toggle({ f
   { desc = 'Open file tree' })
 -- f
 addMapping('n', '<C-f>', vim.lsp.buf.format)
+addMapping('n', '<leader>fb', function() require('telescope.builtin').buffers() end, { desc = 'Find buffer' })
 addMapping('n', '<leader>fs', function() require('telescope.builtin').live_grep() end, { desc = 'Find string (live grep)' })
 addMapping('n', '<leader>ff', function()
   vim.fn.system("git rev-parse --is-inside-work-tree")
@@ -126,7 +125,7 @@ addMapping('n', '<leader>x', function() vim.cmd.bdelete() end, { desc = 'Close c
 addMapping('n', '<leader>X', ":silent! mkview<cr>:%bd|e#|bd#<cr>:silent! loadview<cr>", { desc = 'Close all buffers except current' })
 -- y
 addMapping('n', 'Y', 'y$')
-addMapping('n', 'yA', "m'ggyG`'zz", { desc = 'Yank entire file' })
+addMapping('n', '<leader>y', "m'ggyG`'zz", { desc = 'Yank entire file' })
 -- z
 -- æ
 -- ø
@@ -134,6 +133,8 @@ addMapping('', 'ø', '%')
 -- å
 addMapping('', 'å', '$')
 -- symbols
+addMapping('n', '<tab>', vim.cmd.bnext, { desc = 'Next buffer' })
+addMapping('n', '<s-tab>', vim.cmd.bprev, { desc = 'Previous buffer' })
 addMapping('n', '<leader>.', vim.cmd.so, { desc = 'Source current file' })
 addMapping('n', '{', '<C-^>')
 addMapping('n', '}', '%')
